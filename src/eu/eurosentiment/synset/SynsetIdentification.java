@@ -1,13 +1,10 @@
 package eu.eurosentiment.synset;
 
 import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.List;
-import java.util.Properties;
 
 import edu.mit.jwi.Dictionary;
 import edu.mit.jwi.IDictionary;
@@ -18,6 +15,7 @@ import edu.mit.jwi.item.IWord;
 import edu.mit.jwi.item.IWordID;
 import edu.mit.jwi.item.POS;
 import eu.monnetproject.clesa.core.lang.Language;
+import eu.monnetproject.clesa.core.utils.BasicFileTools;
 import eu.monnetproject.clesa.core.utils.Pair;
 import eu.monnetproject.clesa.ds.clesa.CLESA;
 
@@ -26,23 +24,26 @@ import eu.monnetproject.clesa.ds.clesa.CLESA;
 
 public class SynsetIdentification {
 
-	private static CLESA clesa = new CLESA();
-	private static Properties config = new Properties();
+	private static CLESA clesa;
 	private static String wnhome = null;
 	private static IDictionary dict = null;
 
-	public static void loadConfig(String configFilePath){
-		try {
-			config.load(new FileInputStream(configFilePath));
-			wnhome = config.getProperty("WNHOME");
-		
-		} catch (FileNotFoundException e) {
-			e.printStackTrace();
-		} catch (IOException e) {
-			e.printStackTrace();
-		}			
-	}	
+//	public static void loadConfig(String configFilePath){
+//		try {
+//			config.load(new FileInputStream(configFilePath));
+//			wnhome = config.getProperty("WNHOME");		
+//		} catch (FileNotFoundException e) {
+//			e.printStackTrace();
+//		} catch (IOException e) {
+//			e.printStackTrace();
+//		}			
+//	}	
 
+	public static void setVars(CLESA clesa, String wnhome){
+		SynsetIdentification.clesa = clesa;
+		SynsetIdentification.wnhome = wnhome;
+	}
+	
 	public static void openDict(){
 		String path = wnhome + File.separator + "dict"; 
 		URL url;
@@ -62,6 +63,7 @@ public class SynsetIdentification {
 	
 
 	public static String getSynsetId(String sentimentPhrase, String entity) throws IOException {
+		CLESA clesa = new CLESA();
 		//System.out.println(sentimentPhrase + "  " + entity);
 		//	String wnhome = System.getenv("WNHOME");
 		String maxScoredSynset = null;
@@ -91,7 +93,8 @@ public class SynsetIdentification {
 					String lemma = word.getLemma();
 					buffer.append(lemma + " ");
 				}			
-				double score = CLESA.score(new Pair<String, Language>(entity, Language.ENGLISH), 
+				
+				double score = clesa.score(new Pair<String, Language>(entity, Language.ENGLISH), 
 				new Pair<String, Language>(buffer.toString().trim() + " " + entity, Language.ENGLISH));
 
 				if(score > maxScore){
@@ -113,7 +116,7 @@ public class SynsetIdentification {
 	}
 
 	public static void main(String[] args) throws IOException {
-		loadConfig("load/eu.monnetproject.clesa.CLESA.properties");
+		//loadConfig("load/eu.monnetproject.clesa.CLESA.properties");
 		String sentimentPhrase = args[0];
 		String entity = args[1];
 		String synsetId = getSynsetId(sentimentPhrase, entity);

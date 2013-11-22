@@ -9,12 +9,12 @@ import java.util.List;
 import java.util.Map;
 
 import eu.eurosentiment.synset.SynsetIdentification;
-import eu.utils.BasicFileTools;
+import eu.monnetproject.clesa.core.utils.BasicFileTools;
+import eu.monnetproject.clesa.ds.clesa.CLESA;
 
-public class LexiconCollector_phrase {
+public class LexiconCollector_keyphrase {
 
-	public static void main(String[] args) throws IOException {
-		String dirPath = "src/main/resources/output/new";
+	public static void start(String dirPath, CLESA clesa, String wnhome, String finalOutputFile) throws IOException {
 		Map<String, Double> mentionPhraseScoreMap = new HashMap<String, Double>();
 		File dir = new File (dirPath);
 		File[] files = dir.listFiles();
@@ -25,11 +25,13 @@ public class LexiconCollector_phrase {
 				while((line=reader.readLine())!=null){
 					String[] split = line.split("\t");
 					String mention = split[0].replace(","," ");
-					String sentimentPhrase = split[2].replace(","," ");
-					String scoreString = split[3];
+					String uri = split[1].replace(","," ");
+					mention = mention + "\t,\t" +uri; 
+					String sentimentPhrase = split[3].replace(","," ");
+					String scoreString = split[4];
 					if(!scoreString.contains("null") && mention.length()>2){
 						try{
-							Double score = Double.parseDouble(split[3]);
+							Double score = Double.parseDouble(split[4]);
 							if(mentionPhraseScoreMap.get(mention+"-----"+sentimentPhrase) == null){								
 								mentionPhraseScoreMap.put(mention+"-----"+sentimentPhrase, score);								
 							} else {
@@ -53,29 +55,28 @@ public class LexiconCollector_phrase {
 		
 		for(String mentionPhrase : mentionPhraseScoreMap.keySet()){
 			String[] split = mentionPhrase.split("-----");
-			String mention = split[0].toLowerCase();
-			String phrase = split[1].toLowerCase();
+			String mention = split[0].trim();
+			String phrase = split[1].toLowerCase().trim();
 			if(phraseMentionMap.get(phrase)==null)
 				phraseMentionMap.put(phrase, new ArrayList<String>());
 			phraseMentionMap.get(phrase).add(mention);			
 		}
 		
-		SynsetIdentification.loadConfig("load/eu.monnetproject.clesa.CLESA.properties");
+		SynsetIdentification.setVars(clesa, wnhome);
 		SynsetIdentification.openDict();
 		
 		int j = 0;
 		for(String phrase : phraseMentionMap.keySet()){
 			List<String> mentions = phraseMentionMap.get(phrase);
 			for(String mention : mentions){
-				Double score = mentionPhraseScoreMap.get(mention + "-----" + phrase);
-				
+				Double score = mentionPhraseScoreMap.get(mention.trim() + "-----" + phrase.trim());
+			
 				String sentimentPhrase = phrase;
 				String context = mention;
 				
 				String synsetId = SynsetIdentification.getSynsetId(sentimentPhrase, context);
 				String line = mention.trim() + "\t,\t" + phrase.trim() + "\t,\t" + score + "\t,\t" + synsetId;
 				buffer.append(line);
-	//			buffer.append(mention + "\t,\t" + phrase + "\t,\t" + score);
 				buffer.append("\n");
 				System.out.println(j++ + " " + line);				
 				
@@ -84,7 +85,9 @@ public class LexiconCollector_phrase {
 		
 		System.out.println("Completed ");
 
-		BasicFileTools.writeFile("src/main/resources/finalOutput_new_avgScored_keyPhrase.txt", buffer.toString().trim());
+		BasicFileTools.writeFile(finalOutputFile, buffer.toString().trim());
+		
+		
 
 	}	
 

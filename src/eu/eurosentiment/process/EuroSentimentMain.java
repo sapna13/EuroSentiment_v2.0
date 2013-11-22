@@ -8,9 +8,10 @@ import eu.monnetproject.clesa.core.utils.TroveVectorUtils;
 import eu.monnetproject.clesa.ds.clesa.CLESA;
 import eu.utils.BasicFileTools;
 import eu.utils.StandAloneAnnie;
-import eu.utils.VectorUtils;
+//import eu.utils.StandAloneAnnie;
 import gnu.trove.TIntDoubleHashMap;
 
+import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
@@ -28,40 +29,38 @@ import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 
+
+
 /**
- * main class for the hotel corpus
+ * main class for the electronics corpus
  * @author sapna
  *
  */
-public class EuroSentimentMainHotel {
+public class EuroSentimentMain {
 	private String text;
 	private JSONArray annotations;
 	private static List<String> classes = new ArrayList<String>();
 	private static Map<String, TIntDoubleHashMap> classVectorMap = new HashMap<String, TIntDoubleHashMap>();
-	private StanfordNLP nlp = new StanfordNLP();
+	private static SentiWordBags sentiWord;
+	private static Set<String> sentiWords;
 
-	private static SentiWordBags sentiWord = new SentiWordBags();
-	private static Set<String> sentiWords = sentiWord.getSentiWords();
-
-
-
-
-	public EuroSentimentMainHotel(String path) {
-		parameterParserAela(path);
+	public void parse(String path) {
+		parameterParserAela(path);			
 	}
-
 
 	public static boolean containsSenti(String tagText){
 		StringTokenizer tokenizer = new StringTokenizer(tagText);
 		while(tokenizer.hasMoreTokens()){
-
 			String token = tokenizer.nextToken();
-
-			if(sentiWords.contains(token)){
-				return true;
-			}
+			if(sentiWords.contains(token))
+				return true;			
 		}
 		return false;		
+	}
+
+	public static void initiateSWNet(String sentiNetPath){
+		sentiWord = new SentiWordBags(sentiNetPath);
+		sentiWords = sentiWord.getSentiWords();		 
 	}
 
 	public static int getLength(String tagText){
@@ -69,15 +68,20 @@ public class EuroSentimentMainHotel {
 		return tokenizer.countTokens();
 	}
 
-	static{
-		CLESA clesa = new CLESA();
-		classes.add("value");classes.add("rooms");classes.add("location");classes.add("check in front desk");
-		classes.add("service");classes.add("business service");
+	private void getAspects(String aspectFile, CLESA clesa){
+		BufferedReader br = BasicFileTools.getBufferedReaderFile(aspectFile);
+		String line = null;
+		try {
+			while((line=br.readLine())!=null){
+				classes.add(line.trim().toLowerCase());			
+			}
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 		for(String classLabel : classes){
 			TIntDoubleHashMap vector = clesa.getVector(new Pair<String, Language>(classLabel, Language.ENGLISH));
 			classVectorMap.put(classLabel, vector);
 		}
-		clesa.close();
 	}
 
 	private void parameterParserAela(String path) {
@@ -110,34 +114,12 @@ public class EuroSentimentMainHotel {
 		JSONObject jsonObject = null;
 		try {
 			jsonObject = (JSONObject) parser.parse(new FileReader(filePath));
-
-			Long overallRating = (Long) jsonObject.get("Overall");			
-			Long value = (Long) jsonObject.get("Value");
-			Long service = (Long) jsonObject.get("Service");
-			Long rooms = (Long) jsonObject.get("Rooms");
-			Long frontDesk = (Long) jsonObject.get("Check in / front desk");
-			Long cleanliness =  (Long) jsonObject.get("Cleanliness");
-			Long location = (Long) jsonObject.get("Location");
-			Long businessService = (Long) jsonObject.get("BusinessService");
-
-
-			//Long overallRating = Long.parseInt((((String) jsonObject.get("Overall")).trim()));			
-			//			Long value = Long.parseInt((((String) jsonObject.get("Value")).trim()));
-			//			Long service = Long.parseInt((((String) jsonObject.get("Service")).trim()));
-			//			Long rooms = Long.parseInt((((String) jsonObject.get("Rooms")).trim()));
-			//			Long frontDesk = Long.parseInt((((String) jsonObject.get("Check in / front desk")).trim()));
-			//			Long cleanliness = Long.parseInt((((String) jsonObject.get("Cleanliness")).trim()));
-			//			Long location = Long.parseInt((((String) jsonObject.get("Location")).trim()));
-			//			Long businessService = Long.parseInt((((String) jsonObject.get("BusinessService")).trim()));
-
-			fieldValueMap.put("overall", overallRating);
-			fieldValueMap.put("value", value);
-			fieldValueMap.put("service", service);
-			fieldValueMap.put("rooms", rooms);
-			fieldValueMap.put("check in front desk", frontDesk);
-			fieldValueMap.put("cleanliness", cleanliness);
-			fieldValueMap.put("location", location);
-			fieldValueMap.put("business service", businessService);
+			for(String aspect : classes){
+				Long rating = (Long) jsonObject.get(aspect);
+				//System.out.println(rating);
+				if(rating!=null)
+					fieldValueMap.put(aspect, rating);
+			}
 			return fieldValueMap;
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch 4
@@ -155,21 +137,13 @@ public class EuroSentimentMainHotel {
 
 
 	public Set<String> getMentionClassSentence(CLESA clesa, String aelaFileName){		
-
-		VectorUtils<String> utils = new VectorUtils<String>();
-		int i = 0;
-
 		HashSet<String> mentionClassSentence = new HashSet<String>();
-
 		text = StandAloneAnnie.getRefinedText(text);
-		List<String> sentences = nlp.getSentences(text.trim());
+		List<String> sentences = StanfordNLP.getSentences(text.trim());
 		StringBuffer bu = new StringBuffer();
-		for(String senten : sentences){
+		for(String senten : sentences)
 			bu.append(senten + " ");
-		}
-
 		Map<String, String> mentionClassMap = new HashMap<String, String>();
-
 		for(Object annotation : annotations){
 			@SuppressWarnings("unchecked")
 			Map<String, Object> annoMap = (Map<String, Object>) annotation;
@@ -177,14 +151,18 @@ public class EuroSentimentMainHotel {
 			int startOffset = -1;
 			String offset = null;
 			HashMap<String, Object> annoMapCopy = new HashMap<String, Object>(annoMap);
-
+			String uri = "";
 			for(String prop : annoMapCopy.keySet()){				
 				if(prop.equalsIgnoreCase("endOffset"))
 					endOffset = Integer.parseInt(annoMap.get(prop).toString().trim());
 				if(prop.equalsIgnoreCase("startOffset"))
 					startOffset = Integer.parseInt(annoMap.get(prop).toString().trim());
+				if(prop.equalsIgnoreCase("uri")){
+					JSONArray uris = (JSONArray) annoMap.get(prop);
+					uri = (String) uris.get(0);
+					//	System.out.println(uri);
+				}
 			}
-
 			if(endOffset>=0 && startOffset >=0)				
 				offset = startOffset + "----" + endOffset;
 			for(String prop : annoMap.keySet()){
@@ -209,7 +187,7 @@ public class EuroSentimentMainHotel {
 					if(beat) {
 						//	System.out.print(i++  + "   " + mention);
 						maxScore = Math.round(maxScore * 100.0) / 100.0;
-						mentionClassMap.put(mention.trim(), classLabelWithMaxScore.trim());
+						mentionClassMap.put(mention.trim() + "\t" + uri.trim(), classLabelWithMaxScore.trim());
 					} else {
 						//		System.out.print(i++  + "   " + mention);
 						//		System.out.println("\t\t" + classLabelWithMaxScore + "\t\t");		
@@ -219,41 +197,34 @@ public class EuroSentimentMainHotel {
 		}
 		for(String mention : mentionClassMap.keySet()){
 			for(String sentence : sentences){
-				if(sentence.contains(mention.trim())){
+				String[] split = mention.trim().split("\t");
+				String findMention = split[0].trim();
+				if(sentence.contains(findMention)){
 					String content = mention.trim() + "-----" + 
 							mentionClassMap.get(mention.trim()).trim() + "-----" + sentence.trim();
 					mentionClassSentence.add(content);				
 				}
 			}
 		}			
-
-
-
 		return mentionClassSentence;
-		//		for(String s : mentionClassSentence){
-		//			
-		//			
-		//			System.out.println(s);
-		//		}				
 	}
 
+	public void refresh(){
+		text = null;
+		annotations = null;
+	}
 
-
-
-
-	public static void start(String aelaOutputPath, String outputPath, String annotatedDataPath) {
-		//String aelaDataPath = "es/TripAdvisor_AELAOutput_10k";
-
-
-		//String aelaDataPath = "es/TripAdvisorAELAOutput_1500_1";
-	
-
-
-		//String tripRawDataPath = "es/RawTripAdvisorData";
+	public static void start(String aelaOutputPath, String outputPath, String annotatedDataPath, String aspectFile, String gatePath, String sentiPath, String outputDir, String wnhome, String finalOutputFilePath) throws IOException {		
+		EuroSentimentMain esAnno = new EuroSentimentMain();
+		EuroSentimentMain.initiateSWNet(sentiPath);
+		StandAloneAnnie.setUp(gatePath);		
 		File dir = new File(aelaOutputPath);
 		CLESA clesa = new CLESA();
+		esAnno.getAspects(aspectFile, clesa);
+
 		StringBuffer buffer = new StringBuffer();
 		List<String> tags = new ArrayList<String>();
+
 		tags.add("JJ");
 		tags.add("ADJP");
 		tags.add("VBN");
@@ -262,11 +233,13 @@ public class EuroSentimentMainHotel {
 
 		File[] listFiles = dir.listFiles();
 		for(File file : listFiles){
+			if(file.isHidden())
+				continue;
 			System.out.println("fileNo.   " + i++);
 			System.out.println("fileName   " + file.getName());
 
 			try {
-				EuroSentimentMainHotel esAnno = new EuroSentimentMainHotel(file.getAbsolutePath());			
+				esAnno.parse(file.getAbsolutePath());				
 				Set<String> mentionClassSentences = esAnno.getMentionClassSentence(clesa, file.getName());
 				Map<String, Long> scoreMap = esAnno.getScoreMapByParsingRawTripAdvisor(file.getName(), annotatedDataPath);
 				for(String mentionClassSentence : mentionClassSentences){
@@ -274,7 +247,6 @@ public class EuroSentimentMainHotel {
 					String mention  = split[0];
 					String mentionClass = split[1];
 					String sentence = split[2];				
-
 					Map<String, List<String>> tagTextMap = StanfordNLP.getTagText(sentence, tags);								
 					for(String tag : tags){
 						List<String> tagTexts = tagTextMap.get(tag);
@@ -283,19 +255,20 @@ public class EuroSentimentMainHotel {
 							if(senti){		
 								if(getLength(tagText)<4)
 									buffer.append(mention + "\t"+ mentionClass + "\t" + tagText + "\t" + scoreMap.get(mentionClass)+"\n");
-								//	System.out.println(buffer);
 							}
 						}
 					}							
 				}
+				esAnno.refresh();
 			} catch(Exception e){
 				System.out.println("Skipped" + file.getName());
 			}
 		}
+		BasicFileTools.writeFile(outputPath, buffer.toString().trim());
+		LexiconCollector_keyphrase.start(outputDir, clesa, wnhome, finalOutputFilePath);
+
 		clesa.close();
 
-
-		BasicFileTools.writeFile(outputPath, buffer.toString().trim());
 	}
 
 	public String getText() {
@@ -303,7 +276,7 @@ public class EuroSentimentMainHotel {
 	}
 
 	public void setText(String text) {
-		this.text = text;
+		this.text = text.toLowerCase();
 	}
 
 }

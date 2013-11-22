@@ -28,6 +28,12 @@ public class SentiWordBags {
 
 	}
 
+	public SentiWordBags(String sentiPath) {
+		sentiWords = new HashSet<String>();
+		createBags(sentiPath);
+	}
+
+	
 	public int getLineStupid(){
 		return lineStupid;
 	}

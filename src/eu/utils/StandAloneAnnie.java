@@ -85,18 +85,51 @@ public class StandAloneAnnie  {
 
 	/** Run ANNIE */
 	public void execute() throws GateException {
-	//	Out.prln("Running ANNIE...");
+		//	Out.prln("Running ANNIE...");
 		annieController.execute();
-	//	Out.prln("...ANNIE complete");
+		//	Out.prln("...ANNIE complete");
 	} // execute()
 
+	
+	public static void setUp(String gatePath){
+		// initialise the GATE library
+		Out.prln("Initialising GATE...");
+		// Gate.init();
+		setUpAnnie(gatePath);
+		// Load ANNIE plugin
+		File gateHome = Gate.getGateHome();
+		File pluginsHome = new File(gateHome, "plugins");
+		try {
+			Gate.getCreoleRegister().registerDirectories(new File(pluginsHome, "ANNIE").toURL());
+		} catch (MalformedURLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (GateException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		Out.prln("...GATE initialised");
+		// initialise ANNIE (this may take several minutes)
 
-	public static void setUp() {
-		String serverGatePath = "/home/karaso/Exp/gate-7.1-build4485-BIN/";
+		try {
+			annie.initAnnie();
+		} catch (GateException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+	}
+
+	private static void setUpAnnie(String serverGatePath) {
+		
+		
+		
+		//String serverGatePath = "/home/karaso/Exp/gate-7.1-build4485-BIN/";
+		//String serverGatePath = "/Applications/GATE_Developer_7.1";
 		if (!Gate.isInitialised()) {
 			//File gateHome = new File("/Users/kartik/Downloads/gate-7.1-build4485-BIN/"); //new File(grailsApplication.config.gate.home.toString());
 			File gateHome = new File(serverGatePath); //new File(grailsApplication.config.gate.home.toString());
-			
+
 			if (Gate.getGateHome()==null)
 				Gate.setGateHome(gateHome);
 			//if (Gate.getPluginsHome()==null)
@@ -128,19 +161,19 @@ public class StandAloneAnnie  {
 			params.put("preserveOriginalContent", new Boolean(true));
 			params.put("collectRepositioningInfo", new Boolean(true));
 			Document doci =  (Document)
-						Factory.createResource("gate.corpora.DocumentImpl", params);
+					Factory.createResource("gate.corpora.DocumentImpl", params);
 			corpus.add(doci);
 			// tell the pipeline about the corpus and run it
 			annie.setCorpus(corpus);
 			annie.execute();
 			AnnotationSet anno = doci.getAnnotations();
-			
+
 			Set<String> allTypes = new HashSet<String>();	
 			allTypes.add("Token");
-			
+
 			allTypes.add("SpaceToken");
 			AnnotationSet set = anno.get(allTypes);
-	buffer = new StringBuffer();
+			buffer = new StringBuffer();
 			List<Annotation> list = gate.Utils.inDocumentOrder(set);
 			for(Annotation ann : list){
 				//System.out.println(ann);				
@@ -148,12 +181,12 @@ public class StandAloneAnnie  {
 				//System.out.println(tokenValue);
 				buffer.append(tokenValue + " ");				
 			}
-//			for(int j = 0; j<set.size(); j++){
-//				System.out.println(set.get(j));
-//				String tokenValue = (String) set.get(j).getFeatures().get("string");
-//				System.out.println(tokenValue);
-//				buffer.append(tokenValue + " ");
-//			}
+			//			for(int j = 0; j<set.size(); j++){
+			//				System.out.println(set.get(j));
+			//				String tokenValue = (String) set.get(j).getFeatures().get("string");
+			//				System.out.println(tokenValue);
+			//				buffer.append(tokenValue + " ");
+			//			}
 		} catch (ResourceInstantiationException e) {
 			e.printStackTrace();
 		} catch (GateException e) {
@@ -161,47 +194,47 @@ public class StandAloneAnnie  {
 		}	
 		return buffer.toString().trim();
 	}
-	
-	
+
+
 	/**
 	 * Run from the command-line, with a list of URLs as argument.
 	 * <P><B>NOTE:</B><BR>
 	 * This code will run with all the documents in memory - if you
 	 * want to unload each from memory after use, add code to store
 	 * the corpus in a DataStore.
-	 */
-	static{
-		// initialise the GATE library
-		Out.prln("Initialising GATE...");
-		// Gate.init();
-		setUp();
-		// Load ANNIE plugin
-		File gateHome = Gate.getGateHome();
-		File pluginsHome = new File(gateHome, "plugins");
-		try {
-			Gate.getCreoleRegister().registerDirectories(new File(pluginsHome, "ANNIE").toURL());
-		} catch (MalformedURLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (GateException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		Out.prln("...GATE initialised");
-		// initialise ANNIE (this may take several minutes)
-		
-		try {
-			annie.initAnnie();
-		} catch (GateException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		}
-	
+//	 */
+//	static{
+//		// initialise the GATE library
+//		Out.prln("Initialising GATE...");
+//		// Gate.init();
+//		setUp();
+//		// Load ANNIE plugin
+//		File gateHome = Gate.getGateHome();
+//		File pluginsHome = new File(gateHome, "plugins");
+//		try {
+//			Gate.getCreoleRegister().registerDirectories(new File(pluginsHome, "ANNIE").toURL());
+//		} catch (MalformedURLException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		} catch (GateException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		}
+//		Out.prln("...GATE initialised");
+//		// initialise ANNIE (this may take several minutes)
+//
+//		try {
+//			annie.initAnnie();
+//		} catch (GateException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		}
+//	}
+
 	public static void main(String[] args) {
 		String text = "Outstanding service We decided to give Hotel Monaco a try after reading the positive reviews here on TripAdvisor, and having had excellent experiences at Kimpton Hotels in other cities.I ve stayed at several downtown Seattle hotels before (including Sheraton, Grand Hyatt, The W) and while I had positive experiences at all of them, I would certainly return to Hotel Monaco before the others."+
 				"It was truly outstanding in all areas from decor, cleanliness, and especially the service.The reservations and check-in process was flawless.";
-	//	text = "I am going to the market.I'hv gone to the market.";
+		//	text = "I am going to the market.I'hv gone to the market.";
 		String refinedText = StandAloneAnnie.getRefinedText(text);
 		System.out.println(refinedText);
 	}
