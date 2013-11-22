@@ -1,0 +1,1 @@
+{"text":"This phone is one of the best I've ever used.\nIt has everything I needed: bluetooth, infrared, support for MMC, camera, and a good operating system with lots of supporting software.\n","annotations":[]}

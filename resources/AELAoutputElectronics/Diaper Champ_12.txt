@@ -1,0 +1,1 @@
+{"text":"We just had a baby and were debating getting either this product or the Diaper genie and this is what sold us on this product\n","annotations":[{"endOffset":84,"mention":"genie","uri":["http:\/\/dbpedia.org\/resource\/AIR-2_Genie"],"startOffset":79}]}

@@ -1,0 +1,1 @@
+{"text":"I bought my camera based on recommendations from my other friends who own it.\nI am very pleased with my purchase.\nIt's best to list the pros and cons of this camera:\n","annotations":[{"endOffset":149,"mention":"cons","uri":["http:\/\/dbpedia.org\/resource\/SCons"],"startOffset":145}]}

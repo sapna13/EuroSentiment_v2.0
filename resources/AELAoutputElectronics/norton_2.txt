@@ -1,0 +1,1 @@
+{"text":"As a loyal customer of Norton\/Symantec products, I purchased Internet Security 2004 as a software firewall and could not be any more dissatisfied with the product (and hence the one star rating).\nHere's why:\n","annotations":[{"endOffset":186,"mention":"star","uri":["http:\/\/dbpedia.org\/resource\/Xerox_Star"],"startOffset":182}]}
