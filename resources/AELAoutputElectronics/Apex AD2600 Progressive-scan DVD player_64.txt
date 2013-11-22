@@ -1,1 +1,0 @@
-{"text":"retraction : said mine had silver plate : it does have display .\nit works great .\ni should have looked at it harder .\n","annotations":[{"endOffset":33,"mention":"silver","uri":["http:\/\/dbpedia.org\/resource\/Pok%C3%A9mon_Gold_and_Silver"],"startOffset":27}]}

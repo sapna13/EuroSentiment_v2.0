@@ -1,1 +1,0 @@
-{"text":"Before installing anything on your computer, you need to do a bit of research before spending the money.\nThis is definitely one of those products, especially as the company is leaning more towards making a profit.\n","annotations":[{"endOffset":103,"mention":"money","uri":["http:\/\/dbpedia.org\/resource\/Microsoft_Money"],"startOffset":98}]}

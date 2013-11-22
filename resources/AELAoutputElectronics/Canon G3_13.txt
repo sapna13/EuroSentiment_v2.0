@@ -1,1 +1,0 @@
-{"text":"this camera has significantly more noise at iso 100 than the nikon 4500 .\n","annotations":[]}

@@ -1,1 +1,0 @@
-{"text":"I just upgraded to the Linksys WRT54G Wireless-G router last month and I am very happy with the quality of the product.\nThis router acts as a wireless access point, 100 MB switch and a router making it a nice multipurpose device.\n","annotations":[{"endOffset":157,"mention":"access","uri":["http:\/\/dbpedia.org\/resource\/Microsoft_Access"],"startOffset":151}]}

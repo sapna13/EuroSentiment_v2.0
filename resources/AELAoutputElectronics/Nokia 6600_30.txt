@@ -1,1 +1,0 @@
-{"text":"I highly recommend this phone.\nI had a Sony ericsson T610 before this and the T610 is far inferior.\n","annotations":[{"endOffset":57,"mention":"Sony ericsson T610","uri":["http:\/\/dbpedia.org\/resource\/Sony_Ericsson_T610"],"startOffset":39}]}

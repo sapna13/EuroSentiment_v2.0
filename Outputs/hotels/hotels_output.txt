@@ -1,0 +1,34 @@
+coffee	http://dbpedia.org/resource/Coffee	rooms	pike	null
+coffee	http://dbpedia.org/resource/Coffee	rooms	great	null
+cookies	http://dbpedia.org/resource/Cookie	service	scrumptious	null
+nice	http://dbpedia.org/resource/Nice_biscuit	rooms	nice	null
+nice	http://dbpedia.org/resource/Nice_biscuit	rooms	great	null
+nice	http://dbpedia.org/resource/Nice_biscuit	rooms	high	null
+nice	http://dbpedia.org/resource/Nice_biscuit	rooms	nice	null
+nice	http://dbpedia.org/resource/Nice_biscuit	rooms	nice	null
+chocolate	http://dbpedia.org/resource/Chocolate	rooms	nice	null
+nice	http://dbpedia.org/resource/Nice_biscuit	rooms	nice	null
+nice	http://dbpedia.org/resource/Nice_biscuit	rooms	good	null
+nice	http://dbpedia.org/resource/Nice_biscuit	rooms	first	null
+nice	http://dbpedia.org/resource/Nice_biscuit	rooms	nice	null
+nice	http://dbpedia.org/resource/Nice_biscuit	rooms	square	null
+nice	http://dbpedia.org/resource/Nice_biscuit	rooms	great	null
+nice	http://dbpedia.org/resource/Nice_biscuit	rooms	nice	null
+nice	http://dbpedia.org/resource/Nice_biscuit	rooms	spent	null
+nice	http://dbpedia.org/resource/Nice_biscuit	rooms	nice	null
+nice	http://dbpedia.org/resource/Nice_biscuit	rooms	clean	null
+nice	http://dbpedia.org/resource/Nice_biscuit	rooms	hot	null
+nice	http://dbpedia.org/resource/Nice_biscuit	rooms	good	null
+nice	http://dbpedia.org/resource/Nice_biscuit	rooms	nice	null
+nice	http://dbpedia.org/resource/Nice_biscuit	rooms	very good	null
+nice	http://dbpedia.org/resource/Nice_biscuit	rooms	nice	null
+nice	http://dbpedia.org/resource/Nice_biscuit	rooms	friendly	null
+nice	http://dbpedia.org/resource/Nice_biscuit	rooms	nice and friendly	null
+nice	http://dbpedia.org/resource/Nice_biscuit	rooms	nice	null
+nice	http://dbpedia.org/resource/Nice_biscuit	rooms	very nice	null
+toll	http://dbpedia.org/resource/Chocolate_chip_cookie	business service	free	null
+nice	http://dbpedia.org/resource/Nice_biscuit	rooms	nice	null
+nice	http://dbpedia.org/resource/Nice_biscuit	rooms	great	null
+nice	http://dbpedia.org/resource/Nice_biscuit	rooms	concerned	null
+nice	http://dbpedia.org/resource/Nice_biscuit	rooms	great	null
+nice	http://dbpedia.org/resource/Nice_biscuit	rooms	ignored	null

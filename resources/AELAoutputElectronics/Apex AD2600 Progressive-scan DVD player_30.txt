@@ -1,1 +1,0 @@
-{"text":"it plays all my back-ups , + or - , and everything else i have put in it without a hick up .\naudio is excellent .\nwell worth the money .\n","annotations":[{"endOffset":134,"mention":"money","uri":["http:\/\/dbpedia.org\/resource\/Microsoft_Money"],"startOffset":129}]}

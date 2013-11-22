@@ -1,0 +1,75 @@
+screen	http://dbpedia.org/resource/GNU_Screen	screen	able	null
+screen	http://dbpedia.org/resource/GNU_Screen	screen	good	null
+screen	http://dbpedia.org/resource/GNU_Screen	screen	black	null
+screen	http://dbpedia.org/resource/GNU_Screen	screen	first	null
+black	http://dbpedia.org/resource/Twisted_Metal:_Black	color	black	null
+black	http://dbpedia.org/resource/Twisted_Metal:_Black	color	first	null
+player	http://dbpedia.org/resource/Player_Project	player	simple	2
+remote	http://dbpedia.org/resource/ITunes_Remote	remote	bottom	null
+remote	http://dbpedia.org/resource/ITunes_Remote	remote	right	null
+waste	http://dbpedia.org/resource/WASTE	dispose	simple	null
+remote	http://dbpedia.org/resource/ITunes_Remote	remote	bottom	null
+remote	http://dbpedia.org/resource/ITunes_Remote	remote	right	null
+black	http://dbpedia.org/resource/Twisted_Metal:_Black	color	black	null
+black	http://dbpedia.org/resource/Twisted_Metal:_Black	color	white	null
+remote	http://dbpedia.org/resource/ITunes_Remote	remote	lost	null
+movies	http://dbpedia.org/resource/The_Movies	movie	same	null
+movies	http://dbpedia.org/resource/The_Movies	movie	rare	null
+movies	http://dbpedia.org/resource/The_Movies	movie	cool	null
+zillion	http://dbpedia.org/resource/Zillion_II	memory stick slots	a lot nicer	null
+hunter	http://dbpedia.org/resource/World_of_Warcraft	nomad	great	null
+hunter	http://dbpedia.org/resource/World_of_Warcraft	nomad	rock-bottom	null
+hunter	http://dbpedia.org/resource/World_of_Warcraft	nomad	set	null
+remote	http://dbpedia.org/resource/ITunes_Remote	remote	minor	null
+remote	http://dbpedia.org/resource/ITunes_Remote	remote	so-so	null
+remote	http://dbpedia.org/resource/ITunes_Remote	remote	complete	null
+remote	http://dbpedia.org/resource/ITunes_Remote	remote	long	null
+remote	http://dbpedia.org/resource/ITunes_Remote	remote	minor	null
+remote	http://dbpedia.org/resource/ITunes_Remote	remote	only so-so	null
+remote	http://dbpedia.org/resource/ITunes_Remote	remote	really long	null
+play	http://dbpedia.org/resource/Wii_Play	play	big	null
+play	http://dbpedia.org/resource/Wii_Play	play	visual	null
+play	http://dbpedia.org/resource/Wii_Play	play	regular	null
+screen	http://dbpedia.org/resource/GNU_Screen	screen	nice	null
+screen	http://dbpedia.org/resource/GNU_Screen	screen	nice	null
+player	http://dbpedia.org/resource/Player_Project	player	run	2
+play	http://dbpedia.org/resource/Wii_Play	play	only	null
+play	http://dbpedia.org/resource/Wii_Play	play	able	null
+play	http://dbpedia.org/resource/Wii_Play	play	clear	null
+play	http://dbpedia.org/resource/Wii_Play	play	able to clear	null
+play	http://dbpedia.org/resource/Wii_Play	play	run	null
+dust	http://dbpedia.org/resource/Dust:_A_Tale_of_the_Wired_West	infrared	first	null
+dust	http://dbpedia.org/resource/Dust:_A_Tale_of_the_Wired_West	infrared	temporary	null
+play	http://dbpedia.org/resource/Wii_Play	play	main	null
+screen	http://dbpedia.org/resource/GNU_Screen	screen	professional	null
+screen	http://dbpedia.org/resource/GNU_Screen	screen	spent	null
+play	http://dbpedia.org/resource/Wii_Play	play	nice	null
+play	http://dbpedia.org/resource/Wii_Play	play	nice	null
+player	http://dbpedia.org/resource/Player_Project	player	pleased	2
+player	http://dbpedia.org/resource/Player_Project	player	only	2
+player	http://dbpedia.org/resource/Player_Project	player	able	2
+player	http://dbpedia.org/resource/Player_Project	player	clear	2
+player	http://dbpedia.org/resource/Player_Project	player	able to clear	2
+gear	http://dbpedia.org/resource/Gears_of_War	wheel	professional	null
+gear	http://dbpedia.org/resource/Gears_of_War	wheel	spent	null
+play	http://dbpedia.org/resource/Wii_Play	play	professional	null
+play	http://dbpedia.org/resource/Wii_Play	play	spent	null
+top	http://dbpedia.org/resource/Tales_of_Phantasia	top	nice	null
+top	http://dbpedia.org/resource/Tales_of_Phantasia	top	nice	null
+air	http://dbpedia.org/resource/Adobe_Integrated_Runtime	carrier	hot	null
+air	http://dbpedia.org/resource/Adobe_Integrated_Runtime	carrier	quite hot	null
+air	http://dbpedia.org/resource/Adobe_Integrated_Runtime	carrier	given	null
+play	http://dbpedia.org/resource/Wii_Play	play	more commonly used	null
+play	http://dbpedia.org/resource/Wii_Play	play	used	null
+top	http://dbpedia.org/resource/Tales_of_Phantasia	top	more commonly used	null
+top	http://dbpedia.org/resource/Tales_of_Phantasia	top	used	null
+room	http://dbpedia.org/resource/Silent_Hill_4:_The_Room	room	hot	null
+room	http://dbpedia.org/resource/Silent_Hill_4:_The_Room	room	quite hot	null
+room	http://dbpedia.org/resource/Silent_Hill_4:_The_Room	room	given	null
+play	http://dbpedia.org/resource/Wii_Play	play	pleased	null
+air	http://dbpedia.org/resource/Adobe_Integrated_Runtime	carrier	only	null
+air	http://dbpedia.org/resource/Adobe_Integrated_Runtime	carrier	able	null
+air	http://dbpedia.org/resource/Adobe_Integrated_Runtime	carrier	clear	null
+air	http://dbpedia.org/resource/Adobe_Integrated_Runtime	carrier	able to clear	null
+remote	http://dbpedia.org/resource/ITunes_Remote	remote	okay	-1
+remote	http://dbpedia.org/resource/ITunes_Remote	remote	okay	-1

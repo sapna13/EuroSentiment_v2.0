@@ -1,0 +1,8 @@
+player	,	http://dbpedia.org/resource/Player_Project	,	clear	,	2.0	,	428404
+player	,	http://dbpedia.org/resource/Player_Project	,	able to clear	,	2.0	,	null
+remote	,	http://dbpedia.org/resource/ITunes_Remote	,	okay	,	-1.0	,	2081114
+player	,	http://dbpedia.org/resource/Player_Project	,	simple	,	2.0	,	2166346
+player	,	http://dbpedia.org/resource/Player_Project	,	able	,	2.0	,	1740
+player	,	http://dbpedia.org/resource/Player_Project	,	only	,	2.0	,	1862697
+player	,	http://dbpedia.org/resource/Player_Project	,	pleased	,	2.0	,	1805157
+player	,	http://dbpedia.org/resource/Player_Project	,	run	,	2.0	,	null

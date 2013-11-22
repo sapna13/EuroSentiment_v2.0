@@ -1,1 +1,0 @@
-{"text":"this is wonderful to have for your first dvd player .\ni brought it for my sister in college and she loves it !\napex is the best cheap quality brand for dvd players .\nalso , very light and portable .\n","annotations":[{"endOffset":51,"mention":"player","uri":["http:\/\/dbpedia.org\/resource\/Player_Project"],"startOffset":45}]}

@@ -1,1 +1,0 @@
-{"text":"I, as many others, have waited for many years for the convergence of price, features, size and ease of use to hit that happy center point.\nWell wait no more!\n","annotations":[{"endOffset":99,"mention":"ease","uri":["http:\/\/dbpedia.org\/resource\/At_Ease"],"startOffset":95}]}

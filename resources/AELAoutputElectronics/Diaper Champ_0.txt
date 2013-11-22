@@ -1,1 +1,0 @@
-{"text":"Works great, no odor, and uses regular bags.\nCan't complain at all!\n","annotations":[{"endOffset":5,"mention":"Works","uri":["http:\/\/dbpedia.org\/resource\/AppleWorks"],"startOffset":0}]}
