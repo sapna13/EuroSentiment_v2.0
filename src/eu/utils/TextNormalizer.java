@@ -14,16 +14,14 @@ import eu.monnetproject.clesa.core.tokenizer.Tokenizer;
 import eu.monnetproject.clesa.core.tokenizer.TokenizerFactory;
 import eu.monnetproject.clesa.core.tokenizer.latin.LatinTokenizerFactory;
 
-
 /**
  *  
- * @author kasooja 
+ * @author snegi
  */
 
 public class TextNormalizer {
 
 	private static TokenizerFactory tokenizerFactory = new LatinTokenizerFactory();	
-	
 	public static Tokenizer getTokenizer(Language lang) {
 		Script script = Script.LATIN;
 		final Script[] knownScriptsForLanguage = Script.getKnownScriptsForLanguage(lang);

@@ -12,6 +12,8 @@ import eu.eurosentiment.synset.SynsetIdentification;
 import eu.monnetproject.clesa.core.utils.BasicFileTools;
 import eu.monnetproject.clesa.ds.clesa.CLESA;
 
+//this class writes the csv file comprising of all the fields required for the sentiment lexicon
+
 public class LexiconCollector_keyphrase {
 
 	public static void start(String dirPath, CLESA clesa, String wnhome, String finalOutputFile) throws IOException {
@@ -62,7 +64,7 @@ public class LexiconCollector_keyphrase {
 			phraseMentionMap.get(phrase).add(mention);			
 		}
 		
-		SynsetIdentification.setVars(clesa, wnhome);
+		SynsetIdentification.setVars(clesa, wnhome);       
 		SynsetIdentification.openDict();
 		
 		int j = 0;

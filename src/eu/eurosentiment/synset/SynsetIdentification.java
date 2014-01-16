@@ -20,7 +20,7 @@ import eu.monnetproject.clesa.core.utils.Pair;
 import eu.monnetproject.clesa.ds.clesa.CLESA;
 
 
-
+//maps the extracted sentiment words with Sentiwordnet synsets
 
 public class SynsetIdentification {
 
@@ -111,7 +111,7 @@ public class SynsetIdentification {
 			}	
 		} catch(Exception e){
 			return null;
-		}
+		}      
 		return maxScoredSynset;
 	}
 

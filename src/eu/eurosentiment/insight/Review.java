@@ -2,6 +2,7 @@ package eu.eurosentiment.insight;
 
 import java.util.Date;
 
+//For TripAdvisor data, extracts ratings corresponding to aspects
 class Review {
 	
 	private String author;

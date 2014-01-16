@@ -14,7 +14,7 @@ import java.util.StringTokenizer;
 import eu.utils.BasicFileTools;
 
 import eu.eurosentiment.sentiwordnet.SentiWordBags;
-
+//
 public class TripAdvisorDataTag {
 
 	private static SentiWordBags sentiWord = new SentiWordBags();
@@ -125,7 +125,7 @@ public class TripAdvisorDataTag {
 		/*
 		 * 1 - Given a Directory. Get the list with all .dat files.
 		 * 2 - For each .dat file:
-		 *   2.1 - Extract all fields
+		 *   2.1 - Extracts all fields
 		 * 3 - The output map key is the filename and the value is a
 		 * Review object with author and text.
 		 */

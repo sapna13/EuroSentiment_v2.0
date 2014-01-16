@@ -13,7 +13,6 @@ Mobile service
 Semantic
 equalizer
 visual backtracking
-0
 cd rip
 quality
 opening

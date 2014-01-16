@@ -5,13 +5,13 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.Properties;
+import org.apache.log4j.Level;
+import org.apache.log4j.Logger;
 
-import eu.eurosentiment.process.EuroSentimentMain;
-
-
+import eu.eurosentiment.process.EuroSentimentMain;;
 
 public class MainClass {
-	private static	String aelaOutputPath;
+	private static String aelaOutputPath;
 	private static String rawDataPath;
 	private static String intermediateOutput;
 	private static String gatePath;
@@ -20,6 +20,9 @@ public class MainClass {
 	private static String outputDir;
 	private static String wnhome;
 	private static String finalLexicon;
+
+
+	private static Logger logger = Logger.getLogger(MainClass.class);
 
 	private static Properties config = new Properties();
 
@@ -36,6 +39,7 @@ public class MainClass {
 			wnhome = config.getProperty("WNHOME");
 			finalLexicon = outputDir + "/" + config.getProperty("finalLexicon");
 		} catch (FileNotFoundException e) {
+			logger.debug("");
 			e.printStackTrace();
 		} catch (IOException e) {
 			e.printStackTrace();
@@ -43,7 +47,12 @@ public class MainClass {
 	}
 
 	public static void main(String[] args) throws IOException{
+		logger.setLevel(Level.INFO);		
 		loadConfig();
+		// Now set its level. Normally you do not need to set the
+		// level of a logger programmatically. This is usually done
+		// in configuration files.
+		logger.info("Corpus Reader Started");
 		EuroSentimentMain.start(aelaOutputPath,intermediateOutput,rawDataPath, aspectFile, gatePath, sentiWordNetFile,
 				outputDir, wnhome, finalLexicon);
 	}

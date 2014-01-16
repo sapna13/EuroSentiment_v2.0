@@ -1,8 +1,640 @@
-player	,	http://dbpedia.org/resource/Player_Project	,	clear	,	2.0	,	428404
+screen	,	http://dbpedia.org/resource/GNU_Screen	,	bright	,	1.7578125	,	278551
+flash	,	http://dbpedia.org/resource/Adobe_Flash_Player	,	bright	,	2.0	,	278551
+key	,	http://dbpedia.org/resource/KeY	,	bright	,	-1.0	,	278551
+flash	,	http://dbpedia.org/resource/Adobe_Flash	,	external	,	3.0	,	948103
+player	,	http://dbpedia.org/resource/Player_Project	,	external	,	2.0	,	948103
+remote	,	http://dbpedia.org/resource/ITunes_Remote	,	external	,	2.0	,	948103
+flash	,	http://dbpedia.org/resource/Adobe_Flash_Player	,	external	,	2.5	,	948103
+screen	,	http://dbpedia.org/resource/GNU_Screen	,	very easy	,	0.5	,	null
+player	,	http://dbpedia.org/resource/Player_Project	,	very easy	,	3.0	,	null
+screen	,	http://dbpedia.org/resource/GNU_Screen	,	out of luck	,	-2.0	,	null
+wave	,	http://dbpedia.org/resource/Geometry_Wars:_Waves	,	noted	,	2.0	,	1287972
+player	,	http://dbpedia.org/resource/Player_Project	,	particular	,	-3.0	,	1104460
+nomad	,	http://dbpedia.org/resource/Sega_Nomad	,	particular	,	2.0	,	1104460
+player	,	http://dbpedia.org/resource/Player_Project	,	pretty good	,	-2.0	,	null
+flash	,	http://dbpedia.org/resource/Adobe_Flash_Player	,	too close	,	2.0	,	null
+player	,	http://dbpedia.org/resource/Player_Project	,	free	,	2.0	,	1061489
+nokia	,	http://dbpedia.org/resource/Nokia_Software_Updater	,	free	,	-3.0	,	1061489
+play	,	http://dbpedia.org/resource/Wii_Play	,	instant	,	-2.0	,	1732012
+equalizer	,	http://dbpedia.org/resource/GAU-12_Equalizer	,	deep	,	2.0	,	692762
+player	,	http://dbpedia.org/resource/Player_Project	,	right	,	2.75	,	2031986
+red	,	http://dbpedia.org/resource/Mega_Man_X7	,	black	,	3.0	,	392812
+blue	,	http://dbpedia.org/resource/SaGa_Frontier	,	black	,	3.0	,	392812
+black	,	http://dbpedia.org/resource/Twisted_Metal:_Black	,	black	,	3.0	,	392812
+player	,	http://dbpedia.org/resource/Player_Project	,	isolated	,	1.0	,	2111095
+focus	,	http://dbpedia.org/resource/Helicon_Focus	,	essential	,	1.0	,	900616
+player	,	http://dbpedia.org/resource/Player_Project	,	creative	,	1.93505859375	,	585202
+name	,	http://dbpedia.org/resource/BIND	,	creative	,	-2.0	,	585202
+key	,	http://dbpedia.org/resource/KeY	,	unnecessary	,	-2.0	,	1581115
+player	,	http://dbpedia.org/resource/Player_Project	,	sleek	,	1.5	,	2427981
+player	,	http://dbpedia.org/resource/Player_Project	,	comparable	,	3.0	,	503982
+flash	,	http://dbpedia.org/resource/Adobe_Flash_Player	,	neutral	,	2.0	,	732160
+player	,	http://dbpedia.org/resource/Player_Project	,	very big	,	-1.0	,	null
+flash	,	http://dbpedia.org/resource/Adobe_Flash_Player	,	very long	,	2.0	,	null
+door	,	http://dbpedia.org/resource/Door_Door	,	annoying	,	-1.0	,	89550
+screen	,	http://dbpedia.org/resource/GNU_Screen	,	annoying	,	-3.0	,	89550
+player	,	http://dbpedia.org/resource/Player_Project	,	annoying	,	-1.5	,	89550
+flash	,	http://dbpedia.org/resource/Adobe_Flash_Player	,	automatic or off	,	1.0	,	null
+player	,	http://dbpedia.org/resource/Player_Project	,	big	,	-0.75	,	1276872
+music	,	http://dbpedia.org/resource/Wii_Music	,	big	,	3.0	,	1276872
+screen	,	http://dbpedia.org/resource/GNU_Screen	,	big	,	2.5	,	1276872
+key	,	http://dbpedia.org/resource/KeY	,	big	,	-2.0	,	1276872
+screen	,	http://dbpedia.org/resource/GNU_Screen	,	a bit large	,	3.0	,	null
+red	,	http://dbpedia.org/resource/Mega_Man_X7	,	decent	,	3.0	,	682932
+start-up	,	http://dbpedia.org/resource/Start-Up	,	decent	,	3.0	,	682932
+key	,	http://dbpedia.org/resource/KeY	,	decent	,	-2.0	,	682932
+player	,	http://dbpedia.org/resource/Player_Project	,	decent	,	2.0	,	682932
+player	,	http://dbpedia.org/resource/Player_Project	,	superior	,	3.0	,	2341266
+play	,	http://dbpedia.org/resource/Wii_Play	,	superior	,	-2.0	,	2341266
+key	,	http://dbpedia.org/resource/KeY	,	funky	,	-1.0	,	609750
+itunes	,	http://dbpedia.org/resource/ITunes	,	3 format	,	-2.0	,	null
+play	,	http://dbpedia.org/resource/Wii_Play	,	made	,	-2.0	,	672785
+nokia	,	http://dbpedia.org/resource/Nokia_Software_Updater	,	made	,	-3.0	,	672785
+screen	,	http://dbpedia.org/resource/GNU_Screen	,	excellent	,	1.0	,	2343110
+flash	,	http://dbpedia.org/resource/Adobe_Flash_Player	,	excellent	,	3.0	,	2343110
+player	,	http://dbpedia.org/resource/Player_Project	,	excellent	,	0.5	,	2343110
+money	,	http://dbpedia.org/resource/Microsoft_Money	,	excellent	,	3.0	,	2343110
+key	,	http://dbpedia.org/resource/KeY	,	excellent	,	-1.0	,	2343110
+flash	,	http://dbpedia.org/resource/Adobe_Flash	,	excellent	,	3.0	,	2343110
+zen	,	http://dbpedia.org/resource/Zen_of_Sudoku	,	excellent	,	3.0	,	2343110
+player	,	http://dbpedia.org/resource/Player_Project	,	horrible	,	3.0	,	193480
+remote	,	http://dbpedia.org/resource/ITunes_Remote	,	attempted	,	2.0	,	2333880
+black	,	http://dbpedia.org/resource/Twisted_Metal:_Black	,	cracked	,	3.0	,	2240129
+blue	,	http://dbpedia.org/resource/SaGa_Frontier	,	cracked	,	3.0	,	2240129
+red	,	http://dbpedia.org/resource/Mega_Man_X7	,	cracked	,	3.0	,	2240129
+remote	,	http://dbpedia.org/resource/ITunes_Remote	,	left	,	-2.0	,	2032953
+red	,	http://dbpedia.org/resource/Mega_Man_X7	,	one blurry	,	3.0	,	null
+key	,	http://dbpedia.org/resource/KeY	,	totally unnecessary	,	-2.0	,	null
+player	,	http://dbpedia.org/resource/Player_Project	,	immaterial	,	2.0	,	1488066
+screen	,	http://dbpedia.org/resource/GNU_Screen	,	readable	,	1.5	,	1405047
+silver	,	http://dbpedia.org/resource/Pok%C3%A9mon_Gold_and_Silver	,	yet false	,	-2.0	,	null
+blue	,	http://dbpedia.org/resource/SaGa_Frontier	,	purple	,	3.0	,	2017372
+black	,	http://dbpedia.org/resource/Twisted_Metal:_Black	,	purple	,	3.0	,	2017372
+red	,	http://dbpedia.org/resource/Mega_Man_X7	,	purple	,	3.0	,	2017372
+focus	,	http://dbpedia.org/resource/Helicon_Focus	,	purple	,	1.0	,	2017372
+player	,	http://dbpedia.org/resource/Player_Project	,	phenomenal	,	3.0	,	2859708
+remote	,	http://dbpedia.org/resource/ITunes_Remote	,	confused	,	-1.0	,	435492
+player	,	http://dbpedia.org/resource/Player_Project	,	desired	,	-2.0	,	2527220
+sprint	,	http://dbpedia.org/resource/Sprint_2	,	exceptional	,	1.0	,	1598859
+black	,	http://dbpedia.org/resource/Twisted_Metal:_Black	,	new	,	3.0	,	1640850
+cds	,	http://dbpedia.org/resource/Copernic_Desktop_Search	,	new	,	-2.0	,	1640850
+player	,	http://dbpedia.org/resource/Player_Project	,	new	,	-0.125	,	1640850
+blue	,	http://dbpedia.org/resource/SaGa_Frontier	,	new	,	3.0	,	1640850
+nomad	,	http://dbpedia.org/resource/Sega_Nomad	,	new	,	3.0	,	1640850
+remote	,	http://dbpedia.org/resource/ITunes_Remote	,	new	,	-1.0	,	1640850
+player	,	http://dbpedia.org/resource/Player_Project	,	red	,	-2.0	,	248560
+flash	,	http://dbpedia.org/resource/Adobe_Flash	,	red	,	3.0	,	248560
+red	,	http://dbpedia.org/resource/Mega_Man_X7	,	red	,	3.0	,	248560
+flash	,	http://dbpedia.org/resource/Adobe_Flash_Player	,	red	,	3.0	,	248560
+screen	,	http://dbpedia.org/resource/GNU_Screen	,	fancy	,	-3.0	,	1794340
+player	,	http://dbpedia.org/resource/Player_Project	,	deficient	,	2.0	,	2297409
+key	,	http://dbpedia.org/resource/KeY	,	a bit confusing	,	-1.0	,	null
+remote	,	http://dbpedia.org/resource/ITunes_Remote	,	not sure	,	-3.0	,	null
+screen	,	http://dbpedia.org/resource/GNU_Screen	,	visible	,	1.0	,	1705513
+key	,	http://dbpedia.org/resource/KeY	,	visible	,	-1.0	,	1705513
+key	,	http://dbpedia.org/resource/KeY	,	normal	,	1.0	,	1593649
+key	,	http://dbpedia.org/resource/KeY	,	confusing	,	-1.0	,	1685706
+player	,	http://dbpedia.org/resource/Player_Project	,	really low	,	3.0	,	null
+flash	,	http://dbpedia.org/resource/Adobe_Flash_Player	,	long	,	2.0	,	1437963
+portable	,	http://dbpedia.org/resource/Macintosh_Portable	,	long	,	2.0	,	1437963
+name	,	http://dbpedia.org/resource/BIND	,	long	,	-2.0	,	1437963
+nomad	,	http://dbpedia.org/resource/Sega_Nomad	,	long	,	-3.0	,	1437963
+player	,	http://dbpedia.org/resource/Player_Project	,	same	,	-0.5	,	2068476
+nomad	,	http://dbpedia.org/resource/Sega_Nomad	,	same	,	2.0	,	2068476
+focus	,	http://dbpedia.org/resource/Helicon_Focus	,	very flexible	,	2.0	,	null
+screen	,	http://dbpedia.org/resource/GNU_Screen	,	easy to read	,	2.0	,	null
+flash	,	http://dbpedia.org/resource/Adobe_Flash_Player	,	close	,	2.0	,	446921
+key	,	http://dbpedia.org/resource/KeY	,	close	,	-1.5	,	446921
+remote	,	http://dbpedia.org/resource/ITunes_Remote	,	cheap and cheasy	,	-3.0	,	null
+red	,	http://dbpedia.org/resource/Mega_Man_X7	,	compact	,	3.0	,	502180
+screen	,	http://dbpedia.org/resource/GNU_Screen	,	compact	,	1.0	,	502180
+key	,	http://dbpedia.org/resource/KeY	,	compact	,	-1.0	,	502180
+player	,	http://dbpedia.org/resource/Player_Project	,	compact	,	2.0	,	502180
+flash	,	http://dbpedia.org/resource/Adobe_Flash	,	compact	,	3.0	,	502180
+flash	,	http://dbpedia.org/resource/Adobe_Flash_Player	,	compact	,	3.0	,	502180
+focus	,	http://dbpedia.org/resource/Helicon_Focus	,	compact	,	1.0	,	502180
+portable	,	http://dbpedia.org/resource/Macintosh_Portable	,	40 gb portable	,	2.0	,	null
+nomad	,	http://dbpedia.org/resource/Sega_Nomad	,	40 gb portable	,	-3.0	,	null
+screen	,	http://dbpedia.org/resource/GNU_Screen	,	very readable	,	-1.0	,	null
+red	,	http://dbpedia.org/resource/Mega_Man_X7	,	respectable	,	3.0	,	1993140
+start-up	,	http://dbpedia.org/resource/Start-Up	,	respectable	,	3.0	,	1993140
+screen	,	http://dbpedia.org/resource/GNU_Screen	,	light	,	1.0	,	1186408
+key	,	http://dbpedia.org/resource/KeY	,	light	,	-1.0	,	1186408
+flash	,	http://dbpedia.org/resource/Adobe_Flash_Player	,	light	,	2.0	,	1186408
+screen	,	http://dbpedia.org/resource/GNU_Screen	,	really good	,	3.0	,	null
+flash	,	http://dbpedia.org/resource/Adobe_Flash_Player	,	automatic	,	1.0	,	181476
+focus	,	http://dbpedia.org/resource/Helicon_Focus	,	automatic	,	1.0	,	181476
+red	,	http://dbpedia.org/resource/Mega_Man_X7	,	automatic	,	3.0	,	181476
+player	,	http://dbpedia.org/resource/Player_Project	,	perfect for me	,	2.0	,	null
+screen	,	http://dbpedia.org/resource/GNU_Screen	,	really big	,	3.0	,	null
+player	,	http://dbpedia.org/resource/Player_Project	,	large or small	,	2.0	,	null
+player	,	http://dbpedia.org/resource/Player_Project	,	wary of	,	-3.0	,	null
+music	,	http://dbpedia.org/resource/Wii_Music	,	not lazy	,	3.0	,	null
+navigator	,	http://dbpedia.org/resource/Packard_Bell_Navigator	,	preferred	,	-2.0	,	733743
+flash	,	http://dbpedia.org/resource/Adobe_Flash	,	much	,	3.0	,	1553629
+top	,	http://dbpedia.org/resource/Tales_of_Pirates	,	much	,	-2.0	,	1553629
+nokia	,	http://dbpedia.org/resource/Nokia_Software_Updater	,	much	,	-3.0	,	1553629
+nokia	,	http://dbpedia.org/resource/Nokia_OS	,	much	,	3.0	,	1553629
+player	,	http://dbpedia.org/resource/Player_Project	,	much	,	-0.5	,	1553629
+flash	,	http://dbpedia.org/resource/Adobe_Flash_Player	,	much	,	3.0	,	1553629
+red	,	http://dbpedia.org/resource/Mega_Man_X7	,	much	,	3.0	,	1553629
+screen	,	http://dbpedia.org/resource/GNU_Screen	,	a little smaller	,	-1.0	,	null
+nomad	,	http://dbpedia.org/resource/Sega_Nomad	,	uncomplicated	,	2.0	,	2175980
+player	,	http://dbpedia.org/resource/Player_Project	,	decided	,	2.0	,	701299
+equalizer	,	http://dbpedia.org/resource/GAU-12_Equalizer	,	classical	,	2.0	,	2698145
+play	,	http://dbpedia.org/resource/Wii_Play	,	delicate	,	-2.0	,	1948389
+fit	,	http://dbpedia.org/resource/Wii_Fit	,	better	,	-1.0	,	230335
+red	,	http://dbpedia.org/resource/Mega_Man_X7	,	better	,	3.0	,	230335
+player	,	http://dbpedia.org/resource/Player_Project	,	better	,	2.0	,	230335
+wave	,	http://dbpedia.org/resource/Geometry_Wars:_Waves	,	better	,	2.0	,	230335
+focus	,	http://dbpedia.org/resource/Helicon_Focus	,	better	,	1.0	,	230335
+touch	,	http://dbpedia.org/resource/HTC_Touch	,	better	,	-2.0	,	230335
+focus	,	http://dbpedia.org/resource/Helicon_Focus	,	tough	,	2.0	,	2512641
+nomad	,	http://dbpedia.org/resource/Sega_Nomad	,	fast	,	2.0	,	976508
+player	,	http://dbpedia.org/resource/Player_Project	,	fast	,	0.5	,	976508
+music	,	http://dbpedia.org/resource/Wii_Music	,	fast	,	3.0	,	976508
+screen	,	http://dbpedia.org/resource/GNU_Screen	,	fast	,	3.0	,	976508
+player	,	http://dbpedia.org/resource/Player_Project	,	large	,	2.0	,	2163307
+screen	,	http://dbpedia.org/resource/GNU_Screen	,	large	,	1.6953125	,	2163307
+flash	,	http://dbpedia.org/resource/Adobe_Flash_Player	,	raw	,	2.0	,	1319061
+flash	,	http://dbpedia.org/resource/Adobe_Flash_Player	,	ignored	,	2.0	,	1608656
+player	,	http://dbpedia.org/resource/Player_Project	,	easy too	,	3.0	,	null
+player	,	http://dbpedia.org/resource/Player_Project	,	tested	,	2.0	,	1894196
+player	,	http://dbpedia.org/resource/Player_Project	,	cautious	,	1.0	,	325281
+nokia	,	http://dbpedia.org/resource/Nokia_Software_Updater	,	possible	,	-3.0	,	1821266
+nomad	,	http://dbpedia.org/resource/Sega_Nomad	,	much easier	,	2.0	,	null
+screen	,	http://dbpedia.org/resource/GNU_Screen	,	much easier	,	-1.0	,	null
+player	,	http://dbpedia.org/resource/Player_Project	,	best cheap	,	2.0	,	null
+player	,	http://dbpedia.org/resource/Player_Project	,	flimsy	,	2.0	,	2325484
+player	,	http://dbpedia.org/resource/Player_Project	,	basically every	,	2.0	,	null
+flash	,	http://dbpedia.org/resource/Adobe_Flash	,	main	,	-1.0	,	1512527
+music	,	http://dbpedia.org/resource/Wii_Music	,	entire	,	3.0	,	2244890
+player	,	http://dbpedia.org/resource/Player_Project	,	entire	,	2.0	,	2244890
+play	,	http://dbpedia.org/resource/Wii_Play	,	entire	,	-2.0	,	2244890
+focus	,	http://dbpedia.org/resource/Helicon_Focus	,	great	,	2.0	,	1386883
+source	,	http://dbpedia.org/resource/Counter-Strike:_Source	,	great	,	0.0	,	1386883
+loud	,	http://dbpedia.org/resource/LOUD	,	great	,	2.0	,	1386883
+musicmatch	,	http://dbpedia.org/resource/Musicmatch_Jukebox	,	great	,	2.0	,	1386883
+player	,	http://dbpedia.org/resource/Player_Project	,	great	,	2.709716796875	,	1386883
+nomad	,	http://dbpedia.org/resource/Sega_Nomad	,	great	,	3.0	,	1386883
+screen	,	http://dbpedia.org/resource/GNU_Screen	,	great	,	1.875	,	1386883
+works	,	http://dbpedia.org/resource/Microsoft_Works	,	great	,	2.0	,	1386883
+screen	,	http://dbpedia.org/resource/GNU_Screen	,	large and bright	,	2.0	,	null
+screen	,	http://dbpedia.org/resource/GNU_Screen	,	just about 65000	,	2.0	,	null
+apple	,	http://dbpedia.org/resource/Apple_III	,	damaged	,	-2.0	,	679147
+player	,	http://dbpedia.org/resource/Player_Project	,	impressed	,	-3.0	,	71142
+zen	,	http://dbpedia.org/resource/Zen_Bound	,	violent or extreme	,	3.0	,	null
+screen	,	http://dbpedia.org/resource/GNU_Screen	,	improved	,	-1.0	,	1288396
+screen	,	http://dbpedia.org/resource/GNU_Screen	,	correct	,	-3.0	,	631391
+player	,	http://dbpedia.org/resource/Player_Project	,	given	,	3.0	,	28280
+player	,	http://dbpedia.org/resource/Player_Project	,	awesome	,	2.5	,	1282510
+music	,	http://dbpedia.org/resource/Wii_Music	,	awesome	,	3.0	,	1282510
+player	,	http://dbpedia.org/resource/Player_Project	,	only	,	1.75	,	1862697
+nokia	,	http://dbpedia.org/resource/Nokia_Software_Updater	,	only	,	-3.0	,	1862697
+screen	,	http://dbpedia.org/resource/GNU_Screen	,	only	,	-1.0	,	1862697
+player	,	http://dbpedia.org/resource/Player_Project	,	worth	,	0.75	,	2502016
+screen	,	http://dbpedia.org/resource/GNU_Screen	,	an already annoying	,	-3.0	,	null
+player	,	http://dbpedia.org/resource/Player_Project	,	wonderful	,	2.0	,	1676517
+remote	,	http://dbpedia.org/resource/ITunes_Remote	,	wonderful	,	2.0	,	1676517
+player	,	http://dbpedia.org/resource/Player_Project	,	unavailable	,	2.0	,	185921
+player	,	http://dbpedia.org/resource/Player_Project	,	final	,	2.0	,	349894
 player	,	http://dbpedia.org/resource/Player_Project	,	able to clear	,	2.0	,	null
+nomad	,	http://dbpedia.org/resource/Sega_Nomad	,	fast and easy	,	2.0	,	null
+player	,	http://dbpedia.org/resource/Player_Project	,	convinced	,	2.0	,	338421
+flash	,	http://dbpedia.org/resource/Adobe_Flash_Player	,	bad	,	3.0	,	1125429
+flash	,	http://dbpedia.org/resource/Adobe_Flash	,	bad	,	3.0	,	1125429
+nokia	,	http://dbpedia.org/resource/Nokia_Software_Updater	,	bad	,	-3.0	,	1125429
+player	,	http://dbpedia.org/resource/Player_Project	,	bad	,	-0.25	,	1125429
+focus	,	http://dbpedia.org/resource/Helicon_Focus	,	flexible	,	2.0	,	1024073
+player	,	http://dbpedia.org/resource/Player_Project	,	less functional	,	2.0	,	null
+flash	,	http://dbpedia.org/resource/Adobe_Flash	,	powerful	,	-1.0	,	1825671
+build	,	http://dbpedia.org/resource/Build_engine	,	prone	,	-2.0	,	1292884
+player	,	http://dbpedia.org/resource/Player_Project	,	very bad	,	-1.0	,	null
+player	,	http://dbpedia.org/resource/Player_Project	,	nice too	,	-2.0	,	null
+key	,	http://dbpedia.org/resource/KeY	,	weird	,	-1.0	,	970081
+ease	,	http://dbpedia.org/resource/At_Ease	,	less fortunate	,	2.0	,	null
+key	,	http://dbpedia.org/resource/KeY	,	small	,	-2.0	,	1554940
+screen	,	http://dbpedia.org/resource/GNU_Screen	,	small	,	-3.0	,	1554940
+player	,	http://dbpedia.org/resource/Player_Project	,	small	,	2.0	,	1554940
+flash	,	http://dbpedia.org/resource/Adobe_Flash	,	small	,	-1.0	,	1554940
+player	,	http://dbpedia.org/resource/Player_Project	,	different	,	1.5	,	2064745
+screen	,	http://dbpedia.org/resource/GNU_Screen	,	different	,	3.0	,	2064745
+zen	,	http://dbpedia.org/resource/Zen_of_Sudoku	,	different	,	3.0	,	2064745
+nokia	,	http://dbpedia.org/resource/Nokia_Software_Updater	,	different	,	-3.0	,	2064745
+screen	,	http://dbpedia.org/resource/GNU_Screen	,	too small	,	-3.0	,	null
+flash	,	http://dbpedia.org/resource/Adobe_Flash_Player	,	highly responsive	,	2.0	,	null
+flash	,	http://dbpedia.org/resource/Adobe_Flash_Player	,	subject	,	2.0	,	71559
+flash	,	http://dbpedia.org/resource/Adobe_Flash_Player	,	surprisingly good	,	3.0	,	null
+flash	,	http://dbpedia.org/resource/Adobe_Flash	,	surprisingly good	,	3.0	,	null
+player	,	http://dbpedia.org/resource/Player_Project	,	short	,	2.0	,	1442186
+nokia	,	http://dbpedia.org/resource/Nokia_Software_Updater	,	short	,	-3.0	,	1442186
+red	,	http://dbpedia.org/resource/Mega_Man_X7	,	clear	,	3.0	,	428404
+screen	,	http://dbpedia.org/resource/GNU_Screen	,	clear	,	2.0	,	428404
+player	,	http://dbpedia.org/resource/Player_Project	,	clear	,	0.0	,	428404
+flash	,	http://dbpedia.org/resource/Adobe_Flash_Player	,	clear	,	3.0	,	428404
+flash	,	http://dbpedia.org/resource/Adobe_Flash	,	clear	,	3.0	,	428404
+key	,	http://dbpedia.org/resource/KeY	,	too weird	,	-1.0	,	null
+screen	,	http://dbpedia.org/resource/GNU_Screen	,	dim enough	,	2.0	,	null
+remote	,	http://dbpedia.org/resource/ITunes_Remote	,	internal	,	2.0	,	948670
+flash	,	http://dbpedia.org/resource/Adobe_Flash_Player	,	internal	,	2.0	,	948670
+player	,	http://dbpedia.org/resource/Player_Project	,	similar	,	2.0	,	2071420
+flash	,	http://dbpedia.org/resource/Adobe_Flash_Player	,	natural but fewer	,	3.0	,	null
+red	,	http://dbpedia.org/resource/Mega_Man_X7	,	natural but fewer	,	3.0	,	null
+flash	,	http://dbpedia.org/resource/Adobe_Flash	,	natural but fewer	,	3.0	,	null
+player	,	http://dbpedia.org/resource/Player_Project	,	beautiful	,	2.0	,	217728
+player	,	http://dbpedia.org/resource/Player_Project	,	ideal	,	3.0	,	1751201
+player	,	http://dbpedia.org/resource/Player_Project	,	fantastic	,	2.0	,	1796452
+nomad	,	http://dbpedia.org/resource/Sega_Nomad	,	fantastic	,	2.0	,	1796452
 remote	,	http://dbpedia.org/resource/ITunes_Remote	,	okay	,	-1.0	,	2081114
-player	,	http://dbpedia.org/resource/Player_Project	,	simple	,	2.0	,	2166346
-player	,	http://dbpedia.org/resource/Player_Project	,	able	,	2.0	,	1740
-player	,	http://dbpedia.org/resource/Player_Project	,	only	,	2.0	,	1862697
-player	,	http://dbpedia.org/resource/Player_Project	,	pleased	,	2.0	,	1805157
+player	,	http://dbpedia.org/resource/Player_Project	,	specified	,	2.0	,	1099536
+player	,	http://dbpedia.org/resource/Player_Project	,	worried	,	3.0	,	822907
+touch	,	http://dbpedia.org/resource/HTC_Touch	,	easy to navigate	,	-2.0	,	null
+screen	,	http://dbpedia.org/resource/GNU_Screen	,	quite big	,	2.0	,	null
+screen	,	http://dbpedia.org/resource/GNU_Screen	,	very responsive	,	2.0	,	null
+money	,	http://dbpedia.org/resource/Microsoft_Money	,	single	,	2.0	,	2220571
+player	,	http://dbpedia.org/resource/Player_Project	,	single	,	-2.0	,	2220571
+screen	,	http://dbpedia.org/resource/GNU_Screen	,	last	,	3.0	,	1730329
+player	,	http://dbpedia.org/resource/Player_Project	,	last	,	2.5	,	1730329
+flash	,	http://dbpedia.org/resource/Adobe_Flash_Player	,	second	,	2.0	,	1016436
+player	,	http://dbpedia.org/resource/Player_Project	,	second	,	1.0	,	1016436
+play	,	http://dbpedia.org/resource/Wii_Play	,	second	,	-2.0	,	1016436
+flash	,	http://dbpedia.org/resource/Adobe_Flash_Player	,	unsatisfactory	,	2.0	,	2082218
+black	,	http://dbpedia.org/resource/Twisted_Metal:_Black	,	black and blue	,	3.0	,	null
+blue	,	http://dbpedia.org/resource/SaGa_Frontier	,	black and blue	,	3.0	,	null
+wave	,	http://dbpedia.org/resource/Geometry_Wars:_Waves	,	nice and high	,	2.0	,	null
+flash	,	http://dbpedia.org/resource/Adobe_Flash_Player	,	stunned	,	2.0	,	436645
+player	,	http://dbpedia.org/resource/Player_Project	,	primary	,	2.0	,	1852174
+player	,	http://dbpedia.org/resource/Player_Project	,	faulty	,	-3.0	,	1752953
+remote	,	http://dbpedia.org/resource/ITunes_Remote	,	crappy	,	-3.0	,	1127782
+player	,	http://dbpedia.org/resource/Player_Project	,	required	,	2.0	,	848466
+player	,	http://dbpedia.org/resource/Player_Project	,	really bad	,	2.0	,	null
+focus	,	http://dbpedia.org/resource/Helicon_Focus	,	razor sharp	,	1.0	,	null
+razor	,	http://dbpedia.org/resource/Maniac_Mansion	,	razor sharp	,	2.0	,	null
+flash	,	http://dbpedia.org/resource/Adobe_Flash_Player	,	flat	,	2.0	,	659259
+touch	,	http://dbpedia.org/resource/HTC_Touch	,	controlled	,	-2.0	,	598679
+play	,	http://dbpedia.org/resource/Wii_Play	,	pretty useless	,	-2.0	,	null
+flash	,	http://dbpedia.org/resource/Adobe_Flash_Player	,	relative	,	2.0	,	482673
+flash	,	http://dbpedia.org/resource/Adobe_Flash_Player	,	professional	,	2.0	,	1868724
+player	,	http://dbpedia.org/resource/Player_Project	,	so easy	,	2.0	,	null
+loud	,	http://dbpedia.org/resource/LOUD	,	loud	,	2.0	,	1452593
+screen	,	http://dbpedia.org/resource/GNU_Screen	,	whole	,	1.0	,	514884
+key	,	http://dbpedia.org/resource/KeY	,	whole	,	-1.0	,	514884
+name	,	http://dbpedia.org/resource/BIND	,	whole	,	-2.0	,	514884
+remote	,	http://dbpedia.org/resource/ITunes_Remote	,	whole	,	-2.0	,	514884
+player	,	http://dbpedia.org/resource/Player_Project	,	whole	,	1.0	,	514884
+zen	,	http://dbpedia.org/resource/Zen_of_Sudoku	,	whole	,	3.0	,	514884
+focus	,	http://dbpedia.org/resource/Helicon_Focus	,	not familiar with	,	1.0	,	null
+play	,	http://dbpedia.org/resource/Wii_Play	,	thin	,	-2.0	,	2412164
+zen	,	http://dbpedia.org/resource/Zen_Bound	,	violent	,	3.0	,	2510879
+spring	,	http://dbpedia.org/resource/Spring_Framework	,	stiff	,	-1.0	,	1525659
+player	,	http://dbpedia.org/resource/Player_Project	,	very simple	,	2.0	,	null
+player	,	http://dbpedia.org/resource/Player_Project	,	very inexpensive	,	-3.0	,	null
+flash	,	http://dbpedia.org/resource/Adobe_Flash	,	lost	,	-1.0	,	1449564
+player	,	http://dbpedia.org/resource/Player_Project	,	recognized	,	0.0	,	1636507
+focus	,	http://dbpedia.org/resource/Helicon_Focus	,	quick	,	1.0	,	979366
+player	,	http://dbpedia.org/resource/Player_Project	,	infuriating	,	-2.0	,	1809245
+player	,	http://dbpedia.org/resource/Player_Project	,	real	,	1.0	,	1937994
+screen	,	http://dbpedia.org/resource/GNU_Screen	,	able	,	-2.0	,	1740
+player	,	http://dbpedia.org/resource/Player_Project	,	able	,	-1.5	,	1740
+player	,	http://dbpedia.org/resource/Player_Project	,	read	,	1.0	,	null
+source	,	http://dbpedia.org/resource/Counter-Strike:_Source	,	just as good	,	-2.0	,	null
+player	,	http://dbpedia.org/resource/Player_Project	,	just as good	,	2.0	,	null
+player	,	http://dbpedia.org/resource/Player_Project	,	major	,	-1.0	,	1472628
+key	,	http://dbpedia.org/resource/KeY	,	standard	,	-1.0	,	2295998
+player	,	http://dbpedia.org/resource/Player_Project	,	standard	,	2.0	,	2295998
+zen	,	http://dbpedia.org/resource/Zen_of_Sudoku	,	standard	,	3.0	,	2295998
+remote	,	http://dbpedia.org/resource/ITunes_Remote	,	worse	,	-3.0	,	231252
+reach	,	http://dbpedia.org/resource/Halo:_Reach	,	convenient	,	-2.0	,	604617
+player	,	http://dbpedia.org/resource/Player_Project	,	hurt	,	2.0	,	680532
+screen	,	http://dbpedia.org/resource/GNU_Screen	,	blue	,	2.5	,	1606058
+blue	,	http://dbpedia.org/resource/SaGa_Frontier	,	blue	,	3.0	,	1606058
+black	,	http://dbpedia.org/resource/Twisted_Metal:_Black	,	blue	,	3.0	,	1606058
+player	,	http://dbpedia.org/resource/Player_Project	,	blue	,	3.0	,	1606058
+screen	,	http://dbpedia.org/resource/GNU_Screen	,	responsive	,	2.0	,	1999306
+flash	,	http://dbpedia.org/resource/Adobe_Flash_Player	,	responsive	,	2.0	,	1999306
+nomad	,	http://dbpedia.org/resource/Sega_Nomad	,	frustrating	,	-3.0	,	867758
+portable	,	http://dbpedia.org/resource/Macintosh_Portable	,	frustrating	,	2.0	,	867758
+remote	,	http://dbpedia.org/resource/ITunes_Remote	,	wrong	,	-2.0	,	2035337
+player	,	http://dbpedia.org/resource/Player_Project	,	wrong	,	1.5	,	2035337
+player	,	http://dbpedia.org/resource/Player_Project	,	consistent	,	-2.0	,	576680
+black	,	http://dbpedia.org/resource/Twisted_Metal:_Black	,	limited	,	3.0	,	1415021
+red	,	http://dbpedia.org/resource/Mega_Man_X7	,	limited	,	3.0	,	1415021
+player	,	http://dbpedia.org/resource/Player_Project	,	very embarassing	,	-2.0	,	null
+equalizer	,	http://dbpedia.org/resource/GAU-12_Equalizer	,	satisfied	,	2.0	,	589344
+wave	,	http://dbpedia.org/resource/Geometry_Wars:_Waves	,	nice	,	2.0	,	1586342
+money	,	http://dbpedia.org/resource/Microsoft_Money	,	nice	,	1.0	,	1586342
+player	,	http://dbpedia.org/resource/Player_Project	,	nice	,	0.5	,	1586342
+screen	,	http://dbpedia.org/resource/GNU_Screen	,	nice	,	1.0	,	1586342
+screen	,	http://dbpedia.org/resource/GNU_Screen	,	infinitely better	,	3.0	,	null
+focus	,	http://dbpedia.org/resource/Helicon_Focus	,	as quick	,	1.0	,	null
+nokia	,	http://dbpedia.org/resource/Nokia_Software_Updater	,	too much	,	-3.0	,	null
+screen	,	http://dbpedia.org/resource/GNU_Screen	,	cool	,	2.0	,	2529945
+screen	,	http://dbpedia.org/resource/GNU_Screen	,	defined	,	2.0	,	697188
+player	,	http://dbpedia.org/resource/Player_Project	,	static	,	-3.0	,	2719009
+player	,	http://dbpedia.org/resource/Player_Project	,	so much better	,	-2.0	,	null
+screen	,	http://dbpedia.org/resource/GNU_Screen	,	available	,	-2.0	,	183053
+flash	,	http://dbpedia.org/resource/Adobe_Flash_Player	,	available	,	2.0	,	183053
+player	,	http://dbpedia.org/resource/Player_Project	,	a bit flimsy	,	2.0	,	null
+music	,	http://dbpedia.org/resource/Wii_Music	,	loaded	,	3.0	,	1424455
+player	,	http://dbpedia.org/resource/Player_Project	,	fashionable	,	3.0	,	1816305
+wizard	,	http://dbpedia.org/resource/HTC_Wizard	,	particularly sinister	,	-2.0	,	null
+screen	,	http://dbpedia.org/resource/GNU_Screen	,	clear and readable	,	2.0	,	null
+zen	,	http://dbpedia.org/resource/Zen_of_Sudoku	,	fairly innovative	,	3.0	,	null
+player	,	http://dbpedia.org/resource/Player_Project	,	terrible	,	2.0	,	1513050
+player	,	http://dbpedia.org/resource/Player_Project	,	bottom	,	3.0	,	2440691
+top	,	http://dbpedia.org/resource/Tales_of_Pirates	,	bottom	,	-2.0	,	2440691
+remote	,	http://dbpedia.org/resource/ITunes_Remote	,	hot	,	2.0	,	1247240
+flash	,	http://dbpedia.org/resource/Adobe_Flash_Player	,	hot	,	2.0	,	1247240
+screen	,	http://dbpedia.org/resource/GNU_Screen	,	hot	,	-2.0	,	1247240
+focus	,	http://dbpedia.org/resource/Helicon_Focus	,	low	,	1.0	,	1212469
+red	,	http://dbpedia.org/resource/Mega_Man_X7	,	low	,	3.0	,	1212469
+flash	,	http://dbpedia.org/resource/Adobe_Flash_Player	,	low	,	3.0	,	1212469
+player	,	http://dbpedia.org/resource/Player_Project	,	low	,	3.0	,	1212469
+play	,	http://dbpedia.org/resource/Wii_Play	,	low	,	-2.0	,	1212469
+flash	,	http://dbpedia.org/resource/Adobe_Flash	,	low	,	3.0	,	1212469
+remote	,	http://dbpedia.org/resource/ITunes_Remote	,	cheap	,	-3.0	,	1113114
+play	,	http://dbpedia.org/resource/Wii_Play	,	cheap	,	-2.0	,	1113114
+player	,	http://dbpedia.org/resource/Player_Project	,	cheap	,	2.0	,	1113114
+screen	,	http://dbpedia.org/resource/GNU_Screen	,	cheap	,	-3.0	,	1113114
+money	,	http://dbpedia.org/resource/Microsoft_Money	,	cheap	,	2.0	,	1113114
+screen	,	http://dbpedia.org/resource/GNU_Screen	,	first and foremost	,	-3.0	,	null
+player	,	http://dbpedia.org/resource/Player_Project	,	bad and good	,	-1.0	,	null
+flash	,	http://dbpedia.org/resource/Adobe_Flash_Player	,	ugly	,	2.0	,	220956
+flash	,	http://dbpedia.org/resource/Adobe_Flash_Player	,	common	,	3.0	,	492677
+flash	,	http://dbpedia.org/resource/Adobe_Flash	,	common	,	3.0	,	492677
+photoshop	,	http://dbpedia.org/resource/Adobe_Photoshop	,	simple	,	-2.0	,	2174896
+click	,	http://dbpedia.org/resource/Apache_Click	,	simple	,	3.0	,	2174896
+nokia	,	http://dbpedia.org/resource/Nokia_Software_Updater	,	simple	,	-3.0	,	2174896
+player	,	http://dbpedia.org/resource/Player_Project	,	simple	,	2.5	,	2166346
+nomad	,	http://dbpedia.org/resource/Sega_Nomad	,	expensive	,	-3.0	,	933154
+player	,	http://dbpedia.org/resource/Player_Project	,	expensive	,	2.0	,	933154
+portable	,	http://dbpedia.org/resource/Macintosh_Portable	,	expensive	,	2.0	,	933154
+flash	,	http://dbpedia.org/resource/Adobe_Flash	,	expensive	,	-1.0	,	933154
+screen	,	http://dbpedia.org/resource/GNU_Screen	,	unlimited	,	1.0	,	1008289
+player	,	http://dbpedia.org/resource/Player_Project	,	trendy	,	3.0	,	973677
+key	,	http://dbpedia.org/resource/KeY	,	difficult	,	-2.0	,	1475282
+player	,	http://dbpedia.org/resource/Player_Project	,	difficult	,	0.0	,	1475282
+blue	,	http://dbpedia.org/resource/SaGa_Frontier	,	useless	,	3.0	,	2497141
+black	,	http://dbpedia.org/resource/Twisted_Metal:_Black	,	useless	,	3.0	,	2497141
+play	,	http://dbpedia.org/resource/Wii_Play	,	useless	,	-2.0	,	2497141
 player	,	http://dbpedia.org/resource/Player_Project	,	run	,	2.0	,	null
+flash	,	http://dbpedia.org/resource/Adobe_Flash_Player	,	absolute	,	2.0	,	5205
+zen	,	http://dbpedia.org/resource/Zen_of_Sudoku	,	personal	,	3.0	,	1767329
+source	,	http://dbpedia.org/resource/Counter-Strike:_Source	,	personal	,	2.0	,	1767329
+click	,	http://dbpedia.org/resource/Apache_Click	,	easy	,	3.0	,	749230
+screen	,	http://dbpedia.org/resource/GNU_Screen	,	easy	,	0.890625	,	749230
+player	,	http://dbpedia.org/resource/Player_Project	,	easy	,	2.73046875	,	749230
+nomad	,	http://dbpedia.org/resource/Sega_Nomad	,	easy	,	2.0	,	749230
+touch	,	http://dbpedia.org/resource/HTC_Touch	,	easy	,	-2.0	,	749230
+musicmatch	,	http://dbpedia.org/resource/Musicmatch_Jukebox	,	easy	,	2.0	,	749230
+player	,	http://dbpedia.org/resource/Player_Project	,	happy	,	2.0	,	1148283
+nomad	,	http://dbpedia.org/resource/Sega_Nomad	,	happy	,	3.0	,	1148283
+start-up	,	http://dbpedia.org/resource/Start-Up	,	limitless	,	3.0	,	1499269
+red	,	http://dbpedia.org/resource/Mega_Man_X7	,	limitless	,	3.0	,	1499269
+play	,	http://dbpedia.org/resource/Wii_Play	,	hard	,	-2.0	,	1155354
+nomad	,	http://dbpedia.org/resource/Sega_Nomad	,	hard	,	-3.0	,	1155354
+player	,	http://dbpedia.org/resource/Player_Project	,	hard	,	1.25	,	1155354
+key	,	http://dbpedia.org/resource/KeY	,	hard	,	1.0	,	1155354
+remote	,	http://dbpedia.org/resource/ITunes_Remote	,	hard	,	-1.5	,	1155354
+screen	,	http://dbpedia.org/resource/GNU_Screen	,	hard	,	0.0	,	1155354
+portable	,	http://dbpedia.org/resource/Macintosh_Portable	,	hard	,	2.0	,	1155354
+player	,	http://dbpedia.org/resource/Player_Project	,	previous	,	3.0	,	815227
+screen	,	http://dbpedia.org/resource/GNU_Screen	,	previous	,	-1.0	,	815227
+remote	,	http://dbpedia.org/resource/ITunes_Remote	,	a little hard	,	-1.0	,	null
+flash	,	http://dbpedia.org/resource/Adobe_Flash_Player	,	contrary	,	2.0	,	2065958
+player	,	http://dbpedia.org/resource/Player_Project	,	surprised	,	3.0	,	2357479
+focus	,	http://dbpedia.org/resource/Helicon_Focus	,	familiar	,	1.0	,	965606
+wave	,	http://dbpedia.org/resource/Geometry_Wars:_Waves	,	unusable	,	2.0	,	2497830
+zen	,	http://dbpedia.org/resource/Zen_of_Sudoku	,	original	,	3.0	,	1012503
+shuffle	,	http://dbpedia.org/resource/IPod_Shuffle	,	keen	,	2.0	,	802179
+flash	,	http://dbpedia.org/resource/Adobe_Flash_Player	,	impressive	,	3.0	,	1282014
+flash	,	http://dbpedia.org/resource/Adobe_Flash	,	impressive	,	3.0	,	1282014
+play	,	http://dbpedia.org/resource/Wii_Play	,	portable	,	-2.0	,	1525776
+player	,	http://dbpedia.org/resource/Player_Project	,	portable	,	2.5	,	1525776
+source	,	http://dbpedia.org/resource/Counter-Strike:_Source	,	portable	,	-2.0	,	1525776
+portable	,	http://dbpedia.org/resource/Macintosh_Portable	,	portable	,	2.0	,	1525776
+zen	,	http://dbpedia.org/resource/Zen_of_Sudoku	,	portable	,	3.0	,	1525776
+nomad	,	http://dbpedia.org/resource/Sega_Nomad	,	portable	,	-3.0	,	1525776
+player	,	http://dbpedia.org/resource/Player_Project	,	minor	,	0.5	,	1473083
+red	,	http://dbpedia.org/resource/Mega_Man_X7	,	minor	,	3.0	,	1473083
+flash	,	http://dbpedia.org/resource/Adobe_Flash_Player	,	minor	,	3.0	,	1473083
+flash	,	http://dbpedia.org/resource/Adobe_Flash	,	minor	,	3.0	,	1473083
+screen	,	http://dbpedia.org/resource/GNU_Screen	,	half	,	-3.0	,	517554
+player	,	http://dbpedia.org/resource/Player_Project	,	busy	,	-3.0	,	292937
+player	,	http://dbpedia.org/resource/Player_Project	,	good	,	1.6895009279251099	,	1123148
+wizard	,	http://dbpedia.org/resource/HTC_Wizard	,	good	,	-2.0	,	1123148
+musicmatch	,	http://dbpedia.org/resource/Musicmatch_Jukebox	,	good	,	2.0	,	1123148
+money	,	http://dbpedia.org/resource/Microsoft_Money	,	good	,	1.0	,	1123148
+flash	,	http://dbpedia.org/resource/Adobe_Flash	,	good	,	3.0	,	1123148
+alarm	,	http://dbpedia.org/resource/ALARM	,	good	,	1.0	,	1123148
+remote	,	http://dbpedia.org/resource/ITunes_Remote	,	good	,	2.0	,	1123148
+flash	,	http://dbpedia.org/resource/Adobe_Flash_Player	,	good	,	3.0	,	1123148
+sprint	,	http://dbpedia.org/resource/Sprint_2	,	good	,	1.0	,	1123148
+source	,	http://dbpedia.org/resource/Counter-Strike:_Source	,	good	,	-2.0	,	1123148
+screen	,	http://dbpedia.org/resource/GNU_Screen	,	good	,	2.06640625	,	1123148
+flash	,	http://dbpedia.org/resource/Adobe_Flash_Player	,	harsh	,	2.0	,	1803792
+player	,	http://dbpedia.org/resource/Player_Project	,	chic	,	2.0	,	975487
+player	,	http://dbpedia.org/resource/Player_Project	,	audible	,	-3.0	,	173764
+sprint	,	http://dbpedia.org/resource/Sprint_2	,	nearly as good	,	1.0	,	null
+focus	,	http://dbpedia.org/resource/Helicon_Focus	,	dark	,	1.0	,	273082
+red	,	http://dbpedia.org/resource/Mega_Man_X7	,	taken	,	3.0	,	71739
+movie	,	http://dbpedia.org/resource/The_Movies	,	taken	,	-2.0	,	71739
+player	,	http://dbpedia.org/resource/Player_Project	,	incorrect	,	3.0	,	1146371
+door	,	http://dbpedia.org/resource/Door_Door	,	very annoying	,	-1.0	,	null
+money	,	http://dbpedia.org/resource/Microsoft_Money	,	very nice	,	1.0	,	null
+remote	,	http://dbpedia.org/resource/ITunes_Remote	,	incredibly crappy	,	-3.0	,	null
+flash	,	http://dbpedia.org/resource/Adobe_Flash	,	all that bad	,	3.0	,	null
+flash	,	http://dbpedia.org/resource/Adobe_Flash_Player	,	all that bad	,	3.0	,	null
+nokia	,	http://dbpedia.org/resource/Nokia_Software_Updater	,	unhappy	,	-3.0	,	1149494
+flash	,	http://dbpedia.org/resource/Adobe_Flash	,	white	,	3.0	,	393105
+player	,	http://dbpedia.org/resource/Player_Project	,	white	,	-2.0	,	393105
+focus	,	http://dbpedia.org/resource/Helicon_Focus	,	white	,	1.0	,	393105
+flash	,	http://dbpedia.org/resource/Adobe_Flash_Player	,	white	,	3.0	,	393105
+play	,	http://dbpedia.org/resource/Wii_Play	,	willing	,	-2.0	,	2564986
+remote	,	http://dbpedia.org/resource/ITunes_Remote	,	defective	,	-2.0	,	1597240
+focus	,	http://dbpedia.org/resource/Helicon_Focus	,	helpful	,	2.0	,	1195536
+flash	,	http://dbpedia.org/resource/Adobe_Flash_Player	,	anything better	,	2.0	,	null
+player	,	http://dbpedia.org/resource/Player_Project	,	sound	,	3.0	,	2273326
+portable	,	http://dbpedia.org/resource/Macintosh_Portable	,	sound	,	2.0	,	2273326
+musicmatch	,	http://dbpedia.org/resource/Musicmatch_Jukebox	,	sound	,	2.0	,	2273326
+nomad	,	http://dbpedia.org/resource/Sega_Nomad	,	sound	,	-3.0	,	2273326
+key	,	http://dbpedia.org/resource/KeY	,	sound	,	-1.0	,	2273326
+play	,	http://dbpedia.org/resource/Wii_Play	,	sound	,	-2.0	,	2273326
+screen	,	http://dbpedia.org/resource/GNU_Screen	,	sound	,	1.5	,	2273326
+screen	,	http://dbpedia.org/resource/GNU_Screen	,	blind you	,	2.0	,	null
+key	,	http://dbpedia.org/resource/KeY	,	hard to press	,	1.0	,	null
+nokia	,	http://dbpedia.org/resource/Nokia_Software_Updater	,	due	,	-3.0	,	136354
+zen	,	http://dbpedia.org/resource/Zen_of_Sudoku	,	innovative	,	3.0	,	1876261
+player	,	http://dbpedia.org/resource/Player_Project	,	intuitive	,	2.5	,	2282843
+flash	,	http://dbpedia.org/resource/Adobe_Flash_Player	,	natural	,	3.0	,	1569965
+flash	,	http://dbpedia.org/resource/Adobe_Flash	,	natural	,	3.0	,	1569965
+red	,	http://dbpedia.org/resource/Mega_Man_X7	,	natural	,	3.0	,	1569965
+player	,	http://dbpedia.org/resource/Player_Project	,	early	,	3.0	,	812952
+player	,	http://dbpedia.org/resource/Player_Project	,	comparable to	,	3.0	,	504431
+player	,	http://dbpedia.org/resource/Player_Project	,	very user friendly	,	2.0	,	null
+seal	,	http://dbpedia.org/resource/Seal_Online	,	stinky	,	-2.0	,	1127782
+player	,	http://dbpedia.org/resource/Player_Project	,	complete	,	-1.0	,	520214
+player	,	http://dbpedia.org/resource/Player_Project	,	stylish	,	-3.0	,	975171
+nokia	,	http://dbpedia.org/resource/Nokia_Software_Updater	,	compatible	,	-3.0	,	507464
+player	,	http://dbpedia.org/resource/Player_Project	,	much nicer	,	-2.0	,	null
+player	,	http://dbpedia.org/resource/Player_Project	,	outstanding	,	2.0	,	2343762
+screen	,	http://dbpedia.org/resource/GNU_Screen	,	outstanding	,	1.0	,	2343762
+key	,	http://dbpedia.org/resource/KeY	,	outstanding	,	-1.0	,	2343762
+screen	,	http://dbpedia.org/resource/GNU_Screen	,	separate	,	2.0	,	2109678
+player	,	http://dbpedia.org/resource/Player_Project	,	very good	,	2.25	,	null
+player	,	http://dbpedia.org/resource/Player_Project	,	stylish slim	,	-3.0	,	null
+nokia	,	http://dbpedia.org/resource/Nokia_Software_Updater	,	lame	,	-3.0	,	2325304
+red	,	http://dbpedia.org/resource/Mega_Man_X7	,	ordered	,	3.0	,	1667519
+player	,	http://dbpedia.org/resource/Player_Project	,	ordered	,	-1.0	,	1667519
+nokia	,	http://dbpedia.org/resource/Nokia_OS	,	determined	,	3.0	,	1990373
+nomad	,	http://dbpedia.org/resource/Sega_Nomad	,	actual	,	2.0	,	1933520
+play	,	http://dbpedia.org/resource/Wii_Play	,	actual	,	-2.0	,	1933520
+screen	,	http://dbpedia.org/resource/GNU_Screen	,	weak	,	-3.0	,	2324397
+touch	,	http://dbpedia.org/resource/HTC_Touch	,	weak	,	-2.0	,	2324397
+flash	,	http://dbpedia.org/resource/Adobe_Flash	,	weak	,	-2.0	,	2324397
+player	,	http://dbpedia.org/resource/Player_Project	,	certain	,	-3.0	,	700884
+player	,	http://dbpedia.org/resource/Player_Project	,	high	,	2.0	,	1210854
+rock	,	http://dbpedia.org/resource/Rocks_Cluster_Distribution	,	high	,	3.0	,	1210854
+screen	,	http://dbpedia.org/resource/GNU_Screen	,	high	,	2.0	,	1210854
+focus	,	http://dbpedia.org/resource/Helicon_Focus	,	high	,	1.0	,	1210854
+wave	,	http://dbpedia.org/resource/Geometry_Wars:_Waves	,	high	,	2.0	,	1210854
+screen	,	http://dbpedia.org/resource/GNU_Screen	,	blind	,	2.0	,	1746292
+wizard	,	http://dbpedia.org/resource/HTC_Wizard	,	sinister	,	-2.0	,	743742
+flash	,	http://dbpedia.org/resource/Adobe_Flash_Player	,	amazed	,	2.0	,	2357810
+focus	,	http://dbpedia.org/resource/Helicon_Focus	,	center	,	1.0	,	2031624
+player	,	http://dbpedia.org/resource/Player_Project	,	open	,	2.0	,	1652902
+source	,	http://dbpedia.org/resource/Counter-Strike:_Source	,	open	,	-2.0	,	1652902
+player	,	http://dbpedia.org/resource/Player_Project	,	slim	,	-0.5	,	1394744
+silver	,	http://dbpedia.org/resource/Pok%C3%A9mon_Gold_and_Silver	,	false	,	-2.0	,	2461723
+player	,	http://dbpedia.org/resource/Player_Project	,	inexpensive	,	-3.0	,	934199
+nokia	,	http://dbpedia.org/resource/Nokia_Lifeblog	,	glad	,	2.0	,	1361414
+player	,	http://dbpedia.org/resource/Player_Project	,	continuous	,	-3.0	,	597424
+player	,	http://dbpedia.org/resource/Player_Project	,	extra	,	1.0	,	48858
+remote	,	http://dbpedia.org/resource/ITunes_Remote	,	awkward	,	-1.0	,	605406
+remote	,	http://dbpedia.org/resource/ITunes_Remote	,	sturdy	,	2.0	,	707795
+wizard	,	http://dbpedia.org/resource/HTC_Wizard	,	pre-existing	,	-2.0	,	122386
+key	,	http://dbpedia.org/resource/KeY	,	solid	,	-1.0	,	1125006
+screen	,	http://dbpedia.org/resource/GNU_Screen	,	solid	,	2.0	,	1125006
+music	,	http://dbpedia.org/resource/Wii_Music	,	really fast	,	3.0	,	null
+player	,	http://dbpedia.org/resource/Player_Project	,	really fast	,	-1.0	,	null
+wave	,	http://dbpedia.org/resource/Geometry_Wars:_Waves	,	detectable	,	2.0	,	1746995
+player	,	http://dbpedia.org/resource/Player_Project	,	a great	,	3.0	,	null
+player	,	http://dbpedia.org/resource/Player_Project	,	lemon	,	1.0	,	null
+flash	,	http://dbpedia.org/resource/Adobe_Flash_Player	,	harsh   flat	,	2.0	,	null
+black	,	http://dbpedia.org/resource/Twisted_Metal:_Black	,	very limited	,	3.0	,	null
+red	,	http://dbpedia.org/resource/Mega_Man_X7	,	very limited	,	3.0	,	null
+play	,	http://dbpedia.org/resource/Wii_Play	,	removable	,	-2.0	,	1526582
+ease	,	http://dbpedia.org/resource/At_Ease	,	fortunate	,	2.0	,	1047874
+flash	,	http://dbpedia.org/resource/Adobe_Flash	,	very weak	,	-2.0	,	null
+nomad	,	http://dbpedia.org/resource/Sega_Nomad	,	very expensive	,	-3.0	,	null
+portable	,	http://dbpedia.org/resource/Macintosh_Portable	,	very expensive	,	2.0	,	null
+player	,	http://dbpedia.org/resource/Player_Project	,	effective	,	2.0	,	839225
+money	,	http://dbpedia.org/resource/Microsoft_Money	,	dual	,	2.0	,	2183135
+player	,	http://dbpedia.org/resource/Player_Project	,	paid	,	2.0	,	1708249
+remote	,	http://dbpedia.org/resource/ITunes_Remote	,	paid	,	-2.0	,	1869126
+remote	,	http://dbpedia.org/resource/ITunes_Remote	,	remarkable	,	2.0	,	2163602
+key	,	http://dbpedia.org/resource/KeY	,	small and difficult	,	-2.0	,	null
+nomad	,	http://dbpedia.org/resource/Sega_Nomad	,	easy and uncomplicated	,	2.0	,	null
+focus	,	http://dbpedia.org/resource/Helicon_Focus	,	more often sharper	,	1.0	,	null
+player	,	http://dbpedia.org/resource/Player_Project	,	flawed	,	-2.0	,	1752553
+player	,	http://dbpedia.org/resource/Player_Project	,	flip	,	2.0	,	1996051
+player	,	http://dbpedia.org/resource/Player_Project	,	much better	,	2.0	,	null
+zen	,	http://dbpedia.org/resource/Zen_Bound	,	extreme	,	3.0	,	1534858
+red	,	http://dbpedia.org/resource/Mega_Man_X7	,	decently sized	,	3.0	,	null
+player	,	http://dbpedia.org/resource/Player_Project	,	progressive	,	-2.0	,	1876006
+player	,	http://dbpedia.org/resource/Player_Project	,	friendly	,	2.0	,	1074650
+player	,	http://dbpedia.org/resource/Player_Project	,	absolutely phenomenal	,	3.0	,	null
+player	,	http://dbpedia.org/resource/Player_Project	,	more difficult	,	2.0	,	null
+nokia	,	http://dbpedia.org/resource/Nokia_Software_Updater	,	broken	,	-3.0	,	289082
+play	,	http://dbpedia.org/resource/Wii_Play	,	very delicate	,	-2.0	,	null
+booklet	,	http://dbpedia.org/resource/Nokia_Booklet_3G	,	out of order	,	-2.0	,	null
+player	,	http://dbpedia.org/resource/Player_Project	,	cumbersome	,	2.0	,	2564330
+screen	,	http://dbpedia.org/resource/GNU_Screen	,	too easily scratched	,	-2.0	,	null
+focus	,	http://dbpedia.org/resource/Helicon_Focus	,	quick candid	,	1.0	,	null
+player	,	http://dbpedia.org/resource/Player_Project	,	annoyed	,	-3.0	,	2455845
+player	,	http://dbpedia.org/resource/Player_Project	,	old	,	2.75	,	1643620
+red	,	http://dbpedia.org/resource/Mega_Man_X7	,	clear better	,	3.0	,	null
+flash	,	http://dbpedia.org/resource/Adobe_Flash	,	clear better	,	3.0	,	null
+flash	,	http://dbpedia.org/resource/Adobe_Flash_Player	,	clear better	,	3.0	,	null
+player	,	http://dbpedia.org/resource/Player_Project	,	most major	,	-1.0	,	null
+red	,	http://dbpedia.org/resource/Mega_Man_X7	,	lasting	,	3.0	,	2291500
+focus	,	http://dbpedia.org/resource/Helicon_Focus	,	lasting	,	1.0	,	2291500
+player	,	http://dbpedia.org/resource/Player_Project	,	functional	,	2.0	,	1090308
+screen	,	http://dbpedia.org/resource/GNU_Screen	,	functional	,	-2.0	,	1090308
+screen	,	http://dbpedia.org/resource/GNU_Screen	,	little	,	-1.0	,	855670
+player	,	http://dbpedia.org/resource/Player_Project	,	little	,	0.0	,	855670
+remote	,	http://dbpedia.org/resource/ITunes_Remote	,	little	,	-1.0	,	855670
+wizard	,	http://dbpedia.org/resource/HTC_Wizard	,	equipped	,	-2.0	,	1094049
+alarm	,	http://dbpedia.org/resource/ALARM	,	still havent	,	1.0	,	null
+key	,	http://dbpedia.org/resource/KeY	,	used	,	-2.0	,	2494923
+touch	,	http://dbpedia.org/resource/HTC_Touch	,	used	,	-2.0	,	2494923
+player	,	http://dbpedia.org/resource/Player_Project	,	used	,	1.3125	,	2494923
+remote	,	http://dbpedia.org/resource/ITunes_Remote	,	used	,	2.0	,	2494923
+alarm	,	http://dbpedia.org/resource/ALARM	,	used	,	1.0	,	2494923
+screen	,	http://dbpedia.org/resource/GNU_Screen	,	used	,	-3.0	,	2494923
+focus	,	http://dbpedia.org/resource/Helicon_Focus	,	shot	,	1.0	,	403072
+wave	,	http://dbpedia.org/resource/Geometry_Wars:_Waves	,	detectable   useful	,	2.0	,	null
+flash	,	http://dbpedia.org/resource/Adobe_Flash_Player	,	proper	,	2.0	,	1878466
+player	,	http://dbpedia.org/resource/Player_Project	,	pleased	,	2.0	,	1805157
+player	,	http://dbpedia.org/resource/Player_Project	,	positive	,	-2.0	,	1817500
+money	,	http://dbpedia.org/resource/Microsoft_Money	,	sure	,	3.0	,	2094633
+sprint	,	http://dbpedia.org/resource/Sprint_2	,	sure	,	1.0	,	2094633
+remote	,	http://dbpedia.org/resource/ITunes_Remote	,	sure	,	-3.0	,	2094633
+key	,	http://dbpedia.org/resource/KeY	,	sure	,	1.0	,	2094633
+player	,	http://dbpedia.org/resource/Player_Project	,	sure	,	2.0	,	2094633
+red	,	http://dbpedia.org/resource/Mega_Man_X7	,	more manual	,	3.0	,	null
+focus	,	http://dbpedia.org/resource/Helicon_Focus	,	more manual	,	1.0	,	null
+screen	,	http://dbpedia.org/resource/GNU_Screen	,	naturally cool	,	2.0	,	null
+key	,	http://dbpedia.org/resource/KeY	,	unconventional	,	-2.0	,	606602
+focus	,	http://dbpedia.org/resource/Helicon_Focus	,	candid	,	1.0	,	1799297
+player	,	http://dbpedia.org/resource/Player_Project	,	disappointed	,	3.0	,	2333976
+player	,	http://dbpedia.org/resource/Player_Project	,	intuitive to use	,	2.0	,	null
+player	,	http://dbpedia.org/resource/Player_Project	,	identical	,	2.0	,	1360962
+reach	,	http://dbpedia.org/resource/Halo:_Reach	,	more convenient	,	-2.0	,	null
+nomad	,	http://dbpedia.org/resource/Sega_Nomad	,	other	,	3.0	,	2069355
+play	,	http://dbpedia.org/resource/Wii_Play	,	other	,	-2.0	,	2069355
+nokia	,	http://dbpedia.org/resource/Nokia_Software_Updater	,	other	,	-3.0	,	2069355
+remote	,	http://dbpedia.org/resource/ITunes_Remote	,	other	,	-2.5	,	2069355
+napster	,	http://dbpedia.org/resource/Napster	,	other	,	2.0	,	2069355
+screen	,	http://dbpedia.org/resource/GNU_Screen	,	other	,	3.0	,	2069355
+player	,	http://dbpedia.org/resource/Player_Project	,	other	,	2.7265625	,	2069355
+flash	,	http://dbpedia.org/resource/Adobe_Flash	,	other	,	-1.0	,	2069355
+money	,	http://dbpedia.org/resource/Microsoft_Money	,	other	,	3.0	,	2069355
+focus	,	http://dbpedia.org/resource/Helicon_Focus	,	other	,	1.0	,	2069355
+player	,	http://dbpedia.org/resource/Player_Project	,	lousy	,	-3.0	,	422374
+player	,	http://dbpedia.org/resource/Player_Project	,	able to access	,	-3.0	,	null
+nokia	,	http://dbpedia.org/resource/Nokia_Software_Updater	,	recent	,	-3.0	,	1642477
+focus	,	http://dbpedia.org/resource/Helicon_Focus	,	sharp and high	,	1.0	,	null
+screen	,	http://dbpedia.org/resource/GNU_Screen	,	dim	,	2.0	,	275290
+nomad	,	http://dbpedia.org/resource/Sega_Nomad	,	equally frustrating	,	-3.0	,	null
+portable	,	http://dbpedia.org/resource/Macintosh_Portable	,	equally frustrating	,	2.0	,	null
+player	,	http://dbpedia.org/resource/Player_Project	,	satisfactory	,	-2.0	,	2080577
+player	,	http://dbpedia.org/resource/Player_Project	,	full	,	-2.0	,	1083157
+player	,	http://dbpedia.org/resource/Player_Project	,	wary	,	-3.0	,	162386
+screen	,	http://dbpedia.org/resource/GNU_Screen	,	perfect	,	3.0	,	1749320
+red	,	http://dbpedia.org/resource/Mega_Man_X7	,	perfect	,	3.0	,	1749320
+focus	,	http://dbpedia.org/resource/Helicon_Focus	,	perfect	,	1.0	,	1749320
+player	,	http://dbpedia.org/resource/Player_Project	,	perfect	,	-0.75	,	1749320
+wizard	,	http://dbpedia.org/resource/HTC_Wizard	,	fine	,	-2.0	,	1838253
+player	,	http://dbpedia.org/resource/Player_Project	,	fine	,	2.375	,	1838253
+zen	,	http://dbpedia.org/resource/Zen_of_Sudoku	,	reasonably priced	,	3.0	,	null
+screen	,	http://dbpedia.org/resource/GNU_Screen	,	lit	,	-3.0	,	475125
+player	,	http://dbpedia.org/resource/Player_Project	,	pricey	,	2.0	,	933599
+nokia	,	http://dbpedia.org/resource/Nokia_Software_Updater	,	so utterly	,	-3.0	,	null
+player	,	http://dbpedia.org/resource/Player_Project	,	sharp	,	2.0	,	803038
+flash	,	http://dbpedia.org/resource/Adobe_Flash	,	sharp	,	3.0	,	803038
+razor	,	http://dbpedia.org/resource/Maniac_Mansion	,	sharp	,	2.0	,	803038
+focus	,	http://dbpedia.org/resource/Helicon_Focus	,	sharp	,	1.0	,	803038
+flash	,	http://dbpedia.org/resource/Adobe_Flash_Player	,	sharp	,	3.0	,	803038
+wizard	,	http://dbpedia.org/resource/HTC_Wizard	,	poor	,	-2.0	,	2022953
+screen	,	http://dbpedia.org/resource/GNU_Screen	,	foremost	,	-3.0	,	1033249
+player	,	http://dbpedia.org/resource/Player_Project	,	potential	,	-3.0	,	1884176
+screen	,	http://dbpedia.org/resource/GNU_Screen	,	rarely used	,	-3.0	,	null
+focus	,	http://dbpedia.org/resource/Helicon_Focus	,	manual	,	1.0	,	2759190
+red	,	http://dbpedia.org/resource/Mega_Man_X7	,	manual	,	3.0	,	2759190
+player	,	http://dbpedia.org/resource/Player_Project	,	special	,	-3.0	,	1678729
+red	,	http://dbpedia.org/resource/Mega_Man_X7	,	blurry	,	3.0	,	781644
+screen	,	http://dbpedia.org/resource/GNU_Screen	,	first	,	-0.5	,	1010862
+nokia	,	http://dbpedia.org/resource/Nokia_Lifeblog	,	first	,	2.0	,	1010862
+player	,	http://dbpedia.org/resource/Player_Project	,	first	,	2.15625	,	1010862
+flash	,	http://dbpedia.org/resource/Adobe_Flash_Player	,	first	,	2.0	,	1010862

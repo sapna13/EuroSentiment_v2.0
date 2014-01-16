@@ -24,12 +24,11 @@ import java.util.Map;
 import java.util.Set;
 import java.util.StringTokenizer;
 
+import org.apache.log4j.Logger;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
-
-
 
 /**
  * main class for the electronics corpus
@@ -43,13 +42,14 @@ public class EuroSentimentMain {
 	private static Map<String, TIntDoubleHashMap> classVectorMap = new HashMap<String, TIntDoubleHashMap>();
 	private static SentiWordBags sentiWord;
 	private static Set<String> sentiWords;
+	private static Logger logger = Logger.getLogger(EuroSentimentMain.class);
 
 	public void parse(String path) {
 		parameterParserAela(path);			
 	}
 
 	public static boolean containsSenti(String tagText){
-		StringTokenizer tokenizer = new StringTokenizer(tagText);
+		StringTokenizer tokenizer = new StringTokenizer(tagText); 
 		while(tokenizer.hasMoreTokens()){
 			String token = tokenizer.nextToken();
 			if(sentiWords.contains(token))
@@ -73,18 +73,19 @@ public class EuroSentimentMain {
 		String line = null;
 		try {
 			while((line=br.readLine())!=null){
-				classes.add(line.trim().toLowerCase());			
+				classes.add(line.trim().toLowerCase());			//aspects are added to a list called class
 			}
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
 		for(String classLabel : classes){
-			TIntDoubleHashMap vector = clesa.getVector(new Pair<String, Language>(classLabel, Language.ENGLISH));
+			TIntDoubleHashMap vector = clesa.getVector(new Pair<String, Language>(classLabel, Language.ENGLISH)); /*word vectors corresponding to each class label are prepared and saved
+			                                                                                                        beforehand to improve code efficiency, they are not required tobe generated on the fly*/
 			classVectorMap.put(classLabel, vector);
 		}
 	}
 
-	private void parameterParserAela(String path) {
+	private void parameterParserAela(String path) { //reads the json output of AELA, extracts text and entities
 		JSONParser parser = new JSONParser();
 		JSONObject jsonObject = null;
 		try {
@@ -135,6 +136,11 @@ public class EuroSentimentMain {
 	}
 
 
+/* each element of the returned set is a string comprising of the following info:
+ * 1. Mention = entity mention annotated by AELA
+ * 2. Class = Aspect for the entity mention, determined on the basis of highest semantic similarity between each aspect and the mention
+ * 3. sentence = sentence in which the mention was found
+ */
 
 	public Set<String> getMentionClassSentence(CLESA clesa, String aelaFileName){		
 		HashSet<String> mentionClassSentence = new HashSet<String>();
@@ -175,8 +181,9 @@ public class EuroSentimentMain {
 					TIntDoubleHashMap mentionVector = clesa.getVector(new Pair<String, Language>(mention, Language.ENGLISH));
 					for(String classLabel : classes){
 						double score = 0.0;
-						score = TroveVectorUtils.cosineProduct(mentionVector, classVectorMap.get(classLabel));									
-						if(score >= maxScore){
+						score = TroveVectorUtils.cosineProduct(mentionVector, classVectorMap.get(classLabel));	/*semantic similarity computation								
+						                                                                                         between aspect/classes and entity mentions */
+						if(score >= maxScore){                                                                      
 							maxScore = score;
 							beat = true;
 							classLabelWithMaxScore = classLabel;
@@ -214,47 +221,57 @@ public class EuroSentimentMain {
 		annotations = null;
 	}
 
-	public static void start(String aelaOutputPath, String outputPath, String annotatedDataPath, String aspectFile, String gatePath, String sentiPath, String outputDir, String wnhome, String finalOutputFilePath) throws IOException {		
+	/* annotatedDataPath: Original data in json format
+	 * sentiPath: path for sentiwordnet
+	 */
+	public static void start(String aelaOutputPath, String outputPath, String annotatedDataPath, 
+		String aspectFile, String gatePath, String sentiPath, String outputDir, String wnhome, String finalOutputFilePath) throws IOException {		
 		EuroSentimentMain esAnno = new EuroSentimentMain();
 		EuroSentimentMain.initiateSWNet(sentiPath);
-		StandAloneAnnie.setUp(gatePath);		
+		StandAloneAnnie.setUp(gatePath);		//ANNIE is a tokenizer from Gate framework, setup initiates the tokenizer
 		File dir = new File(aelaOutputPath);
-		CLESA clesa = new CLESA();
+		CLESA clesa = new CLESA();             //CLESA is the class which implements semantic similarity. The component is re-used from EU project Monnet.
+		                                       // author: kartik Asooja , component is freely distributable and is available at github
 		esAnno.getAspects(aspectFile, clesa);
 
 		StringBuffer buffer = new StringBuffer();
-		List<String> tags = new ArrayList<String>();
+		List<String> tags = new ArrayList<String>();    /*list to store POS tags/phrases we are interested in extracting. 
+		                                                  We consider them to be carrying the sentiment information */
 
-		tags.add("JJ");
+		tags.add("JJ");   //JJ = Adjective
 		tags.add("ADJP");
 		tags.add("VBN");
 
-		int i = 0;
+		int i = 0;    //
 
-		File[] listFiles = dir.listFiles();
+		File[] listFiles = dir.listFiles();       //Files have same names in the AELA output and the original corpus
+		                                            
 		for(File file : listFiles){
 			if(file.isHidden())
 				continue;
 			System.out.println("fileNo.   " + i++);
 			System.out.println("fileName   " + file.getName());
 
+			logger.info("fileNo.   " + i++);
+			logger.info("fileName   " + file.getName());
+
 			try {
 				esAnno.parse(file.getAbsolutePath());				
-				Set<String> mentionClassSentences = esAnno.getMentionClassSentence(clesa, file.getName());
-				Map<String, Long> scoreMap = esAnno.getScoreMapByParsingRawTripAdvisor(file.getName(), annotatedDataPath);
+				Set<String> mentionClassSentences = esAnno.getMentionClassSentence(clesa, file.getName()); //produces 'mention---class---sentence'
+				Map<String, Long> scoreMap = esAnno.getScoreMapByParsingRawTripAdvisor(file.getName(), annotatedDataPath); //aspect-rating mapping
 				for(String mentionClassSentence : mentionClassSentences){
 					String[] split = mentionClassSentence.split("-----");
 					String mention  = split[0];
 					String mentionClass = split[1];
 					String sentence = split[2];				
-					Map<String, List<String>> tagTextMap = StanfordNLP.getTagText(sentence, tags);								
+					Map<String, List<String>> tagTextMap = StanfordNLP.getTagText(sentence, tags);			//POS tag with text					
 					for(String tag : tags){
 						List<String> tagTexts = tagTextMap.get(tag);
 						for(String tagText : tagTexts){
-							boolean senti = containsSenti(tagText);
+							boolean senti = containsSenti(tagText);  //checks if the extracted sentiment word appears in the sentiwordnet
 							if(senti){		
 								if(getLength(tagText)<4)
-									buffer.append(mention + "\t"+ mentionClass + "\t" + tagText + "\t" + scoreMap.get(mentionClass)+"\n");
+									buffer.append(mention + "\t"+ mentionClass + "\t" + tagText + "\t" + scoreMap.get(mentionClass)+"\n"); //mentionClass= aspect
 							}
 						}
 					}							
