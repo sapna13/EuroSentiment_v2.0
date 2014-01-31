@@ -3,6 +3,7 @@ package eu.eurosentiment.insight;
 
 import java.io.*;
 import java.util.*;
+import org.apache.log4j.Logger;
 
 import edu.stanford.nlp.io.*;
 import edu.stanford.nlp.ling.*;

@@ -30,11 +30,7 @@ import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 
-/**
- * main class for the electronics corpus
- * @author sapna
- *
- */
+
 public class EuroSentimentMain {
 	private String text;
 	private JSONArray annotations;
@@ -76,8 +72,9 @@ public class EuroSentimentMain {
 				classes.add(line.trim().toLowerCase());			//aspects are added to a list called class
 			}
 		} catch (IOException e) {
-			e.printStackTrace();
+			logger.debug("IO Exception, Error while reading aspectFile "  + aspectFile);			
 		}
+		logger.info("Initiating clesa vector creation for classLabels");
 		for(String classLabel : classes){
 			TIntDoubleHashMap vector = clesa.getVector(new Pair<String, Language>(classLabel, Language.ENGLISH)); /*word vectors corresponding to each class label are prepared and saved
 			                                                                                                        beforehand to improve code efficiency, they are not required tobe generated on the fly*/
@@ -93,14 +90,11 @@ public class EuroSentimentMain {
 			setText(((String) jsonObject.get("text")).trim());			
 			annotations = (JSONArray) jsonObject.get("annotations");			
 		} catch (FileNotFoundException e) {
-			// TODO Auto-generated catch 4
-			e.printStackTrace();
+			logger.debug("File Not Found : " + path);
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			logger.debug("Error while reading "  + path);			
 		} catch (ParseException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			logger.debug("Error while parsing json:  "  + path);			
 		}
 	}
 
@@ -123,14 +117,11 @@ public class EuroSentimentMain {
 			}
 			return fieldValueMap;
 		} catch (FileNotFoundException e) {
-			// TODO Auto-generated catch 4
-			e.printStackTrace();
+			logger.debug("File Not Found :" + aelaFileName + " in " + rawDataPath);
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			logger.debug("Error while reading : " + aelaFileName + " in " + rawDataPath);
 		} catch (ParseException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			logger.debug("Error while parsing : " + aelaFileName + " in " + rawDataPath);
 		}
 		return null;
 	}
@@ -142,7 +133,8 @@ public class EuroSentimentMain {
  * 3. sentence = sentence in which the mention was found
  */
 
-	public Set<String> getMentionClassSentence(CLESA clesa, String aelaFileName){		
+	public Set<String> getMentionClassSentence(CLESA clesa, String aelaFileName){	
+		logger.info("Getting mentionClassSentence for : " + aelaFileName);
 		HashSet<String> mentionClassSentence = new HashSet<String>();
 		text = StandAloneAnnie.getRefinedText(text);
 		List<String> sentences = StanfordNLP.getSentences(text.trim());
@@ -227,9 +219,12 @@ public class EuroSentimentMain {
 	public static void start(String aelaOutputPath, String outputPath, String annotatedDataPath, 
 		String aspectFile, String gatePath, String sentiPath, String outputDir, String wnhome, String finalOutputFilePath) throws IOException {		
 		EuroSentimentMain esAnno = new EuroSentimentMain();
+		logger.info("Initiating SentiWordnet");
 		EuroSentimentMain.initiateSWNet(sentiPath);
+		
 		StandAloneAnnie.setUp(gatePath);		//ANNIE is a tokenizer from Gate framework, setup initiates the tokenizer
 		File dir = new File(aelaOutputPath);
+		logger.info("Initiating CLESA load");
 		CLESA clesa = new CLESA();             //CLESA is the class which implements semantic similarity. The component is re-used from EU project Monnet.
 		                                       // author: kartik Asooja , component is freely distributable and is available at github
 		esAnno.getAspects(aspectFile, clesa);
@@ -278,7 +273,7 @@ public class EuroSentimentMain {
 				}
 				esAnno.refresh();
 			} catch(Exception e){
-				System.out.println("Skipped" + file.getName());
+				logger.debug("Skipped" + file.getName());
 			}
 		}
 		BasicFileTools.writeFile(outputPath, buffer.toString().trim());
@@ -295,5 +290,36 @@ public class EuroSentimentMain {
 	public void setText(String text) {
 		this.text = text.toLowerCase();
 	}
+	
+	public class Barrier {
+		/** Number of objects being waited on */
+		private int counter;
+		/** Constructor for Barrier
+		 * 
+		 * @param n Number of objects to wait on
+		 */
+		public Barrier(int n) {
+			counter = n;
+		}
+		/** Wait for objects to complete */
+		public synchronized void barrierWait() {
+			while(counter > 0) {
+				try {
+					wait();
+				} catch (InterruptedException e) {}
+			}
+		}
+		/** Object just completed */
+		public synchronized void barrierPost() {
+			counter--;
+			if(counter == 0) {
+				notifyAll();
+			}
+		}
+		public boolean isFinished() {
+			return counter ==0 ? true : false;
+		}
+	}
+
 
 }

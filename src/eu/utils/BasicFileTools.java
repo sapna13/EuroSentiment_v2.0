@@ -14,6 +14,10 @@ import java.io.Writer;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.apache.log4j.Logger;
+
+import eu.eurosentiment.insight.MainClass;
+
 
 /**
  *  
@@ -24,6 +28,8 @@ public class BasicFileTools {
 
 	public static int numberOfLineRead = 0;
 
+	private static Logger logger = Logger.getLogger(BasicFileTools.class);
+	
 	public static BufferedReader getBufferedReader(File file) {
 		FileInputStream inputFile = null;
 		InputStreamReader streamRead = null;
@@ -33,7 +39,7 @@ public class BasicFileTools {
 			streamRead = new InputStreamReader(inputFile, "UTF8");
 			read = new BufferedReader(streamRead);
 		} catch(Exception e) {
-			System.out.println("File Not there probably or yet not created: " + file.getAbsolutePath());
+			logger.debug("File Not there probably or yet not created: " + file.getAbsolutePath());
 			numberOfLineRead = 0;
 		}		
 		return read;
@@ -55,6 +61,7 @@ public class BasicFileTools {
 			}
 			numberOfLineRead = j;			
 		} catch (IOException e) {
+			logger.debug("IO Exception while reading the file " + file.getAbsolutePath());			
 			e.printStackTrace();
 		}	
 		bufferedReader.close();
@@ -66,7 +73,7 @@ public class BasicFileTools {
 		try {
 			file = new File(filePath);
 		} catch(Exception E) {
-			System.out.println("Not a File Path or File Not Found");
+			logger.debug("Not a file path or file not found " + file.getAbsolutePath());								
 		}
 		return file;
 	}
@@ -86,6 +93,7 @@ public class BasicFileTools {
 			output.close();
 			written = true;			
 		} catch (IOException e) {
+			logger.debug("Not a file path or file not found " + file.getAbsolutePath());
 			e.printStackTrace();
 		}				
 		return written;
@@ -94,12 +102,13 @@ public class BasicFileTools {
 	public static void deleteDirOrFile(String dirOrFilePath) {	
 		File directory = new File(dirOrFilePath);
 		if(!directory.exists()){
-			System.out.println("Directory does not exist.");
+			logger.debug("Directory does not exist");
 			System.exit(0);
-		}else{
+		} else {
 			try{
 				deleteDirOrFile(directory);
 			}catch(IOException e){
+				logger.debug("IO Exception" + e);				
 				e.printStackTrace();
 				System.exit(0);
 			}
@@ -146,7 +155,7 @@ public class BasicFileTools {
 	public static List<String> listSubDir(String dirPath){
 		File dir = new File(dirPath);
 		if(!dir.isDirectory()){
-			System.err.println(dirPath + " is not a directory");
+			logger.debug(dirPath + " is not a directory");
 			return null;
 		}
 		String[] files = dir.list();

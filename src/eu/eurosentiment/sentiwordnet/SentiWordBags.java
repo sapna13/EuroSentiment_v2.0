@@ -9,10 +9,12 @@ import java.io.IOException;
 import java.util.HashSet;
 import java.util.Set;
 
+import org.apache.log4j.Logger;
+
+import eu.eurosentiment.insight.MainClass;
 import eu.utils.BasicFileTools;
 
 public class SentiWordBags {
-
 
 	private String posWordsString;
 	private String negWordsString;
@@ -20,12 +22,12 @@ public class SentiWordBags {
 	private Set<String> negWords;
 	private int lineStupid; 
 	private Set<String> sentiWords;
+	private static Logger logger = Logger.getLogger(SentiWordBags.class);
+
 
 	public SentiWordBags() {
 		sentiWords = new HashSet<String>();
 		createBags("resources/SentiWordNet_3.0.0_20130122.txt");
-		//createBags("copy.txt");
-
 	}
 
 	public SentiWordBags(String sentiPath) {
@@ -97,9 +99,11 @@ public class SentiWordBags {
 					}
 				}				
 			}
-		} catch (NumberFormatException e) {		
+		} catch (NumberFormatException e) {
+			logger.debug("Number Format Exception while creating sentiwordnet bags");
 			e.printStackTrace();
 		} catch (IOException e) {
+			logger.debug("IO Exception while creating sentiwordnet bags");			
 			e.printStackTrace();
 		}	
 		//posWordsString = posWordsBuffer.toString().toLowerCase().trim();
