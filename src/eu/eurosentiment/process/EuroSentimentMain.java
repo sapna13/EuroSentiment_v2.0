@@ -10,9 +10,11 @@ import eu.utils.BasicFileTools;
 import eu.utils.StandAloneAnnie;
 //import eu.utils.StandAloneAnnie;
 import gnu.trove.TIntDoubleHashMap;
+import edu.insight.negdet.Negex;
 
 import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
@@ -21,10 +23,12 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
+import java.util.Properties;
 import java.util.Set;
 import java.util.StringTokenizer;
 
 import org.apache.log4j.Logger;
+import org.apache.log4j.PropertyConfigurator;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
@@ -39,9 +43,21 @@ public class EuroSentimentMain {
 	private static SentiWordBags sentiWord;
 	private static Set<String> sentiWords;
 	private static Logger logger = Logger.getLogger(EuroSentimentMain.class);
+	private static String log4JPropertyFile = "load/log4j.properties";
 
 	public void parse(String path) {
 		parameterParserAela(path);			
+	}
+
+	static{
+		Properties p = new Properties();
+		try {
+			p.load(new FileInputStream(log4JPropertyFile));
+			PropertyConfigurator.configure(p);
+			//    logger.info("Wow! I'm configured!");
+		} catch (IOException e) {
+			//DAMN! I'm not
+		}
 	}
 
 	public static boolean containsSenti(String tagText){
@@ -113,7 +129,7 @@ public class EuroSentimentMain {
 				Long rating = (Long) jsonObject.get(aspect);
 				//System.out.println(rating);
 				if(rating!=null)
-					fieldValueMap.put(aspect, rating);
+					fieldValueMap.put(aspect, rating);			
 			}
 			return fieldValueMap;
 		} catch (FileNotFoundException e) {
@@ -127,16 +143,20 @@ public class EuroSentimentMain {
 	}
 
 
-/* each element of the returned set is a string comprising of the following info:
- * 1. Mention = entity mention annotated by AELA
- * 2. Class = Aspect for the entity mention, determined on the basis of highest semantic similarity between each aspect and the mention
- * 3. sentence = sentence in which the mention was found
- */
+	/* each element of the returned set is a string comprising of the following info:
+	 * 1. Mention = entity mention annotated by AELA
+	 * 2. Class = Aspect for the entity mention, determined on the basis of highest semantic similarity between each aspect and the mention
+	 * 3. sentence = sentence in which the mention was found
+	 */
 
 	public Set<String> getMentionClassSentence(CLESA clesa, String aelaFileName){	
 		logger.info("Getting mentionClassSentence for : " + aelaFileName);
 		HashSet<String> mentionClassSentence = new HashSet<String>();
-		text = StandAloneAnnie.getRefinedText(text);
+		try{
+			text = StandAloneAnnie.getRefinedText(text);
+		} catch(Exception e){
+			logger.error("The sourceURL and document's content were null: while refining the text using standaloneannie, program would still continue skipping the current file.");
+		}
 		List<String> sentences = StanfordNLP.getSentences(text.trim());
 		StringBuffer bu = new StringBuffer();
 		for(String senten : sentences)
@@ -217,16 +237,16 @@ public class EuroSentimentMain {
 	 * sentiPath: path for sentiwordnet
 	 */
 	public static void start(String aelaOutputPath, String outputPath, String annotatedDataPath, 
-		String aspectFile, String gatePath, String sentiPath, String outputDir, String wnhome, String finalOutputFilePath) throws IOException {		
+			String aspectFile, String gatePath, String sentiPath, String outputDir, String wnhome, String finalOutputFilePath) throws IOException {		
 		EuroSentimentMain esAnno = new EuroSentimentMain();
 		logger.info("Initiating SentiWordnet");
 		EuroSentimentMain.initiateSWNet(sentiPath);
-		
+
 		StandAloneAnnie.setUp(gatePath);		//ANNIE is a tokenizer from Gate framework, setup initiates the tokenizer
 		File dir = new File(aelaOutputPath);
 		logger.info("Initiating CLESA load");
 		CLESA clesa = new CLESA();             //CLESA is the class which implements semantic similarity. The component is re-used from EU project Monnet.
-		                                       // author: kartik Asooja , component is freely distributable and is available at github
+		// author: kartik Asooja , component is freely distributable and is available at github
 		esAnno.getAspects(aspectFile, clesa);
 
 		StringBuffer buffer = new StringBuffer();
@@ -236,16 +256,17 @@ public class EuroSentimentMain {
 		tags.add("JJ");   //JJ = Adjective
 		tags.add("ADJP");
 		tags.add("VBN");
+		tags.add("VB");     //13-2-2014
 
 		int i = 0;    //
 
 		File[] listFiles = dir.listFiles();       //Files have same names in the AELA output and the original corpus
-		                                            
+
 		for(File file : listFiles){
 			if(file.isHidden())
 				continue;
-			System.out.println("fileNo.   " + i++);
-			System.out.println("fileName   " + file.getName());
+			//			System.out.println("fileNo.   " + i++);
+			//			System.out.println("fileName   " + file.getName());
 
 			logger.info("fileNo.   " + i++);
 			logger.info("fileName   " + file.getName());
@@ -265,8 +286,23 @@ public class EuroSentimentMain {
 						for(String tagText : tagTexts){
 							boolean senti = containsSenti(tagText);  //checks if the extracted sentiment word appears in the sentiwordnet
 							if(senti){		
-								if(getLength(tagText)<4)
-									buffer.append(mention + "\t"+ mentionClass + "\t" + tagText + "\t" + scoreMap.get(mentionClass)+"\n"); //mentionClass= aspect
+								if(getLength(tagText)<4){ 
+									long score = scoreMap.get(mentionClass) ;  //normalising score 13-2-2014
+									if(Negex.negCheck(sentence, tagText, false))
+									   score = 5-score;	
+									double normalisedScore = 0.0;
+									if(score>=3)
+										normalisedScore = 1;
+									if(score<=-3)
+										normalisedScore = -1;
+									if(score<=2 && score >=1)
+										normalisedScore = 0.5;
+									if(score<=-1 && score >= -2)
+										normalisedScore = 0.5;
+
+									buffer.append(mention + "\t"+ mentionClass + "\t" + tagText + "\t" + normalisedScore+"\n"); //mentionClass= aspect
+								}
+
 							}
 						}
 					}							
@@ -277,7 +313,10 @@ public class EuroSentimentMain {
 			}
 		}
 		BasicFileTools.writeFile(outputPath, buffer.toString().trim());
+		logger.info("DSSPA modue ran successfully, output wriiten to intermediate file");
+
 		LexiconCollector_keyphrase.start(outputDir, clesa, wnhome, finalOutputFilePath);
+		logger.info("Sentiwordnet Synsets identified, final output written");
 
 		clesa.close();
 
@@ -290,7 +329,7 @@ public class EuroSentimentMain {
 	public void setText(String text) {
 		this.text = text.toLowerCase();
 	}
-	
+
 	public class Barrier {
 		/** Number of objects being waited on */
 		private int counter;

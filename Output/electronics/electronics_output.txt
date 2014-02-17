@@ -1,0 +1,223 @@
+player	http://dbpedia.org/resource/Player_Project	player	only	0.5
+player	http://dbpedia.org/resource/Player_Project	player	red	0.5
+player	http://dbpedia.org/resource/Player_Project	player	keep	0.5
+player	http://dbpedia.org/resource/Player_Project	player	particular	1.0
+player	http://dbpedia.org/resource/Player_Project	player	able	1.0
+player	http://dbpedia.org/resource/Player_Project	player	certain	1.0
+player	http://dbpedia.org/resource/Player_Project	player	special	1.0
+player	http://dbpedia.org/resource/Player_Project	player	able to access	-1.0
+player	http://dbpedia.org/resource/Player_Project	player	work	1.0
+player	http://dbpedia.org/resource/Player_Project	player	play	0.5
+player	http://dbpedia.org/resource/Player_Project	player	play	0.5
+player	http://dbpedia.org/resource/Player_Project	player	play	0.5
+remote	http://dbpedia.org/resource/ITunes_Remote	remote	whole	0.5
+remote	http://dbpedia.org/resource/ITunes_Remote	remote	paid	0.5
+remote	http://dbpedia.org/resource/ITunes_Remote	remote	try	0.5
+remote	http://dbpedia.org/resource/ITunes_Remote	remote	buy	0.5
+player	http://dbpedia.org/resource/Player_Project	player	know	-1.0
+player	http://dbpedia.org/resource/Player_Project	player	have	-1.0
+player	http://dbpedia.org/resource/Player_Project	player	get	-1.0
+player	http://dbpedia.org/resource/Player_Project	player	great	-1.0
+player	http://dbpedia.org/resource/Player_Project	player	great	-1.0
+player	http://dbpedia.org/resource/Player_Project	player	get	-1.0
+player	http://dbpedia.org/resource/Player_Project	player	play	-1.0
+player	http://dbpedia.org/resource/Player_Project	player	right	1.0
+player	http://dbpedia.org/resource/Player_Project	player	wrong	0.5
+player	http://dbpedia.org/resource/Player_Project	player	suggest	1.0
+player	http://dbpedia.org/resource/Player_Project	player	get	1.0
+player	http://dbpedia.org/resource/Player_Project	player	wrong	1.0
+player	http://dbpedia.org/resource/Player_Project	player	wrong	1.0
+player	http://dbpedia.org/resource/Player_Project	player	go	1.0
+player	http://dbpedia.org/resource/Player_Project	player	old	0.5
+player	http://dbpedia.org/resource/Player_Project	player	old	0.5
+player	http://dbpedia.org/resource/Player_Project	player	sharp	0.5
+player	http://dbpedia.org/resource/Player_Project	player	basically every	0.5
+player	http://dbpedia.org/resource/Player_Project	player	tested	0.5
+player	http://dbpedia.org/resource/Player_Project	player	be	0.5
+player	http://dbpedia.org/resource/Player_Project	player	good	0.5
+cds	http://dbpedia.org/resource/Copernic_Desktop_Search	cd	new	0.5
+player	http://dbpedia.org/resource/Player_Project	player	first	0.5
+player	http://dbpedia.org/resource/Player_Project	player	excellent	0.5
+player	http://dbpedia.org/resource/Player_Project	player	great	0.5
+player	http://dbpedia.org/resource/Player_Project	player	faulty	-1.0
+player	http://dbpedia.org/resource/Player_Project	player	turn	1.0
+player	http://dbpedia.org/resource/Player_Project	player	second	-1.0
+player	http://dbpedia.org/resource/Player_Project	player	progressive	0.5
+player	http://dbpedia.org/resource/Player_Project	player	scan	0.5
+player	http://dbpedia.org/resource/Player_Project	player	sure	1.0
+player	http://dbpedia.org/resource/Player_Project	player	sure	1.0
+player	http://dbpedia.org/resource/Player_Project	player	little	0.5
+player	http://dbpedia.org/resource/Player_Project	player	other	0.5
+player	http://dbpedia.org/resource/Player_Project	player	paid	0.5
+door	http://dbpedia.org/resource/Door_Door	door	close	1.0
+player	http://dbpedia.org/resource/Player_Project	player	old	1.0
+player	http://dbpedia.org/resource/Player_Project	player	old	1.0
+player	http://dbpedia.org/resource/Player_Project	player	replace	1.0
+player	http://dbpedia.org/resource/Player_Project	player	inexpensive	-1.0
+player	http://dbpedia.org/resource/Player_Project	player	very inexpensive	-1.0
+player	http://dbpedia.org/resource/Player_Project	player	impressed	-1.0
+player	http://dbpedia.org/resource/Player_Project	player	cheap	0.5
+player	http://dbpedia.org/resource/Player_Project	player	best cheap	0.5
+player	http://dbpedia.org/resource/Player_Project	player	wonderful	0.5
+player	http://dbpedia.org/resource/Player_Project	player	first	0.5
+player	http://dbpedia.org/resource/Player_Project	player	have	0.5
+player	http://dbpedia.org/resource/Player_Project	player	free	0.5
+flash	http://dbpedia.org/resource/Adobe_Flash_Player	flash	other	0.5
+flash	http://dbpedia.org/resource/Adobe_Flash_Player	flash	powerful	0.5
+flash	http://dbpedia.org/resource/Adobe_Flash_Player	flash	expensive	0.5
+flash	http://dbpedia.org/resource/Adobe_Flash_Player	flash	expensive	0.5
+flash	http://dbpedia.org/resource/Adobe_Flash_Player	flash	take	0.5
+flash	http://dbpedia.org/resource/Adobe_Flash_Player	flash	allow	0.5
+flash	http://dbpedia.org/resource/Adobe_Flash_Player	flash	small	0.5
+flash	http://dbpedia.org/resource/Adobe_Flash_Player	flash	main	0.5
+flash	http://dbpedia.org/resource/Adobe_Flash_Player	flash	lost	0.5
+focus	http://dbpedia.org/resource/Helicon_Focus	focus	helpful	0.5
+focus	http://dbpedia.org/resource/Helicon_Focus	focus	tough	0.5
+focus	http://dbpedia.org/resource/Helicon_Focus	focus	move	0.5
+focus	http://dbpedia.org/resource/Helicon_Focus	focus	be	0.5
+focus	http://dbpedia.org/resource/Helicon_Focus	focus	focus	0.5
+screen	http://dbpedia.org/resource/GNU_Screen	screen	out of luck	0.5
+screen	http://dbpedia.org/resource/GNU_Screen	screen	hot	1.0
+screen	http://dbpedia.org/resource/GNU_Screen	screen	available	0.5
+screen	http://dbpedia.org/resource/GNU_Screen	screen	functional	0.5
+screen	http://dbpedia.org/resource/GNU_Screen	screen	functional	0.5
+flash	http://dbpedia.org/resource/Adobe_Flash	flash	automatic	0.5
+flash	http://dbpedia.org/resource/Adobe_Flash	flash	automatic or off	0.5
+flash	http://dbpedia.org/resource/Adobe_Flash	flash	have	0.5
+focus	http://dbpedia.org/resource/Helicon_Focus	focus	have	0.5
+flash	http://dbpedia.org/resource/Adobe_Flash_Player	flash	weak	0.5
+flash	http://dbpedia.org/resource/Adobe_Flash_Player	flash	very weak	0.5
+source	http://dbpedia.org/resource/Counter-Strike:_Source	software	great	0.5
+source	http://dbpedia.org/resource/Counter-Strike:_Source	software	personal	0.5
+source	http://dbpedia.org/resource/Counter-Strike:_Source	software	catch	0.5
+player	http://dbpedia.org/resource/Player_Project	player	creative	1.0
+player	http://dbpedia.org/resource/Player_Project	player	go	1.0
+player	http://dbpedia.org/resource/Player_Project	player	great	1.0
+player	http://dbpedia.org/resource/Player_Project	player	used	0.5
+player	http://dbpedia.org/resource/Player_Project	player	move	0.5
+player	http://dbpedia.org/resource/Player_Project	player	easy	1.0
+player	http://dbpedia.org/resource/Player_Project	player	good	1.0
+player	http://dbpedia.org/resource/Player_Project	player	very good	1.0
+player	http://dbpedia.org/resource/Player_Project	player	use	1.0
+screen	http://dbpedia.org/resource/GNU_Screen	screen	cheap	-1.0
+screen	http://dbpedia.org/resource/GNU_Screen	screen	hard	-1.0
+screen	http://dbpedia.org/resource/GNU_Screen	screen	annoying	-1.0
+screen	http://dbpedia.org/resource/GNU_Screen	screen	great	-1.0
+screen	http://dbpedia.org/resource/GNU_Screen	screen	hard	-1.0
+screen	http://dbpedia.org/resource/GNU_Screen	screen	small	-1.0
+screen	http://dbpedia.org/resource/GNU_Screen	screen	half	-1.0
+screen	http://dbpedia.org/resource/GNU_Screen	screen	cheap	-1.0
+screen	http://dbpedia.org/resource/GNU_Screen	screen	an already annoying	-1.0
+screen	http://dbpedia.org/resource/GNU_Screen	screen	too small	-1.0
+screen	http://dbpedia.org/resource/GNU_Screen	screen	lit	-1.0
+screen	http://dbpedia.org/resource/GNU_Screen	screen	break	-1.0
+screen	http://dbpedia.org/resource/GNU_Screen	screen	read	-1.0
+screen	http://dbpedia.org/resource/GNU_Screen	screen	get	-1.0
+screen	http://dbpedia.org/resource/GNU_Screen	screen	fit	-1.0
+player	http://dbpedia.org/resource/Player_Project	player	awesome	1.0
+player	http://dbpedia.org/resource/Player_Project	player	awesome	1.0
+player	http://dbpedia.org/resource/Player_Project	player	recommend	1.0
+player	http://dbpedia.org/resource/Player_Project	player	awesome	1.0
+player	http://dbpedia.org/resource/Player_Project	player	awesome	1.0
+screen	http://dbpedia.org/resource/GNU_Screen	screen	clear	0.5
+screen	http://dbpedia.org/resource/GNU_Screen	screen	blue	0.5
+screen	http://dbpedia.org/resource/GNU_Screen	screen	see	0.5
+wave	http://dbpedia.org/resource/Geometry_Wars:_Waves	signal to noise ratio	detectable	0.5
+wave	http://dbpedia.org/resource/Geometry_Wars:_Waves	signal to noise ratio	unusable	0.5
+wave	http://dbpedia.org/resource/Geometry_Wars:_Waves	signal to noise ratio	nice	0.5
+wave	http://dbpedia.org/resource/Geometry_Wars:_Waves	signal to noise ratio	high	0.5
+wave	http://dbpedia.org/resource/Geometry_Wars:_Waves	signal to noise ratio	detectable , useful	0.5
+wave	http://dbpedia.org/resource/Geometry_Wars:_Waves	signal to noise ratio	better	0.5
+wave	http://dbpedia.org/resource/Geometry_Wars:_Waves	signal to noise ratio	nice and high	0.5
+wave	http://dbpedia.org/resource/Geometry_Wars:_Waves	signal to noise ratio	noted	0.5
+wave	http://dbpedia.org/resource/Geometry_Wars:_Waves	signal to noise ratio	be	0.5
+wave	http://dbpedia.org/resource/Geometry_Wars:_Waves	signal to noise ratio	release	0.5
+player	http://dbpedia.org/resource/Player_Project	player	little	0.5
+player	http://dbpedia.org/resource/Player_Project	player	decided	0.5
+player	http://dbpedia.org/resource/Player_Project	player	final	0.5
+player	http://dbpedia.org/resource/Player_Project	player	good	0.5
+player	http://dbpedia.org/resource/Player_Project	player	great	0.5
+player	http://dbpedia.org/resource/Player_Project	player	terrible	0.5
+player	http://dbpedia.org/resource/Player_Project	player	difficult	0.5
+player	http://dbpedia.org/resource/Player_Project	player	more difficult	0.5
+player	http://dbpedia.org/resource/Player_Project	player	be	0.5
+player	http://dbpedia.org/resource/Player_Project	player	large	0.5
+player	http://dbpedia.org/resource/Player_Project	player	be	0.5
+top	http://dbpedia.org/resource/Tales_of_Phantasia	top	fit	1.0
+player	http://dbpedia.org/resource/Player_Project	player	intuitive	1.0
+player	http://dbpedia.org/resource/Player_Project	player	great	1.0
+player	http://dbpedia.org/resource/Player_Project	player	sound	1.0
+player	http://dbpedia.org/resource/Player_Project	player	intuitive	1.0
+player	http://dbpedia.org/resource/Player_Project	player	creative	0.5
+player	http://dbpedia.org/resource/Player_Project	player	first	0.5
+player	http://dbpedia.org/resource/Player_Project	player	similar	1.0
+player	http://dbpedia.org/resource/Player_Project	player	free	0.5
+player	http://dbpedia.org/resource/Player_Project	player	replace	0.5
+player	http://dbpedia.org/resource/Player_Project	player	have	1.0
+player	http://dbpedia.org/resource/Player_Project	player	first	1.0
+player	http://dbpedia.org/resource/Player_Project	player	previous	1.0
+player	http://dbpedia.org/resource/Player_Project	player	recognized	1.0
+player	http://dbpedia.org/resource/Player_Project	player	portable	1.0
+player	http://dbpedia.org/resource/Player_Project	player	hard	0.5
+player	http://dbpedia.org/resource/Player_Project	player	complain	1.0
+player	http://dbpedia.org/resource/Player_Project	player	realize	1.0
+player	http://dbpedia.org/resource/Player_Project	player	buy	-1.0
+player	http://dbpedia.org/resource/Player_Project	player	busy	1.0
+player	http://dbpedia.org/resource/Player_Project	player	busy	1.0
+player	http://dbpedia.org/resource/Player_Project	player	get	-1.0
+player	http://dbpedia.org/resource/Player_Project	player	perfect	1.0
+player	http://dbpedia.org/resource/Player_Project	player	lousy	-1.0
+player	http://dbpedia.org/resource/Player_Project	player	do	-1.0
+player	http://dbpedia.org/resource/Player_Project	player	buy	1.0
+seal	http://dbpedia.org/resource/Seal_Online	seal	stinky	0.5
+seal	http://dbpedia.org/resource/Seal_Online	seal	seal	0.5
+money	http://dbpedia.org/resource/Microsoft_Money	money	do	0.5
+money	http://dbpedia.org/resource/Microsoft_Money	money	drop	0.5
+money	http://dbpedia.org/resource/Microsoft_Money	money	dual	0.5
+money	http://dbpedia.org/resource/Microsoft_Money	money	single	0.5
+money	http://dbpedia.org/resource/Microsoft_Money	money	cheap	0.5
+money	http://dbpedia.org/resource/Microsoft_Money	money	have	0.5
+money	http://dbpedia.org/resource/Microsoft_Money	money	nice	0.5
+money	http://dbpedia.org/resource/Microsoft_Money	money	very nice	0.5
+money	http://dbpedia.org/resource/Microsoft_Money	money	good	0.5
+apple	http://dbpedia.org/resource/Apple_III	apple	damaged	0.5
+apple	http://dbpedia.org/resource/Apple_III	apple	tell	0.5
+screen	http://dbpedia.org/resource/GNU_Screen	screen	clear	0.5
+screen	http://dbpedia.org/resource/GNU_Screen	screen	readable	0.5
+screen	http://dbpedia.org/resource/GNU_Screen	screen	separate	0.5
+screen	http://dbpedia.org/resource/GNU_Screen	screen	clear and readable	0.5
+screen	http://dbpedia.org/resource/GNU_Screen	screen	get	0.5
+screen	http://dbpedia.org/resource/GNU_Screen	screen	hang	0.5
+touch	http://dbpedia.org/resource/IPod_Touch	touch pad	weak	0.5
+touch	http://dbpedia.org/resource/IPod_Touch	touch pad	better	0.5
+touch	http://dbpedia.org/resource/IPod_Touch	touch pad	controlled	0.5
+touch	http://dbpedia.org/resource/IPod_Touch	touch pad	be	0.5
+touch	http://dbpedia.org/resource/IPod_Touch	touch pad	do	0.5
+touch	http://dbpedia.org/resource/HTC_Touch	touch pad	weak	0.5
+touch	http://dbpedia.org/resource/HTC_Touch	touch pad	better	0.5
+touch	http://dbpedia.org/resource/HTC_Touch	touch pad	controlled	0.5
+touch	http://dbpedia.org/resource/HTC_Touch	touch pad	be	0.5
+touch	http://dbpedia.org/resource/HTC_Touch	touch pad	do	0.5
+nokia	http://dbpedia.org/resource/Nokia_Lifeblog	nokia	different	-1.0
+nokia	http://dbpedia.org/resource/Nokia_Lifeblog	nokia	possible	1.0
+nokia	http://dbpedia.org/resource/Nokia_Lifeblog	nokia	other	1.0
+nokia	http://dbpedia.org/resource/Nokia_Lifeblog	nokia	use	1.0
+carrier	http://dbpedia.org/resource/Carrier_Command	carrier	find	1.0
+screen	http://dbpedia.org/resource/GNU_Screen	screen	good	1.0
+screen	http://dbpedia.org/resource/GNU_Screen	screen	really good	1.0
+screen	http://dbpedia.org/resource/GNU_Screen	screen	get	1.0
+screen	http://dbpedia.org/resource/GNU_Screen	screen	large	1.0
+screen	http://dbpedia.org/resource/GNU_Screen	screen	a bit large	1.0
+screen	http://dbpedia.org/resource/GNU_Screen	screen	spoil	1.0
+screen	http://dbpedia.org/resource/GNU_Screen	screen	big	0.5
+screen	http://dbpedia.org/resource/GNU_Screen	screen	quite big	0.5
+screen	http://dbpedia.org/resource/GNU_Screen	screen	just about 65000	0.5
+screen	http://dbpedia.org/resource/GNU_Screen	screen	bright	0.5
+screen	http://dbpedia.org/resource/GNU_Screen	screen	unlimited	0.5
+screen	http://dbpedia.org/resource/GNU_Screen	screen	bright	0.5
+screen	http://dbpedia.org/resource/GNU_Screen	screen	unlimited	0.5
+nokia	http://dbpedia.org/resource/Nokia_OS	nokia	recommend	1.0
+screen	http://dbpedia.org/resource/GNU_Screen	screen	great	0.5
+screen	http://dbpedia.org/resource/GNU_Screen	screen	great	0.5
+key	http://dbpedia.org/resource/KeY	key	unnecessary	0.5
+key	http://dbpedia.org/resource/KeY	key	totally unnecessary	0.5

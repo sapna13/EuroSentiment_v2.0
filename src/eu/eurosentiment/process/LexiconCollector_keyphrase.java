@@ -19,9 +19,10 @@ public class LexiconCollector_keyphrase {
 
 	public static void start(String dirPath, CLESA clesa, String wnhome, String finalOutputFile) throws IOException {
 		Map<String, Double> mentionPhraseScoreMap = new HashMap<String, Double>();
-		File dir = new File (dirPath);
-		File[] files = dir.listFiles();
-		for(File file : files){
+	    File dir = new File (dirPath);
+	    File[] files = dir.listFiles();
+	
+	for(File file : files){
 			BufferedReader reader = BasicFileTools.getBufferedReader(file);
 			String line = null;
 			try {
@@ -44,13 +45,15 @@ public class LexiconCollector_keyphrase {
 							}					
 						} catch(Exception e){
 						}
-					}
+
+						}
 				}
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
 			reader.close();
-		}
+
+			}
 
 		StringBuffer buffer = new StringBuffer();
 
@@ -86,12 +89,14 @@ public class LexiconCollector_keyphrase {
 			}
 		}
 		
-		System.out.println("Completed ");
+		//System.out.println("Completed ");
 
-		BasicFileTools.writeFile(finalOutputFile, buffer.toString().trim());
+		BasicFileTools.writeFile(finalOutputFile, buffer.toString());
+
 		
 		
 
+		
 	}	
 
 
