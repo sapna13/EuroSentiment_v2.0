@@ -13,11 +13,15 @@ import gnu.trove.TIntDoubleHashMap;
 import edu.insight.negdet.Negex;
 
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.FileReader;
 import java.io.IOException;
+import java.io.OutputStreamWriter;
+import java.io.Writer;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -54,9 +58,9 @@ public class EuroSentimentMain {
 		try {
 			p.load(new FileInputStream(log4JPropertyFile));
 			PropertyConfigurator.configure(p);
-			//    logger.info("Wow! I'm configured!");
+
 		} catch (IOException e) {
-			//DAMN! I'm not
+
 		}
 	}
 
@@ -85,7 +89,7 @@ public class EuroSentimentMain {
 		String line = null;
 		try {
 			while((line=br.readLine())!=null){
-				classes.add(line.trim().toLowerCase());			//aspects are added to a list called class
+				classes.add(line.trim().toLowerCase().trim());			//aspects are added to a list called class
 			}
 		} catch (IOException e) {
 			logger.debug("IO Exception, Error while reading aspectFile "  + aspectFile);			
@@ -102,9 +106,16 @@ public class EuroSentimentMain {
 		JSONParser parser = new JSONParser();
 		JSONObject jsonObject = null;
 		try {
-			jsonObject = (JSONObject) parser.parse(new FileReader(path));
-			setText(((String) jsonObject.get("text")).trim());			
-			annotations = (JSONArray) jsonObject.get("annotations");			
+			FileReader fileReader = new FileReader(path);
+			jsonObject = (JSONObject) parser.parse(fileReader);			
+			Set<String> keySet = jsonObject.keySet();
+			jsonObject.entrySet();
+			JSONObject js = new JSONObject();			
+			for(String key : keySet)
+				js.put((Object) key.toLowerCase(), jsonObject.get(key));		
+			setText(((String) js.get("text")).trim());			
+			annotations = (JSONArray) js.get("annotations");	
+			fileReader.close();			
 		} catch (FileNotFoundException e) {
 			logger.debug("File Not Found : " + path);
 		} catch (IOException e) {
@@ -123,14 +134,22 @@ public class EuroSentimentMain {
 		String filePath = rawDataPath + "/" + aelaFileName + ".json";		
 		JSONParser parser = new JSONParser();
 		JSONObject jsonObject = null;
-		try {
-			jsonObject = (JSONObject) parser.parse(new FileReader(filePath));
-			for(String aspect : classes){
-				Long rating = (Long) jsonObject.get(aspect);
+		try {	
+			FileReader fileReader = new FileReader(filePath);
+			jsonObject = (JSONObject) parser.parse(fileReader);			
+			Set<String> keySet = jsonObject.keySet();		
+			JSONObject js = new JSONObject();			
+			for(String key : keySet)
+				js.put((Object) key.toLowerCase().trim(), jsonObject.get(key));
+
+			for(String aspect : classes) {				
+				Long rating = (Long) js.get(aspect);
+			//	System.out.println(aspect + " " + rating);
 				//System.out.println(rating);
 				if(rating!=null)
 					fieldValueMap.put(aspect, rating);			
 			}
+			fileReader.close();
 			return fieldValueMap;
 		} catch (FileNotFoundException e) {
 			logger.debug("File Not Found :" + aelaFileName + " in " + rawDataPath);
@@ -149,8 +168,8 @@ public class EuroSentimentMain {
 	 * 3. sentence = sentence in which the mention was found
 	 */
 
-	public Set<String> getMentionClassSentence(CLESA clesa, String aelaFileName){	
-		logger.info("Getting mentionClassSentence for : " + aelaFileName);
+	public Set<String> getMentionClassSentence(CLESA clesa){//, String aelaFileName){	
+		//logger.info("Getting mentionClassSentence for : " + aelaFileName);
 		HashSet<String> mentionClassSentence = new HashSet<String>();
 		try{
 			text = StandAloneAnnie.getRefinedText(text);
@@ -241,27 +260,26 @@ public class EuroSentimentMain {
 		EuroSentimentMain esAnno = new EuroSentimentMain();
 		logger.info("Initiating SentiWordnet");
 		EuroSentimentMain.initiateSWNet(sentiPath);
-
 		StandAloneAnnie.setUp(gatePath);		//ANNIE is a tokenizer from Gate framework, setup initiates the tokenizer
 		File dir = new File(aelaOutputPath);
 		logger.info("Initiating CLESA load");
 		CLESA clesa = new CLESA();             //CLESA is the class which implements semantic similarity. The component is re-used from EU project Monnet.
 		// author: kartik Asooja , component is freely distributable and is available at github
 		esAnno.getAspects(aspectFile, clesa);
-
-		StringBuffer buffer = new StringBuffer();
 		List<String> tags = new ArrayList<String>();    /*list to store POS tags/phrases we are interested in extracting. 
 		                                                  We consider them to be carrying the sentiment information */
-
 		tags.add("JJ");   //JJ = Adjective
 		tags.add("ADJP");
 		tags.add("VBN");
 		tags.add("VB");     //13-2-2014
-
 		int i = 0;    //
-
 		File[] listFiles = dir.listFiles();       //Files have same names in the AELA output and the original corpus
-
+		FileOutputStream fostream = new FileOutputStream(outputPath); 
+		OutputStreamWriter oswriter = new OutputStreamWriter(fostream); 
+		BufferedWriter outputFileWriter = new BufferedWriter(oswriter);   
+		//		bwriter.write("Use steps for"); bwriter.newLine(); bwriter.write("immediate floor."); bwriter.newLine(); bwriter.write("Avoid lift traffic.");   bwriter.close(); oswriter.close(); fostream.close(); 
+		int flushAfter50 = 0;
+		//	File outputFilePath = new File(outputPath);
 		for(File file : listFiles){
 			if(file.isHidden())
 				continue;
@@ -270,10 +288,9 @@ public class EuroSentimentMain {
 
 			logger.info("fileNo.   " + i++);
 			logger.info("fileName   " + file.getName());
-
 			try {
 				esAnno.parse(file.getAbsolutePath());				
-				Set<String> mentionClassSentences = esAnno.getMentionClassSentence(clesa, file.getName()); //produces 'mention---class---sentence'
+				Set<String> mentionClassSentences = esAnno.getMentionClassSentence(clesa);//, file.getName()); //produces 'mention---class---sentence'
 				Map<String, Long> scoreMap = esAnno.getScoreMapByParsingRawTripAdvisor(file.getName(), annotatedDataPath); //aspect-rating mapping
 				for(String mentionClassSentence : mentionClassSentences){
 					String[] split = mentionClassSentence.split("-----");
@@ -289,7 +306,7 @@ public class EuroSentimentMain {
 								if(getLength(tagText)<4){ 
 									long score = scoreMap.get(mentionClass) ;  //normalising score 13-2-2014
 									if(Negex.negCheck(sentence, tagText, false))
-									   score = 5-score;	
+										score = 5-score;	
 									double normalisedScore = 0.0;
 									if(score>=3)
 										normalisedScore = 1;
@@ -300,19 +317,29 @@ public class EuroSentimentMain {
 									if(score<=-1 && score >= -2)
 										normalisedScore = 0.5;
 
-									buffer.append(mention + "\t"+ mentionClass + "\t" + tagText + "\t" + normalisedScore+"\n"); //mentionClass= aspect
+									//StringBuffer buffer = new StringBuffer();
+									//buffer.append(mention + "\t"+ mentionClass + "\t" + tagText + "\t" + normalisedScore+"\n"); //mentionClass= aspect
+									outputFileWriter.write(mention + "\t"+ mentionClass + "\t" + tagText + "\t" + normalisedScore+"\n");
+									if(flushAfter50 > 200){
+										System.out.println("Flushed");
+										outputFileWriter.flush();										
+										flushAfter50 = 0;;
+									}
+									flushAfter50++;
 								}
-
 							}
 						}
 					}							
 				}
 				esAnno.refresh();
 			} catch(Exception e){
+				System.out.println(e);
 				logger.debug("Skipped" + file.getName());
 			}
 		}
-		BasicFileTools.writeFile(outputPath, buffer.toString().trim());
+		outputFileWriter.close();
+		oswriter.close();
+		//BasicFileTools.writeFile(outputPath, buffer.toString().trim());
 		logger.info("DSSPA modue ran successfully, output wriiten to intermediate file");
 
 		LexiconCollector_keyphrase.start(outputDir, clesa, wnhome, finalOutputFilePath);

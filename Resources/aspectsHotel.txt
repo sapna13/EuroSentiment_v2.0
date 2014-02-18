@@ -1,7 +1,7 @@
-value
-rooms
-location
-check in front desk
-service
-business service
-
+Service
+Value
+Rooms
+Check in / front desk
+Cleanliness
+Location
+Business Service
