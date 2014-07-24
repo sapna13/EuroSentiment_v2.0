@@ -5,12 +5,14 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.Properties;
 
-import org.apache.log4j.Logger;
-import org.apache.log4j.Appender;
 import org.apache.log4j.Level;
+import org.apache.log4j.Logger;
 import org.apache.log4j.PropertyConfigurator;
 
-import eu.eurosentiment.process.EuroSentimentMain;
+import eu.eurosentiment.process.EuroSentimentMain_V2;
+import eu.eurosentiment.process.LexiconCollector_keyphrase;
+import eu.monnetproject.clesa.ds.clesa.CLESA;
+
 
 public class MainClass {
 	private static String aelaOutputPath;
@@ -44,7 +46,7 @@ public class MainClass {
 			rawDataPath = config.getProperty("rawDataPath").trim();
 			intermediateOutput = config.getProperty("intermediateOutput").trim();		
 			gatePath = config.getProperty("gatePath").trim();
-			aspectFile = config.getProperty("aspectFile").trim();
+			//aspectFile = config.getProperty("aspectFile").trim(); //we are not anymore keeping a static aspect file, but retrieving a list of aspects on the go while reading the json
 			sentiWordNetFile = config.getProperty("sentiWordNetFile").trim();
 			wnhome = config.getProperty("WNHOME");
 			finalLexicon = config.getProperty("finalLexicon").trim();	
@@ -63,10 +65,14 @@ public class MainClass {
         loadConfig();
         // Now set its level. Normally you do not need to set the
         // level of a logger programmatically. This is usually done
-        // in configuration files.
+        //in configuration files.
         logger.info("Corpus Reader Started");
-        EuroSentimentMain.start(aelaOutputPath,intermediateOutput,rawDataPath, aspectFile, gatePath, sentiWordNetFile,
-                        outputDir, wnhome, finalLexicon);
+        EuroSentimentMain_V2.start(aelaOutputPath,intermediateOutput,rawDataPath, aspectFile, gatePath, sentiWordNetFile,
+          outputDir, wnhome, finalLexicon);
+        //logger.info("Initiating CLESA load");
+		//CLESA clesa = new CLESA();
+        //LexiconCollector_keyphrase.start(outputDir, clesa, wnhome, finalLexicon);
+        
 	}
 
 }

@@ -19,19 +19,21 @@ public class LexiconCollector_keyphrase {
 
 	public static void start(String dirPath, CLESA clesa, String wnhome, String finalOutputFile) throws IOException {
 		Map<String, Double> mentionPhraseScoreMap = new HashMap<String, Double>();
-	    File dir = new File (dirPath);
-	    File[] files = dir.listFiles();
-	
-	for(File file : files){
+		File dir = new File (dirPath);
+		File[] files = dir.listFiles();
+		int i = 0;
+		for(File file : files){
 			BufferedReader reader = BasicFileTools.getBufferedReader(file);
 			String line = null;
 			try {
 				while((line=reader.readLine())!=null){
+					System.out.println(++i);
 					String[] split = line.split("\t");
-					String mention = split[0].replace(","," ");
-					String uri = split[1].replace(","," ");
+					//System.out.println(split.length);
+					String mention = split[0];
+					String uri = split[1];
 					mention = mention + "\t,\t" +uri; 
-					String sentimentPhrase = split[3].replace(","," ");
+					String sentimentPhrase = split[3];
 					String scoreString = split[4];
 					if(!scoreString.contains("null") && mention.length()>2){
 						try{
@@ -46,19 +48,19 @@ public class LexiconCollector_keyphrase {
 						} catch(Exception e){
 						}
 
-						}
+					}
 				}
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
 			reader.close();
 
-			}
+		}
 
 		StringBuffer buffer = new StringBuffer();
 
 		Map<String, List<String>> phraseMentionMap = new HashMap<String, List<String>>();
-		
+
 		for(String mentionPhrase : mentionPhraseScoreMap.keySet()){
 			String[] split = mentionPhrase.split("-----");
 			String mention = split[0].trim();
@@ -67,37 +69,40 @@ public class LexiconCollector_keyphrase {
 				phraseMentionMap.put(phrase, new ArrayList<String>());
 			phraseMentionMap.get(phrase).add(mention);			
 		}
-		
+
 		SynsetIdentification.setVars(clesa, wnhome);       
 		SynsetIdentification.openDict();
-		
+
 		int j = 0;
+		int phrasesDone = 0;
 		for(String phrase : phraseMentionMap.keySet()){
 			List<String> mentions = phraseMentionMap.get(phrase);
 			for(String mention : mentions){
+
 				Double score = mentionPhraseScoreMap.get(mention.trim() + "-----" + phrase.trim());
-			
+
 				String sentimentPhrase = phrase;
 				String context = mention;
-				
+
 				String synsetId = SynsetIdentification.getSynsetId(sentimentPhrase, context);
 				String line = mention.trim() + "\t,\t" + phrase.trim() + "\t,\t" + score + "\t,\t" + synsetId;
 				buffer.append(line);
 				buffer.append("\n");
-				System.out.println(j++ + " " + line);				
-				
+				j++;
+				if(j > 50)
+				{
+					BasicFileTools.writeFile(finalOutputFile, buffer.toString());
+
+					j = 0;
+				}
+
+				System.out.println(line);
+				//System.out.println(j++ + " " + line + " " + phraseMentionMap.size());				
+
 			}
+			System.out.println(phrasesDone++ + " " + phraseMentionMap.size());		
 		}
-		
 		//System.out.println("Completed ");
-
 		BasicFileTools.writeFile(finalOutputFile, buffer.toString());
-
-		
-		
-
-		
 	}	
-
-
 }

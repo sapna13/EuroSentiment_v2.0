@@ -1,5 +1,6 @@
 package eu.eurosentiment.process;
 
+import edu.insight.negdet.Negex;
 import eu.eurosentiment.insight.StanfordNLP;
 import eu.eurosentiment.sentiwordnet.SentiWordBags;
 import eu.monnetproject.clesa.core.lang.Language;
@@ -10,7 +11,6 @@ import eu.utils.BasicFileTools;
 import eu.utils.StandAloneAnnie;
 //import eu.utils.StandAloneAnnie;
 import gnu.trove.TIntDoubleHashMap;
-import edu.insight.negdet.Negex;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -21,7 +21,6 @@ import java.io.FileOutputStream;
 import java.io.FileReader;
 import java.io.IOException;
 import java.io.OutputStreamWriter;
-import java.io.Writer;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -160,6 +159,8 @@ public class EuroSentimentMain {
 		}
 		return null;
 	}
+	
+	
 
 
 	/* each element of the returned set is a string comprising of the following info:
@@ -256,7 +257,7 @@ public class EuroSentimentMain {
 	 * sentiPath: path for sentiwordnet
 	 */
 	public static void start(String aelaOutputPath, String outputPath, String annotatedDataPath, 
-			String aspectFile, String gatePath, String sentiPath, String outputDir, String wnhome, String finalOutputFilePath) throws IOException {		
+		String aspectFile, String gatePath, String sentiPath, String outputDir, String wnhome, String finalOutputFilePath) throws IOException {
 		EuroSentimentMain esAnno = new EuroSentimentMain();
 		logger.info("Initiating SentiWordnet");
 		EuroSentimentMain.initiateSWNet(sentiPath);
@@ -292,6 +293,7 @@ public class EuroSentimentMain {
 				esAnno.parse(file.getAbsolutePath());				
 				Set<String> mentionClassSentences = esAnno.getMentionClassSentence(clesa);//, file.getName()); //produces 'mention---class---sentence'
 				Map<String, Long> scoreMap = esAnno.getScoreMapByParsingRawTripAdvisor(file.getName(), annotatedDataPath); //aspect-rating mapping
+				
 				for(String mentionClassSentence : mentionClassSentences){
 					String[] split = mentionClassSentence.split("-----");
 					String mention  = split[0];
@@ -304,18 +306,20 @@ public class EuroSentimentMain {
 							boolean senti = containsSenti(tagText);  //checks if the extracted sentiment word appears in the sentiwordnet
 							if(senti){		
 								if(getLength(tagText)<4){ 
-									long score = scoreMap.get(mentionClass) ;  //normalising score 13-2-2014
-									if(Negex.negCheck(sentence, tagText, false))
-										score = 5-score;	
+									long score = scoreMap.get(mentionClass) ;  //normalising score 13-2-2014	
 									double normalisedScore = 0.0;
-									if(score>=3)
-										normalisedScore = 1;
-									if(score<=-3)
-										normalisedScore = -1;
 									if(score<=2 && score >=1)
 										normalisedScore = 0.5;
-									if(score<=-1 && score >= -2)
-										normalisedScore = 0.5;
+									if(score>=3)
+										normalisedScore = 1;
+									if(score<=0 && score >= -2)
+										normalisedScore = -0.5; 
+									if(score<=-2)
+										normalisedScore = -1;
+									
+									
+									if(Negex.negCheck(sentence, tagText, false))
+										score = score*(-1);
 
 									//StringBuffer buffer = new StringBuffer();
 									//buffer.append(mention + "\t"+ mentionClass + "\t" + tagText + "\t" + normalisedScore+"\n"); //mentionClass= aspect
@@ -340,10 +344,10 @@ public class EuroSentimentMain {
 		outputFileWriter.close();
 		oswriter.close();
 		//BasicFileTools.writeFile(outputPath, buffer.toString().trim());
-		logger.info("DSSPA modue ran successfully, output wriiten to intermediate file");
+		logger.info("DSSPA module ran successfully, intermediate output wriiten");
 
 		LexiconCollector_keyphrase.start(outputDir, clesa, wnhome, finalOutputFilePath);
-		logger.info("Sentiwordnet Synsets identified, final output written");
+		logger.info("SSI module successful, final output written");
 
 		clesa.close();
 

@@ -13,7 +13,7 @@ import org.apache.log4j.Logger;
 
 
 /**
- * A class to convert raw manually annotated electronics review into desired Json format with
+ * Converts raw manually annotated electronics review into desired Json format with
  * the fields Text and different aspects
  * @author sapna
  *
