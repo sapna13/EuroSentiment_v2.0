@@ -1,5 +1,9 @@
 package eu.eurosentiment.insight;
 
+
+//Main class to run the DSSPA module of EuroSentiment
+
+
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -9,7 +13,10 @@ import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
 import org.apache.log4j.PropertyConfigurator;
 
-import eu.eurosentiment.process.EuroSentimentMain_V2;
+//import eu.eurosentiment.process.EuroSentimentMain_V2;
+
+import eu.eurosentiment.process.EuroSentimentMain_V4;
+import eu.eurosentiment.process.EuroSentimentMainThreaded;
 import eu.eurosentiment.process.LexiconCollector_keyphrase;
 import eu.monnetproject.clesa.ds.clesa.CLESA;
 
@@ -41,15 +48,15 @@ public class MainClass {
 			    //DAMN! I'm not
 			}
 			config.load(new FileInputStream("load/eu.eurosentiment.annotation.properties"));
-			outputDir = config.getProperty("outputDir");
-			aelaOutputPath = config.getProperty("aelaOutputPath").trim();
-			rawDataPath = config.getProperty("rawDataPath").trim();
-			intermediateOutput = config.getProperty("intermediateOutput").trim();		
+			//outputDir = config.getProperty("outputDir");
+			//aelaOutputPath = config.getProperty("aelaOutputPath").trim();
+			//rawDataPath = config.getProperty("rawDataPath").trim();
+			//intermediateOutput = config.getProperty("intermediateOutput").trim();		
 			gatePath = config.getProperty("gatePath").trim();
 			//aspectFile = config.getProperty("aspectFile").trim(); //we are not anymore keeping a static aspect file, but retrieving a list of aspects on the go while reading the json
 			sentiWordNetFile = config.getProperty("sentiWordNetFile").trim();
 			wnhome = config.getProperty("WNHOME");
-			finalLexicon = config.getProperty("finalLexicon").trim();	
+			//finalLexicon = config.getProperty("finalLexicon").trim();	
 			triggersFilePath = config.getProperty("triggersFilePath").trim();
 		} catch (FileNotFoundException e) {
 			logger.debug("File Not Found " + e);
@@ -59,15 +66,25 @@ public class MainClass {
 			e.printStackTrace();
 		}	
 	}
+	
+	public static void argConfig(String[] args){
+			aelaOutputPath = args[0];
+			rawDataPath = args[1];
+			outputDir = args[2];
+			intermediateOutput = outputDir+"/"+"intermediateLexicon.txt";	
+			finalLexicon = outputDir+ "/" + "finalLexicon.txt";
+			
+	}
 
 	public static void main(String[] args) throws IOException{
 		logger.setLevel(Level.INFO);                
         loadConfig();
+        argConfig(args);
         // Now set its level. Normally you do not need to set the
         // level of a logger programmatically. This is usually done
         //in configuration files.
         logger.info("Corpus Reader Started");
-        EuroSentimentMain_V2.start(aelaOutputPath,intermediateOutput,rawDataPath, aspectFile, gatePath, sentiWordNetFile,
+        EuroSentimentMainThreaded.start(aelaOutputPath,intermediateOutput,rawDataPath, aspectFile, gatePath, sentiWordNetFile,
           outputDir, wnhome, finalLexicon);
         //logger.info("Initiating CLESA load");
 		//CLESA clesa = new CLESA();
