@@ -1,0 +1,1 @@
+{"text":"This phone is flashy and feels good in the hand, but it could not hold a connection to any of my bluetooth devices (headset, handheld, or desktop computer).\nMy old Siemens s56, on the other hand, worked beautifully with all of the above.\n","annotations":[]}

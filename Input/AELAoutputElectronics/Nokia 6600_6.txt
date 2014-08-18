@@ -1,0 +1,1 @@
+{"text":"who in the hell needs a frigging *VGA* camera on their CELLPHONE???\nWhat is that, .00000001 megapixel quality?\nHa!\n","annotations":[{"endOffset":15,"mention":"hell","uri":["http:\/\/dbpedia.org\/resource\/Hell:_A_Cyberpunk_Thriller"],"startOffset":11}]}

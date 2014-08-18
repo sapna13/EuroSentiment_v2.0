@@ -1,0 +1,1 @@
+{"text":"I have been a loyal Norton Anti-Virus and Internet Security software user for as long as I can remember.\nTheir products have been great and have saved my bacon on numerous occasions.\n","annotations":[{"endOffset":26,"mention":"Norton","uri":["http:\/\/dbpedia.org\/resource\/Norton_360"],"startOffset":20}]}

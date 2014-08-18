@@ -1,0 +1,1 @@
+{"text":"i compared this to a lot of other cameras , believe me , it 's value for money .\nthe picturers are amazing .\ndo n't waste time looking at anything else , just buy this one .\nit do n't get any better then the nikon 4300 .\n","annotations":[{"endOffset":78,"mention":"money","uri":["http:\/\/dbpedia.org\/resource\/Microsoft_Money"],"startOffset":73}]}
