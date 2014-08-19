@@ -106,10 +106,25 @@ public class EuroSentimentMain_V2 {
 		logger.info("Initiating clesa vector creation for classLabels");
 		for(String classLabel : classes){
 			TIntDoubleHashMap vector = clesa.getVector(new Pair<String, Language>(classLabel, Language.ENGLISH)); /*word vectors corresponding to each class label are prepared and saved
-			                                                                                                        beforehand to improve code efficiency, they are not required tobe generated on the fly*/
+				                                                                                                        beforehand to improve code efficiency, they are not required tobe generated on the fly*/
 			classVectorMap.put(classLabel, vector);
 		}
 	}
+
+	public void getAspects(CLESA clesa, Set<String> labels){
+		try {
+			for(String line : labels){
+				classes.add(line.trim().toLowerCase().trim());			//aspects are added to a list called class
+			}
+		} catch (Exception e) {
+		}
+		logger.info("Initiating clesa vector creation for classLabels");
+		for(String classLabel : classes){
+			TIntDoubleHashMap vector = clesa.getVector(new Pair<String, Language>(classLabel, Language.ENGLISH)); /*word vectors corresponding to each class label are prepared and saved				                                                                                                        beforehand to improve code efficiency, they are not required tobe generated on the fly*/
+			classVectorMap.put(classLabel, vector);
+		}
+	}
+
 
 	private void parameterParserAela(String path) { //reads the json output of AELA, extracts text and entities
 		JSONParser parser = new JSONParser();
@@ -150,15 +165,15 @@ public class EuroSentimentMain_V2 {
 			JSONObject js = new JSONObject();			
 			for(String key : keySet)
 				js.put((Object) key.toLowerCase().trim(), jsonObject.get(key));
-
 			JSONArray ratings = (JSONArray) js.get("ratings");
-
 			for(Object aspect : ratings){
 				Long rating = (Long) js.get(aspect);
 				//	System.out.println(aspect + " " + rating);
 				//System.out.println(rating);
-				if(rating!=null)
-					fieldValueMap.put((String) aspect, rating);			
+				if(rating!=null){
+					fieldValueMap.put((String) aspect, rating);
+
+				}
 			}
 			//			for(String aspect : classes) {				
 			//				Long rating = (Long) js.get(aspect);
@@ -306,14 +321,12 @@ public class EuroSentimentMain_V2 {
 						String findMention = split[0].trim();
 						if(sentence.contains(findMention))
 							mentionSentenceMap.put(mention.trim() + "\t" + uri.trim(), sentence.trim());	
-
 					}
 
 				}
 
 			}
 		}
-
 		return mentionSentenceMap;
 	}
 
@@ -327,7 +340,7 @@ public class EuroSentimentMain_V2 {
 	 * sentiPath: path for sentiwordnet
 	 */
 	public static void start(String aelaOutputPath, String outputPath, String annotatedDataPath, 
-		String aspectFile, String gatePath, String sentiPath, String outputDir, String wnhome, String finalOutputFilePath) throws IOException {
+			String aspectFile, String gatePath, String sentiPath, String outputDir, String wnhome, String finalOutputFilePath) throws IOException {
 
 		EuroSentimentMain_V2 esAnno = new EuroSentimentMain_V2();
 		logger.info("Initiating SentiWordnet");
@@ -360,28 +373,24 @@ public class EuroSentimentMain_V2 {
 
 			logger.info("fileNo.   " + i++);
 			logger.info("fileName   " + file.getName());
-			
+
 			esAnno.parse(file.getAbsolutePath());				
-			Set<String> mentionClassSentences = esAnno.getMentionClassSentence(clesa);//, file.getName()); //produces 'mention---class---sentence'
-
-
 			Map<String, Long> scoreMap = esAnno.getScoreMapByParsingRawTripAdvisor(file.getName(), annotatedDataPath); //aspect-rating mapping
-			
-			
-				
+			boolean overall = false;
+			if(scoreMap==null){
+				overall = true;
+			}
+			Set<String> mentionClassSentences = null;
 
-				boolean overall = false;
-				if(scoreMap==null){
+			if(scoreMap!=null){
+				esAnno.getAspects(clesa, scoreMap.keySet());
+				mentionClassSentences = esAnno.getMentionClassSentence(clesa);//, file.getName()); //produces 'mention---class---sentence'
+				if(scoreMap.containsKey("overall") && scoreMap.size() == 1)
 					overall = true;
-				}
+			}
 
-				if(scoreMap!=null){
-					if(scoreMap.containsKey("overall") && scoreMap.size() == 1)
-						overall = true;
-				}
-
-				if(overall) {
-					try{ 
+			if(overall) {
+				try{ 
 					String[] clauseWords = null;
 					double normalisedScore = 0.0;
 					double negScore = 0.0;
@@ -401,55 +410,55 @@ public class EuroSentimentMain_V2 {
 							if(clause.contains(mention)){
 								clauseWords = clause.split(" ");
 								for(String word: clauseWords){
-								String tagText = null;
-								word = StanfordParser.lemmatizeWord(word);
-								if(polMap.containsKey(word)){
-									PolPair polPair = polMap.get(word);
-									negScore = polPair.getNegativeScore();
-									posScore = polPair.getPositiveScore();
+									String tagText = null;
+									word = StanfordParser.lemmatizeWord(word);
+									if(polMap.containsKey(word)){
+										PolPair polPair = polMap.get(word);
+										negScore = polPair.getNegativeScore();
+										posScore = polPair.getPositiveScore();
 
-									if(negScore>posScore){
-										if(negScore>0.40){
-											normalisedScore = -1; //fixing the negative polarity to absolute value -1 
-											tagText = word;
-											outputFileWriter.write(mention + "\t"+ URL + "\t" + mentionClass + "\t" + tagText + "\t" + normalisedScore+"\n");
+										if(negScore>posScore){
+											if(negScore>0.40){
+												normalisedScore = -1; //fixing the negative polarity to absolute value -1 
+												tagText = word;
+												outputFileWriter.write(mention + "\t"+ URL + "\t" + mentionClass + "\t" + tagText + "\t" + normalisedScore+"\n");
+											}
+
+										}
+										else if(posScore>negScore){
+											if(posScore>0.40){
+												normalisedScore = 1;	//fixing the negative polarity to absolute value -1 
+												tagText = word;
+												outputFileWriter.write(mention + "\t"+ URL + "\t" + mentionClass + "\t" + tagText + "\t" + normalisedScore+"\n");
+											}
 										}
 
-									}
-									else if(posScore>negScore){
-										if(posScore>0.40){
-											normalisedScore = 1;	//fixing the negative polarity to absolute value -1 
-											tagText = word;
-											outputFileWriter.write(mention + "\t"+ URL + "\t" + mentionClass + "\t" + tagText + "\t" + normalisedScore+"\n");
+
+										if(flushAfter50 > 200){
+											System.out.println("Flushed");
+											outputFileWriter.flush();										
+											flushAfter50 = 0;;
 										}
+
+
 									}
-								
-									
-									if(flushAfter50 > 200){
-										System.out.println("Flushed");
-										outputFileWriter.flush();										
-										flushAfter50 = 0;;
+									flushAfter50++;
 								}
-								
-								
-								}
-								flushAfter50++;
-							}
 							}
 						}
 					}
-			} catch(Exception e){
-				System.out.println(e);
-				logger.debug("Skipped" + file.getName());
-			}
-			
+				} catch(Exception e){
+					System.out.println(e);
+					logger.debug("Skipped" + file.getName());
+				}
 
-				} 
+
+			} 
 
 			else {
-	
-					try{ 
-						for(String mentionClassSentence : mentionClassSentences){
+
+				try{ 
+					for(String mentionClassSentence : mentionClassSentences){
 						String[] split = mentionClassSentence.split("-----");
 						String mention  = split[0];
 						String mentionClass = split[1];
@@ -489,24 +498,24 @@ public class EuroSentimentMain_V2 {
 								}
 							}
 						}							
+					}
+
+				} catch(Exception e){
+					System.out.println(e);
+					logger.debug("Skipped" + file.getName());
 				}
-				
-			} catch(Exception e){
-				System.out.println(e);
-				logger.debug("Skipped" + file.getName());
-			}
-		
-	
-	
-		
-		}	
-				
-	}
+
+
+
+
+			}	
+
+		}
 		esAnno.refresh();
 		outputFileWriter.close();
 		oswriter.close();
 		clesa.close();
-		
+
 		//BasicFileTools.writeFile(outputPath, buffer.toString().trim());
 		logger.info("DSSPA module ran successfully, intermediate output wriiten");
 
@@ -526,12 +535,12 @@ public class EuroSentimentMain_V2 {
 		logger.info("Initiating CLESA load");
 		CLESA clesa = new CLESA();             //CLESA is the class which implements semantic similarity. The component is re-used from EU project Monnet.
 
-		List<String> tags = new ArrayList<String>();    /*list to store POS tags/phrases we are interested in extracting. 
-			                                                  We consider them to be carrying the sentiment information */
-		tags.add("JJ");   //JJ = Adjective
-		tags.add("ADJP");
-		tags.add("VBN");
-		tags.add("VB");     //13-2-2014
+		//		List<String> tags = new ArrayList<String>();    /*list to store POS tags/phrases we are interested in extracting. 
+		//			                                                  We consider them to be carrying the sentiment information */
+		//		tags.add("JJ");   //JJ = Adjective
+		//		tags.add("ADJP");
+		//		tags.add("VBN");
+		//		tags.add("VB");     //13-2-2014
 		int i = 0;    //
 		File[] listFiles = dir.listFiles();       //Files have same names in the AELA output and the original corpus
 		FileOutputStream fostream = new FileOutputStream(outputPath); 

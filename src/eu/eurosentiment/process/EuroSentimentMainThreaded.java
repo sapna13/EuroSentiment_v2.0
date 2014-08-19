@@ -1,35 +1,42 @@
 package eu.eurosentiment.process;
 
-import eu.eurosentiment.insight.StanfordNLP;
-import eu.eurosentiment.sentiwordnet.SentiWordBags;
-import eu.monnetproject.clesa.core.lang.Language;
-import eu.monnetproject.clesa.core.utils.Pair;
-import eu.monnetproject.clesa.core.utils.TroveVectorUtils;
-import eu.monnetproject.clesa.ds.clesa.CLESA;
-import eu.utils.BasicFileTools;
-import eu.utils.StandAloneAnnie;
-//import eu.utils.StandAloneAnnie;
-import gnu.trove.TIntDoubleHashMap;
-
-import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.FileReader;
 import java.io.IOException;
+import java.io.OutputStreamWriter;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
+import java.util.Properties;
 import java.util.Set;
 import java.util.StringTokenizer;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
+import java.util.concurrent.TimeUnit;
 
+import org.apache.log4j.Logger;
+import org.apache.log4j.PropertyConfigurator;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
+
+import eu.eurosentiment.insight.StanfordNLP;
+import eu.eurosentiment.sentiwordnet.SentiWordBags;
+import eu.eurosentiment.sentiwordnet.SentiWordBags2;
+import eu.monnetproject.clesa.core.lang.Language;
+import eu.monnetproject.clesa.core.utils.Pair;
+import eu.monnetproject.clesa.core.utils.TroveVectorUtils;
+import eu.monnetproject.clesa.ds.clesa.CLESA;
+import eu.utils.StandAloneAnnie;
+//import eu.utils.StandAloneAnnie;
+import gnu.trove.TIntDoubleHashMap;
 
 /**
  * main class for the electronics corpus
@@ -39,15 +46,34 @@ import org.json.simple.parser.ParseException;
 public class EuroSentimentMainThreaded {
 	private String text;
 	private JSONArray annotations;
-	private static List<String> classes = new ArrayList<String>();
-	private static Map<String, TIntDoubleHashMap> classVectorMap = new HashMap<String, TIntDoubleHashMap>();
 	private static SentiWordBags sentiWord;
 	private static Set<String> sentiWords;
-	private static final int NTHREDS = 5;
+	private static final int NTHREADS = 5;
+	private static Logger logger = Logger.getLogger(EuroSentimentMainThreaded.class);
+	private static String log4JPropertyFile = "load/log4j.properties";
+	private static SentiWordBags2 sentiWord2;
+	private static List<String> classes = new ArrayList<String>();
+	private static Map<String, TIntDoubleHashMap> classVectorMap = new HashMap<String, TIntDoubleHashMap>();
 
 
 	public void parse(String path) {
 		parameterParserAela(path);			
+	}
+
+	static{
+		Properties p = new Properties();
+		try {
+			p.load(new FileInputStream(log4JPropertyFile));
+			PropertyConfigurator.configure(p);
+
+		} catch (IOException e) {
+
+		}
+	}
+
+	public static int getLength(String tagText){
+		StringTokenizer tokenizer = new StringTokenizer(tagText);
+		return tokenizer.countTokens();
 	}
 
 	public static boolean containsSenti(String tagText){
@@ -60,31 +86,111 @@ public class EuroSentimentMainThreaded {
 		return false;		
 	}
 
+
 	public static void initiateSWNet(String sentiNetPath){
 		sentiWord = new SentiWordBags(sentiNetPath);
-		sentiWords = sentiWord.getSentiWords();		 
+		sentiWord2 = new SentiWordBags2(sentiNetPath);
+		sentiWords = sentiWord.getSentiWords();	
+
 	}
 
-	public static int getLength(String tagText){
-		StringTokenizer tokenizer = new StringTokenizer(tagText);
-		return tokenizer.countTokens();
-	}
+	//only for data without aspect rating or no ratings at all
+	public Map<String, String> getMentionSentence(CLESA clesa){//, String aelaFileName){	
+		//logger.info("Getting mentionClassSentence for : " + aelaFileName);
+		try{
 
-	private static void getAspects(String aspectFile, CLESA clesa){
-		BufferedReader br = BasicFileTools.getBufferedReaderFile(aspectFile);
-		String line = null;
-		try {
-			while((line=br.readLine())!=null){
-				classes.add(line.trim().toLowerCase());			
+			//text = StandAloneAnnie.getRefinedText(text);
+		} catch(Exception e){
+			logger.error("The sourceURL and document's content were null: while refining the text using standaloneannie, program would still continue skipping the current file.");
+		}
+		List<String> sentences = StanfordNLP.getSentences(text.trim());
+		StringBuffer bu = new StringBuffer();
+		for(String senten : sentences)
+			bu.append(senten + " ");
+		Map<String, String> mentionSentenceMap = new HashMap<String, String>();
+		for(Object annotation : annotations){
+			@SuppressWarnings("unchecked")
+			Map<String, Object> annoMap = (Map<String, Object>) annotation;
+			int endOffset  = -1;
+			int startOffset = -1;
+			String offset = null;
+			HashMap<String, Object> annoMapCopy = new HashMap<String, Object>(annoMap);
+			String uri = "";
+			for(String prop : annoMapCopy.keySet()){				
+				if(prop.equalsIgnoreCase("endOffset"))
+					endOffset = Integer.parseInt(annoMap.get(prop).toString().trim());
+				if(prop.equalsIgnoreCase("startOffset"))
+					startOffset = Integer.parseInt(annoMap.get(prop).toString().trim());
+				if(prop.equalsIgnoreCase("uri")){
+					JSONArray uris = (JSONArray) annoMap.get(prop);
+					uri = (String) uris.get(0);
+				}
 			}
-		} catch (IOException e) {
-			e.printStackTrace();
+			if(endOffset>=0 && startOffset >=0)				
+				offset = startOffset + "----" + endOffset;
+			for(String prop : annoMap.keySet()){
+				if(prop.equalsIgnoreCase("mention")){
+					String mention = ((String) annoMap.get(prop)).toLowerCase();					
+					for(String sentence : sentences){
+						String[] split = mention.trim().split("\t");
+						String findMention = split[0].trim();
+						if(sentence.contains(findMention))
+							mentionSentenceMap.put(mention.trim() + "\t" + uri.trim(), sentence.trim());	
+
+					}
+
+				}
+
+			}
 		}
-		for(String classLabel : classes){
-			TIntDoubleHashMap vector = clesa.getVector(new Pair<String, Language>(classLabel, Language.ENGLISH));
-			classVectorMap.put(classLabel, vector);
-		}
+
+		return mentionSentenceMap;
 	}
+
+	public Map<String, Long> getScoreMapByParsingRawTripAdvisor(String aelaFileName, String rawDataPath) {
+		aelaFileName = aelaFileName.replace(".txt", "").trim();
+
+		Map<String, Long> fieldValueMap = new HashMap<String, Long>();
+		String filePath = rawDataPath + "/" + aelaFileName + ".json";		
+		JSONParser parser = new JSONParser();
+		JSONObject jsonObject = null;
+		try {	
+			FileReader fileReader = new FileReader(filePath);
+			jsonObject = (JSONObject) parser.parse(fileReader);			
+			Set<String> keySet = jsonObject.keySet();		
+			JSONObject js = new JSONObject();			
+			for(String key : keySet)
+				js.put((Object) key.toLowerCase().trim(), jsonObject.get(key));
+
+			JSONArray ratings = (JSONArray) js.get("ratings");
+
+			for(Object aspect : ratings){
+				Long rating = (Long) js.get(aspect);
+				//	System.out.println(aspect + " " + rating);
+				//System.out.println(rating);
+				if(rating!=null)
+					fieldValueMap.put((String) aspect, rating);			
+			}
+			//			for(String aspect : classes) {				
+			//				Long rating = (Long) js.get(aspect);
+			//			//	System.out.println(aspect + " " + rating);
+			//				//System.out.println(rating);
+			//				if(rating!=null)
+			//					fieldValueMap.put(aspect, rating);			
+			//			}
+			fileReader.close();
+			return fieldValueMap;
+		} catch (FileNotFoundException e) {
+			logger.debug("File Not Found :" + aelaFileName + " in " + rawDataPath);
+		} catch (IOException e) {
+			logger.debug("Error while reading : " + aelaFileName + " in " + rawDataPath);
+		} catch (ParseException e) {
+			logger.debug("Error while parsing : " + aelaFileName + " in " + rawDataPath);
+		}
+		return null;
+	}
+
+
 
 	private void parameterParserAela(String path) {
 		JSONParser parser = new JSONParser();
@@ -105,41 +211,29 @@ public class EuroSentimentMainThreaded {
 		}
 	}
 
-
-	public Map<String, Long> getScoreMapByParsingRawTripAdvisor(String aelaFileName, String rawDataPath) {
-		aelaFileName = aelaFileName.replace(".txt", "").trim();
-
-		Map<String, Long> fieldValueMap = new HashMap<String, Long>();
-		String filePath = rawDataPath + "/" + aelaFileName + ".json";		
-		JSONParser parser = new JSONParser();
-		JSONObject jsonObject = null;
+	public void getAspects(CLESA clesa, Set<String> labels){
 		try {
-			jsonObject = (JSONObject) parser.parse(new FileReader(filePath));
-			for(String aspect : classes){
-				Long rating = (Long) jsonObject.get(aspect);
-				//System.out.println(rating);
-				if(rating!=null)
-					fieldValueMap.put(aspect, rating);
+			for(String line : labels){
+				classes.add(line.trim().toLowerCase().trim());			//aspects are added to a list called class
 			}
-			return fieldValueMap;
-		} catch (FileNotFoundException e) {
-			// TODO Auto-generated catch 4
-			e.printStackTrace();
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (ParseException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+		} catch (Exception e) {
 		}
-		return null;
+		logger.info("Initiating clesa vector creation for classLabels");
+		for(String classLabel : classes){
+			TIntDoubleHashMap vector = clesa.getVector(new Pair<String, Language>(classLabel, Language.ENGLISH)); /*word vectors corresponding to each class label are prepared and saved				                                                                                                        beforehand to improve code efficiency, they are not required tobe generated on the fly*/
+			classVectorMap.put(classLabel, vector);
+		}
 	}
 
 
-
-	public Set<String> getMentionClassSentence(CLESA clesa, String aelaFileName){		
+	public Set<String> getMentionClassSentence(CLESA clesa){//, String aelaFileName){	
+		//logger.info("Getting mentionClassSentence for : " + aelaFileName);
 		HashSet<String> mentionClassSentence = new HashSet<String>();
-		text = StandAloneAnnie.getRefinedText(text);
+		try{
+			text = StandAloneAnnie.getRefinedText(text);
+		} catch(Exception e){
+			logger.error("The sourceURL and document's content were null: while refining the text using standaloneannie, program would still continue skipping the current file.");
+		}
 		List<String> sentences = StanfordNLP.getSentences(text.trim());
 		StringBuffer bu = new StringBuffer();
 		for(String senten : sentences)
@@ -176,8 +270,9 @@ public class EuroSentimentMainThreaded {
 					TIntDoubleHashMap mentionVector = clesa.getVector(new Pair<String, Language>(mention, Language.ENGLISH));
 					for(String classLabel : classes){
 						double score = 0.0;
-						score = TroveVectorUtils.cosineProduct(mentionVector, classVectorMap.get(classLabel));									
-						if(score >= maxScore){
+						score = TroveVectorUtils.cosineProduct(mentionVector, classVectorMap.get(classLabel));	/*semantic similarity computation								
+						                                                                                         between aspect/classes and entity mentions */
+						if(score >= maxScore){                                                                      
 							maxScore = score;
 							beat = true;
 							classLabelWithMaxScore = classLabel;
@@ -210,41 +305,64 @@ public class EuroSentimentMainThreaded {
 		return mentionClassSentence;
 	}
 
+
 	public void refresh(){
 		text = null;
 		annotations = null;
 	}
 
-	public static void start(String aelaOutputPath, String outputPath, String annotatedDataPath, String aspectFile, String gatePath, String sentiPath, String outputDir, String wnhome, String finalOutputFilePath) throws IOException {
+	public static void start(String aelaOutputPath, String outputPath, String annotatedDataPath, String aspectFile, String gatePath, String sentiPath, String outputDir, String wnhome, String finalOutputFilePath) throws IOException {	
+		//	EuroSentimentMainThreaded esAnno = new EuroSentimentMainThreaded();
+		StanfordParser.getClauses("I am going to the market.");
+		//	StandAloneAnnie.getRefinedText("I am going to the market.");
+		logger.info("Initiating SentiWordnet");
+		logger.info("Initiating SentiWordnet");
 		EuroSentimentMainThreaded.initiateSWNet(sentiPath);
-		StandAloneAnnie.setUp(gatePath);		
+		StandAloneAnnie.setUp(gatePath);		//ANNIE is a tokenizer from Gate framework, setup initiates the tokenizer
 		File dir = new File(aelaOutputPath);
-		CLESA clesa = new CLESA();
-		EuroSentimentMainThreaded.getAspects(aspectFile, clesa);
-		StringBuffer buffer = new StringBuffer();
-		List<String> tags = new ArrayList<String>();
-		tags.add("JJ");
+		logger.info("Initiating CLESA load");
+		CLESA clesa = new CLESA();             //CLESA is the class which implements semantic similarity. The component is re-used from EU project Monnet.
+		//author: kartik Asooja , component is freely distributable and is available at github
+		//esAnno.getAspects(aspectFile, clesa);
+		List<String> tags = new ArrayList<String>();    /*list to store POS tags/phrases we are interested in extracting. 
+		                                                  We consider them to be carrying the sentiment information */
+		tags.add("JJ");   //JJ = Adjective
 		tags.add("ADJP");
 		tags.add("VBN");
-		int i = 0;
-		ExecutorService executor = Executors.newFixedThreadPool(NTHREDS);
-		File[] listFiles = dir.listFiles();
+		tags.add("VB");     //13-2-2014
+		int i = 0;    //
+		File[] listFiles = dir.listFiles();       //Files have same names in the AELA output and the original corpus
+		FileOutputStream fostream = new FileOutputStream(outputPath); 
+		OutputStreamWriter oswriter = new OutputStreamWriter(fostream); 
+		BufferedWriter outputFileWriter = new BufferedWriter(oswriter);   
+		//		bwriter.write("Use steps for"); bwriter.newLine(); bwriter.write("immediate floor."); bwriter.newLine(); bwriter.write("Avoid lift traffic.");   bwriter.close(); oswriter.close(); fostream.close(); 
+		//int flushAfter50 = 0;
+
+		ExecutorService executor = Executors.newFixedThreadPool(NTHREADS);
 		for(File file : listFiles){
 			System.out.println(listFiles.length);
 			EuroSentimentMainThreaded esAnnoThread = new EuroSentimentMainThreaded();
 			if(file.isHidden())
 				continue;			
-			System.out.println("fileNo.   " + i++);
-			System.out.println("fileName   " + file.getName());
+			logger.info("fileNo.  " + i++);
+			logger.info("fileName  " + file.getName());
 			File fileThread = new File(file.getAbsolutePath());
-			Runnable task = new FileProcess(esAnnoThread, fileThread, clesa, tags, annotatedDataPath, buffer);			
-			executor.submit(task);			
+			Runnable task = new FileProcess(esAnnoThread, fileThread, clesa, sentiWord2, outputFileWriter, logger, annotatedDataPath, tags);			
+			executor.execute(task);//submit(task);	
 		}		
 		executor.shutdown();
-		// Wait until all threads are finish
-		BasicFileTools.writeFile(outputPath, buffer.toString().trim());
-		LexiconCollector_keyphrase.start(outputDir, clesa, wnhome, finalOutputFilePath);
+		try {
+			executor.awaitTermination(Long.MAX_VALUE, TimeUnit.SECONDS);
+		} catch (InterruptedException e) {
+		}
+		outputFileWriter.close();
+		oswriter.close();
+		//BasicFileTools.writeFile(outputPath, buffer.toString().trim());
+		System.out.println("threading finished");
+		logger.info("DSSPA module ran successfully, intermediate output wriiten");
 		clesa.close();
+		LexiconCollector_keyphrase.start(outputDir, clesa, wnhome, finalOutputFilePath);
+		logger.info("SSI module successful, final output written");
 	}
 
 	public String getText() {
